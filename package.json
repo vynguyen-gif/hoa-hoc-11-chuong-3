@@ -1,0 +1,8 @@
+{
+  "name": "hoa-hoc-11-chuong-3",
+  "version": "1.0.0",
+  "description": "Bài giảng tương tác Hóa học 11 - Chương 3",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

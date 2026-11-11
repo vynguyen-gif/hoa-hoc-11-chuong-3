@@ -9,32 +9,25 @@
       --primary: #0078d4;
       --primary-dark: #005a9e;
       --primary-light: #e6f2fb;
+      --teal-header: #73b8c6;
+      --teal-bg: #f0f7f9;
+      --teal-border: #c2e2ea;
+      --yellow-header: #f59e0b;
+      --yellow-bg: #fffbeb;
+      --yellow-border: #fde68a;
       --success: #107c41;
       --success-light: #dff6dd;
       --danger: #d13438;
       --danger-light: #fde7e9;
-      --warning: #ff8c00;
-      --warning-light: #fff4ce;
-      --gray-50: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e1;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-800: #1e293b;
+      --gray-border: #e1dfdd;
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--font-main);
-      color: var(--gray-800);
-      background-color: #f4f6f9;
+      color: #1e293b;
+      background-color: #f8fafc;
       line-height: 1.6;
     }
 
@@ -43,8 +36,6 @@
       background-color: var(--primary);
       color: white;
       padding: 10px 24px;
-      font-size: 15px;
-      font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -53,25 +44,23 @@
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
-
     .top-bar .title-left {
       font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 10px;
-      cursor: pointer;
     }
-
     .top-actions {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
     }
-
     .btn-nav {
-      background: rgba(255, 255, 255, 0.95);
-      color: #0060a8;
+      background: white;
+      color: #005a9e;
       border: 1px solid rgba(0,0,0,0.1);
       padding: 5px 12px;
       border-radius: 4px;
@@ -80,43 +69,35 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       transition: all 0.2s;
     }
-    .btn-nav:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
+    .btn-nav:hover { background: #f1f5f9; transform: translateY(-1px); }
     .progress-pill {
       background: rgba(255,255,255,0.2);
       border-radius: 20px;
-      padding: 3px 12px;
+      padding: 4px 12px;
       font-size: 13px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-
     .progress-bar-container {
-      width: 70px;
+      width: 80px;
       height: 7px;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.35);
       border-radius: 4px;
       overflow: hidden;
-      display: inline-block;
     }
     .progress-bar-fill {
       height: 100%;
-      background: #5cff95;
+      background: #4ade80;
       width: 0%;
       transition: width 0.3s ease;
     }
-
     select.filter-select {
       background: white;
-      color: var(--gray-700);
+      color: #334155;
       border: none;
       padding: 5px 10px;
       border-radius: 4px;
@@ -125,32 +106,28 @@
       cursor: pointer;
     }
 
-    /* Main Container */
+    /* Container */
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 30px 20px 80px 20px;
+      padding: 24px 16px 80px 16px;
     }
 
-    /* View: Home / Table of Contents (Ảnh 1) */
+    /* Home View (Ảnh 1) */
     #view-home {
       background: white;
       min-height: 80vh;
       border-radius: 8px;
-      padding: 60px 50px;
+      padding: 50px 40px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      position: relative;
     }
-
     .home-hero-title {
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 700;
-      color: #1e293b;
+      color: #0f172a;
       text-align: right;
-      margin-bottom: 70px;
-      letter-spacing: -0.5px;
+      margin-bottom: 60px;
     }
-
     .chapter-title {
       font-size: 18px;
       font-weight: 800;
@@ -159,82 +136,61 @@
       margin-bottom: 24px;
       letter-spacing: 0.5px;
     }
-
     .lesson-list {
       list-style: none;
-      padding-left: 20px;
+      padding-left: 15px;
     }
-
     .lesson-list li {
       margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 12px;
     }
-
     .lesson-link {
       color: #005a9e;
       text-decoration: underline;
       font-size: 17px;
       font-weight: 500;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.15s;
     }
-
-    .lesson-link:hover {
-      color: #0078d4;
-      text-decoration: underline;
-    }
-
+    .lesson-link:hover { color: #0078d4; }
     .lesson-badge {
       font-size: 12px;
       background: var(--primary-light);
       color: var(--primary-dark);
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 12px;
       font-weight: 600;
     }
 
-    /* Lesson View (Ảnh 2) */
-    .lesson-header {
-      margin-bottom: 25px;
-    }
-
-    .lesson-header h1 {
+    /* Lesson Section Styles (Ảnh 2, 4, 5, 6, 7) */
+    .lesson-title-heading {
       font-size: 26px;
       font-weight: 700;
       color: #0078d4;
-      margin-bottom: 8px;
+      margin-bottom: 24px;
     }
-
-    .section-title {
+    .main-section-title {
       font-size: 19px;
       font-weight: 700;
       color: #005a9e;
       border-bottom: 2px solid #e1dfdd;
       padding-bottom: 6px;
-      margin: 30px 0 20px 0;
+      margin: 30px 0 18px 0;
     }
 
-    .subsection-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #323130;
-      margin: 15px 0 10px 0;
-    }
-
-    /* Card Boxes like Image 2 */
-    .summary-card {
-      background: #f0f7f9;
-      border: 1px solid #c2e2ea;
+    /* Box Tóm tắt (xanh ngọc) */
+    .box-tom-tat {
+      background: var(--teal-bg);
+      border: 1px solid var(--teal-border);
       border-radius: 6px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     }
-
-    .summary-header {
-      background: #73b8c6;
+    .box-tom-tat-header {
+      background: var(--teal-header);
       color: white;
       padding: 6px 14px;
       font-size: 13.5px;
@@ -243,429 +199,342 @@
       align-items: center;
       gap: 6px;
     }
-
-    .summary-body {
-      padding: 16px 18px;
+    .box-tom-tat-body {
+      padding: 14px 18px;
       font-size: 14.5px;
-      color: #24292f;
+      color: #1e293b;
     }
-
-    .note-box {
-      background: #fff4ed;
-      border: 1px solid #ffd0b5;
-      border-radius: 6px;
-      margin: 14px 0 10px 0;
-      padding: 14px 16px;
-    }
-
-    .note-header {
-      color: #d83b01;
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .note-box ol, .note-box ul {
-      padding-left: 24px;
+    .box-tom-tat-body ul, .box-tom-tat-body ol {
+      padding-left: 20px;
       margin-top: 6px;
     }
-
-    .note-box li {
+    .box-tom-tat-body li {
       margin-bottom: 6px;
     }
 
-    /* Interactive diagram / simulation viewer */
-    .diagram-container {
-      background: #ffffff;
-      border: 1px solid #d2d0ce;
+    /* Box Nhận xét / Chú ý (vàng kem) */
+    .box-nhan-xet {
+      background: var(--yellow-bg);
+      border: 1px solid var(--yellow-border);
       border-radius: 6px;
-      padding: 16px;
-      margin: 14px 0;
+      margin: 12px 0;
+      padding: 12px 16px;
+    }
+    .box-nhan-xet-header {
+      color: #b45309;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .diagram-stage {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 180px;
-    }
-
-    .diagram-controls {
-      display: flex;
-      flex-direction: column;
       gap: 6px;
     }
+    .box-nhan-xet-content {
+      font-size: 14px;
+      color: #334155;
+    }
 
-    .ctrl-btn {
-      width: 32px;
-      height: 32px;
+    /* Dạng trọng tâm banner (Ảnh 4 & 5) */
+    .dang-card {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .dang-header {
       background: #0078d4;
       color: white;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 15px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: 0.2s;
-    }
-    .ctrl-btn:hover {
-      background: #005a9e;
-    }
-
-    /* Question Cards */
-    .question-card {
-      background: white;
-      border: 1px solid #e1dfdd;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-      transition: all 0.2s;
-    }
-
-    .question-card.status-correct {
-      border-left: 5px solid var(--success);
-    }
-
-    .question-card.status-wrong {
-      border-left: 5px solid var(--danger);
-    }
-
-    .q-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      font-size: 13px;
-      color: #605e5c;
-    }
-
-    .q-type-badge {
-      background: #edebe9;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    .q-title {
-      font-size: 15.5px;
-      font-weight: 600;
-      color: #201f1e;
-      margin-bottom: 14px;
-    }
-
-    /* Options */
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr;
       gap: 10px;
+    }
+    .dang-header-pill {
+      background: white;
+      color: #0078d4;
+      padding: 2px 10px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .dang-body {
+      padding: 16px;
+      font-size: 14.5px;
+      color: #334155;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Thẻ câu hỏi / Ví dụ */
+    .item-card {
+      background: white;
+      border: 1px solid #d2d0ce;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .item-card.status-correct { border-left: 5px solid var(--success); }
+    .item-card.status-wrong { border-left: 5px solid var(--danger); }
+
+    .item-top-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .badge-vd {
+      background: #0078d4;
+      color: white;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12.5px;
+    }
+    .badge-cau {
+      background: #008080;
+      color: white;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12.5px;
+    }
+    .badge-type {
+      background: #f1f5f9;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .badge-level {
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .level-nb { border: 1px solid #86efac; color: #166534; background: #f0fdf4; }
+    .level-th { border: 1px solid #93c5fd; color: #1e40af; background: #eff6ff; }
+    .level-vd { border: 1px solid #fdba74; color: #9a3412; background: #fff7ed; }
+    .level-vdc { border: 1px solid #fca5a5; color: #991b1b; background: #fef2f2; }
+
+    .item-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1e293b;
       margin-bottom: 14px;
     }
 
-    .option-item {
-      padding: 10px 14px;
+    /* Options Trắc nghiệm (A, B, C, D) */
+    .option-row {
+      padding: 9px 14px;
       border: 1px solid #d2d0ce;
       border-radius: 6px;
+      margin-bottom: 8px;
       cursor: pointer;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14.5px;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
       transition: all 0.15s;
       background: white;
     }
-
-    .option-item:hover {
-      background: #f3f2f1;
-      border-color: #a19f9d;
-    }
-
-    .option-item.selected {
-      border-color: var(--primary);
-      background: #eff6fc;
-    }
-
-    .option-item.correct-choice {
-      border-color: var(--success);
-      background: #dff6dd;
-      color: #0e5a2f;
-      font-weight: 600;
-    }
-
-    .option-item.wrong-choice {
-      border-color: var(--danger);
-      background: #fde7e9;
-      color: #a80000;
-    }
-
-    .opt-circle {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1px solid #8a8886;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
+    .option-row:hover { background: #f8fafc; border-color: #94a3b8; }
+    .option-row.selected { border-color: var(--primary); background: #eff6fc; }
+    .option-row.correct-choice { border-color: var(--success); background: #dff6dd; font-weight: 600; color: #14532d; }
+    .option-row.wrong-choice { border-color: var(--danger); background: #fde7e9; color: #991b1b; }
+    .opt-letter {
       font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
+      color: #334155;
+      min-width: 20px;
     }
 
-    .option-item.selected .opt-circle {
-      border-color: var(--primary);
-      background: var(--primary);
-      color: white;
-    }
-
-    /* True/False table */
-    .tf-table {
+    /* Bảng Đúng/Sai 4 ý (Ảnh 6) */
+    .tf-table-box {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0 16px 0;
+      margin: 12px 0;
     }
-
-    .tf-table th, .tf-table td {
-      border: 1px solid #e1dfdd;
-      padding: 10px 12px;
-      text-align: left;
+    .tf-table-box td {
+      border: 1px solid #e2e8f0;
+      padding: 9px 12px;
       font-size: 14px;
     }
-
-    .tf-table th {
-      background: #f3f2f1;
-      font-weight: 600;
-    }
-
-    .tf-btn-group {
+    .tf-actions {
       display: flex;
-      gap: 8px;
+      gap: 6px;
+      justify-content: flex-end;
     }
-
-    .tf-btn {
-      padding: 5px 12px;
-      border: 1px solid #d2d0ce;
+    .btn-tf {
+      padding: 4px 12px;
+      border: 1px solid #cbd5e1;
       background: white;
       border-radius: 4px;
-      cursor: pointer;
       font-size: 13px;
       font-weight: 600;
+      cursor: pointer;
     }
-    .tf-btn.active-true {
-      background: #107c41;
-      color: white;
-      border-color: #107c41;
-    }
-    .tf-btn.active-false {
-      background: #d13438;
-      color: white;
-      border-color: #d13438;
-    }
+    .btn-tf.active-true { background: #107c41; color: white; border-color: #107c41; }
+    .btn-tf.active-false { background: #d13438; color: white; border-color: #d13438; }
 
-    /* Short input */
-    .short-input-group {
+    /* Trả lời ngắn ô input (Ảnh 7) */
+    .short-input-row {
       display: flex;
       gap: 10px;
-      margin-bottom: 14px;
-      max-width: 450px;
+      align-items: center;
+      margin: 12px 0;
+      max-width: 480px;
     }
-
-    .short-input-group input {
+    .short-input-row input {
       flex: 1;
       padding: 8px 12px;
-      border: 1px solid #a19f9d;
+      border: 1px solid #94a3b8;
       border-radius: 4px;
-      font-size: 15px;
+      font-size: 14px;
     }
-
-    /* Essay self-evaluation */
-    .essay-box {
-      background: #fdfdfd;
-      border: 1px dashed #a19f9d;
-      border-radius: 6px;
-      padding: 14px;
-      margin-bottom: 14px;
+    .btn-submit-short {
+      background: #f59e0b;
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      cursor: pointer;
     }
+    .btn-submit-short:hover { background: #d97706; }
 
-    .essay-evaluation-btns {
+    /* Tự luận textarea & chấm điểm */
+    .essay-area {
+      width: 100%;
+      min-height: 70px;
+      padding: 10px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .essay-eval-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 8px 0;
+      flex-wrap: wrap;
+    }
+    .btn-eval {
+      padding: 5px 12px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      border-radius: 4px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-eval.active-good { background: #107c41; color: white; border-color: #107c41; }
+    .btn-eval.active-half { background: #f59e0b; color: white; border-color: #f59e0b; }
+    .btn-eval.active-bad { background: #d13438; color: white; border-color: #d13438; }
+
+    /* Hộp lời giải chi tiết */
+    .solution-box {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      border-radius: 0 4px 4px 0;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      display: none;
+      line-height: 1.5;
+    }
+    .solution-box.show { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Nút hành động của mỗi card (Xem lời giải, Ôn lại) */
+    .item-bottom-actions {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 14px;
       align-items: center;
     }
-
-    .eval-btn {
-      padding: 6px 14px;
-      border-radius: 4px;
-      border: 1px solid #d2d0ce;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      background: white;
-    }
-    .eval-btn.correct:hover, .eval-btn.correct.active {
-      background: #107c41;
-      color: white;
-      border-color: #107c41;
-    }
-    .eval-btn.partial:hover, .eval-btn.partial.active {
-      background: #ff8c00;
-      color: white;
-      border-color: #ff8c00;
-    }
-    .eval-btn.wrong:hover, .eval-btn.wrong.active {
-      background: #d13438;
-      color: white;
-      border-color: #d13438;
-    }
-
-    /* Explanation box */
-    .explanation-box {
-      margin-top: 12px;
-      padding: 14px 16px;
-      background: #f3f9fd;
-      border-left: 4px solid #0078d4;
-      border-radius: 0 4px 4px 0;
-      font-size: 14px;
-      display: none;
-    }
-
-    .explanation-box.show {
-      display: block;
-      animation: fadeIn 0.25s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .q-action-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px solid #f3f2f1;
-    }
-
-    .btn-action {
-      padding: 6px 14px;
+    .btn-card-action {
+      padding: 5px 12px;
       border-radius: 4px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       border: 1px solid transparent;
       transition: all 0.15s;
     }
+    .btn-sol { background: #008080; color: white; }
+    .btn-sol:hover { background: #006666; }
+    .btn-retry-card { background: white; border-color: #cbd5e1; color: #d97706; }
+    .btn-retry-card:hover { background: #fffbeb; }
 
-    .btn-check {
-      background: #0078d4;
-      color: white;
-    }
-    .btn-check:hover {
-      background: #005a9e;
-    }
-
-    .btn-toggle-exp {
-      background: #edebe9;
-      color: #323130;
-    }
-    .btn-toggle-exp:hover {
-      background: #e1dfdd;
-    }
-
-    .btn-retry {
-      background: white;
-      border-color: #8a8886;
-      color: #323130;
-    }
-    .btn-retry:hover {
-      background: #f3f2f1;
-    }
-
-    /* Modal: Tổng kết (Ảnh 3) */
+    /* Modal Tổng kết (Ảnh 3) */
     .modal-backdrop {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.45);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
       z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
     }
-
-    .modal-backdrop.active {
-      display: flex;
-    }
-
+    .modal-backdrop.active { display: flex; }
     .modal-content {
       background: white;
       border-radius: 8px;
-      max-width: 780px;
+      max-width: 800px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
       padding: 28px 32px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
-
     .modal-close {
       position: absolute;
       top: 18px;
       right: 20px;
       font-size: 24px;
-      font-weight: bold;
-      color: #605e5c;
       background: none;
       border: none;
       cursor: pointer;
+      color: #64748b;
     }
-    .modal-close:hover {
-      color: #201f1e;
-    }
-
-    .summary-heading {
+    .modal-title {
       font-size: 22px;
       font-weight: 700;
       color: #0078d4;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 8px;
     }
-
-    .summary-lead {
+    .modal-lead {
       font-size: 15px;
-      color: #323130;
+      color: #334155;
       margin-bottom: 20px;
     }
-
-    /* Stats Grid */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
       gap: 10px;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
-
     .stat-card {
       border: 1px solid #70b4c2;
       border-radius: 6px;
@@ -673,159 +542,68 @@
       text-align: center;
       background: #f9fdfe;
     }
-
     .stat-number {
       font-size: 20px;
       font-weight: 700;
       color: #005a9e;
       margin-bottom: 4px;
     }
-
     .stat-label {
       font-size: 11.5px;
-      color: #484644;
+      color: #475569;
       font-weight: 500;
-      line-height: 1.3;
     }
-
-    .summary-section-title {
-      font-size: 15.5px;
-      font-weight: 700;
-      color: #005a9e;
-      margin: 20px 0 10px 0;
-      border-bottom: 1px solid #c2e2ea;
-      padding-bottom: 4px;
-    }
-
-    /* Tables in summary */
-    .stats-table {
+    .summary-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 15px;
+      margin: 12px 0 20px 0;
       font-size: 13.5px;
     }
-
-    .stats-table th, .stats-table td {
+    .summary-table th, .summary-table td {
       border: 1px solid #bce1ea;
       padding: 7px 12px;
       text-align: center;
     }
-
-    .stats-table th {
-      background: #eaf5f8;
-      font-weight: 600;
-      color: #005a9e;
-    }
-
-    .stats-table td:first-child {
-      text-align: left;
-      font-weight: 500;
-    }
-
-    .stats-type-list {
+    .summary-table th { background: #eaf5f8; color: #005a9e; font-weight: 600; }
+    .summary-table td:first-child { text-align: left; font-weight: 500; }
+    .summary-type-list {
       list-style: none;
       font-size: 14px;
       margin-bottom: 20px;
     }
-
-    .stats-type-list li {
-      margin-bottom: 6px;
-    }
-
-    .summary-footer-actions {
+    .summary-type-list li { margin-bottom: 6px; }
+    .summary-actions-footer {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 20px;
       padding-top: 15px;
-      border-top: 1px solid #e1dfdd;
+      border-top: 1px solid #e2e8f0;
     }
-
-    .btn-summary-action {
-      padding: 7px 15px;
+    .btn-sum-action {
+      padding: 7px 14px;
       border: 1px solid #0078d4;
+      background: white;
+      color: #0078d4;
       border-radius: 4px;
       font-size: 13px;
       font-weight: 600;
-      background: white;
-      color: #0078d4;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
     }
+    .btn-sum-action:hover { background: #eff6fc; }
+    .btn-sum-action.btn-sum-del { border-color: #d13438; color: #d13438; }
+    .btn-sum-action.btn-sum-del:hover { background: #fde7e9; }
 
-    .btn-summary-action:hover {
-      background: #eff6fc;
-    }
-
-    .btn-summary-action.btn-danger {
-      border-color: #d13438;
-      color: #d13438;
-    }
-    .btn-summary-action.btn-danger:hover {
-      background: #fde7e9;
-    }
-
-    .summary-note {
-      font-size: 12.5px;
-      color: #605e5c;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
-
-    /* Formula formatting */
-    sub, sup {
-      font-size: 75%;
-      line-height: 0;
-      position: relative;
-      vertical-align: baseline;
-    }
-    sub { bottom: -0.25em; }
-    sup { top: -0.5em; }
-
-    .chem-formula {
-      font-family: "Cambria Math", "Times New Roman", serif;
-      font-weight: 600;
-    }
-
-    /* Interactive Molecular / Apparatus SVG styles */
-    .mol-interactive {
-      max-width: 100%;
-      height: auto;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      #view-home {
-        padding: 30px 20px;
-      }
-      .home-hero-title {
-        font-size: 32px;
-        text-align: left;
-        margin-bottom: 30px;
-      }
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 10px 16px;
-      }
-      .top-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .progress-pill {
-        display: none;
-      }
+      #view-home { padding: 30px 20px; }
+      .home-hero-title { font-size: 32px; text-align: left; margin-bottom: 30px; }
+      .top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .progress-pill { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
+  <!-- Top Blue Bar -->
   <header class="top-bar">
     <div class="title-left" onclick="showView('home')">
       <span id="top-title-text">Hóa học 11 có tương tác</span>
@@ -835,7 +613,7 @@
       <button class="btn-nav" id="btn-toggle-all-solutions" onclick="toggleAllSolutions()">👁 Hiện tất cả lời giải</button>
       <button class="btn-nav" onclick="openSummaryModal()">📊 Tổng kết</button>
       <div class="progress-pill">
-        <span id="nav-progress-text">Đã làm 0/28 · đúng 0</span>
+        <span id="nav-progress-text">Đã làm 0/57 · đúng 0</span>
         <div class="progress-bar-container">
           <div class="progress-bar-fill" id="nav-progress-fill"></div>
         </div>
@@ -849,10 +627,10 @@
     </div>
   </header>
 
-  <!-- Main App Container -->
+  <!-- Container -->
   <main class="container">
     
-    <!-- VIEW 1: MỤC LỤC BÀI HỌC (Ảnh 1) -->
+    <!-- Trang Mục Lục (Ảnh 1) -->
     <section id="view-home">
       <h1 class="home-hero-title">Hóa học 11</h1>
       <div class="chapter-title">CHƯƠNG 3. ĐẠI CƯƠNG VỀ HÓA HỌC HỮU CƠ</div>
@@ -862,71 +640,90 @@
           <a class="lesson-link" onclick="openLesson('lesson1')">
             Bài 8. Hợp chất hữu cơ và hóa học hữu cơ
           </a>
-          <span class="lesson-badge">6 câu hỏi</span>
+          <span class="lesson-badge">57 câu tương tác</span>
         </li>
         <li>
           <a class="lesson-link" onclick="openLesson('lesson2')">
             Bài 9. Phương pháp tách biệt và tinh chế hợp chất hữu cơ
           </a>
-          <span class="lesson-badge">6 câu hỏi</span>
+          <span class="lesson-badge">57 câu tương tác</span>
         </li>
         <li>
           <a class="lesson-link" onclick="openLesson('lesson3')">
             Bài 10. Công thức phân tử hợp chất hữu cơ
           </a>
-          <span class="lesson-badge">6 câu hỏi</span>
+          <span class="lesson-badge">57 câu tương tác</span>
         </li>
         <li>
           <a class="lesson-link" onclick="openLesson('lesson4')">
             Bài 11. Cấu trúc phân tử hợp chất hữu cơ
           </a>
-          <span class="lesson-badge">6 câu hỏi</span>
+          <span class="lesson-badge">57 câu tương tác</span>
         </li>
         <li>
           <a class="lesson-link" onclick="openLesson('lesson_rev')">
             Bài tập cuối chương III
           </a>
-          <span class="lesson-badge">4 câu tổng hợp</span>
+          <span class="lesson-badge">57 câu tổng hợp</span>
         </li>
       </ul>
     </section>
 
-    <!-- VIEW 2: NỘI DUNG BÀI HỌC CÓ TƯƠNG TÁC (Ảnh 2) -->
+    <!-- Trang Chi Tiết Bài Học -->
     <section id="view-lesson" style="display: none;">
-      <div class="lesson-header">
-        <h1 id="lesson-page-title">Tên bài học</h1>
-      </div>
+      <h1 class="lesson-title-heading" id="lesson-page-title">Tên bài học</h1>
 
-      <div class="section-title">Kiến thức trọng tâm</div>
-      <div id="lesson-theory-content">
-        <!-- Nội dung lý thuyết tóm tắt, chú ý, mô phỏng sẽ render ở đây -->
-      </div>
+      <!-- Phần 1: Kiến thức trọng tâm -->
+      <div class="main-section-title">Kiến thức trọng tâm</div>
+      <div id="lesson-theory-container"></div>
 
-      <div class="section-title">Câu hỏi & Bài tập tương tác</div>
-      <div id="lesson-questions-content">
-        <!-- Danh sách câu hỏi tương tác render tại đây -->
+      <!-- Phần 2: Phân loại và phương pháp giải toán -->
+      <div class="main-section-title">Phân loại và phương pháp giải toán</div>
+      <div id="lesson-methods-container"></div>
+
+      <!-- Phần 3: 48 Câu luyện tập -->
+      <div class="main-section-title">Bài tập luyện tập (48 câu)</div>
+      
+      <!-- Câu 1 - 21: Trắc nghiệm -->
+      <div style="font-size: 16px; font-weight: 700; color: #0078d4; margin: 18px 0 10px 0;">
+        Dạng 1: Trắc nghiệm nhiều phương án (Câu 1 - 21)
       </div>
+      <div id="exercise-mcq-container"></div>
+
+      <!-- Câu 22 - 25: Đúng/Sai -->
+      <div style="font-size: 16px; font-weight: 700; color: #0078d4; margin: 26px 0 10px 0;">
+        Dạng 2: Trắc nghiệm Đúng / Sai (Câu 22 - 25)
+      </div>
+      <div id="exercise-tf-container"></div>
+
+      <!-- Câu 26 - 31: Trả lời ngắn -->
+      <div style="font-size: 16px; font-weight: 700; color: #0078d4; margin: 26px 0 10px 0;">
+        Dạng 3: Trả lời ngắn (Câu 26 - 31)
+      </div>
+      <div id="exercise-short-container"></div>
+
+      <!-- Câu 32 - 48: Tự luận -->
+      <div style="font-size: 16px; font-weight: 700; color: #0078d4; margin: 26px 0 10px 0;">
+        Dạng 4: Tự luận (Câu 32 - 48)
+      </div>
+      <div id="exercise-essay-container"></div>
     </section>
 
   </main>
 
-  <!-- MODAL TỔNG KẾT (Ảnh 3) -->
+  <!-- Modal Tổng Kết (Ảnh 3) -->
   <div class="modal-backdrop" id="summary-modal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeSummaryModal()">×</button>
-      
-      <div class="summary-heading">
-        📊 Tổng kết
-      </div>
-      
-      <p class="summary-lead" id="modal-lead-text">
-        Em đã làm 0/28 câu, đúng 0. Còn 28 câu chưa làm.
+      <div class="modal-title">📊 Tổng kết</div>
+      <p class="modal-lead" id="modal-lead-text">
+        Em đã làm 0/57 câu, đúng 0. Còn 57 câu chưa làm.
       </p>
 
-      <!-- 7 khối đếm số liệu như trong ảnh 3 -->
+      <!-- 7 khối số liệu chuẩn ảnh 3 -->
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number" id="stat-done">0/28</div>
+          <div class="stat-number" id="stat-done">0/57</div>
           <div class="stat-label">Đã làm</div>
         </div>
         <div class="stat-card">
@@ -950,14 +747,14 @@
           <div class="stat-label">Cần làm lại</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" id="stat-unanswered">28</div>
+          <div class="stat-number" id="stat-unanswered">57</div>
           <div class="stat-label">Chưa làm</div>
         </div>
       </div>
 
-      <!-- Thống kê Theo dạng -->
-      <div class="summary-section-title">Theo dạng</div>
-      <table class="stats-table">
+      <!-- Bảng Theo dạng -->
+      <div style="font-weight: 700; color: #005a9e; margin-bottom: 6px;">Theo dạng</div>
+      <table class="summary-table">
         <thead>
           <tr>
             <th>Dạng</th>
@@ -969,198 +766,185 @@
         <tbody>
           <tr>
             <td>Ví dụ ngoài các dạng</td>
-            <td id="stat-dang-vd-done">0/8</td>
+            <td id="stat-dang-vd-done">0/9</td>
             <td id="stat-dang-vd-correct">0</td>
             <td id="stat-dang-vd-need">0</td>
           </tr>
           <tr>
             <td>Bài tập luyện tập</td>
-            <td id="stat-dang-bt-done">0/20</td>
+            <td id="stat-dang-bt-done">0/48</td>
             <td id="stat-dang-bt-correct">0</td>
             <td id="stat-dang-bt-need">0</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Thống kê Theo loại câu -->
-      <div class="summary-section-title">Theo loại câu</div>
-      <ul class="stats-type-list" id="stats-by-type-list">
-        <li>• <strong>Trắc nghiệm:</strong> đã làm <span id="stat-mcq-done">0/16</span> · đúng <span id="stat-mcq-correct">0</span> (ngay lần đầu <span id="stat-mcq-first">0</span>)</li>
+      <!-- Thống kê theo loại câu -->
+      <div style="font-weight: 700; color: #005a9e; margin-bottom: 6px;">Theo loại câu</div>
+      <ul class="summary-type-list">
+        <li>• <strong>Trắc nghiệm:</strong> đã làm <span id="stat-mcq-done">0/21</span> · đúng <span id="stat-mcq-correct">0</span> (ngay lần đầu <span id="stat-mcq-first">0</span>)</li>
         <li>• <strong>Đúng/Sai:</strong> đã làm <span id="stat-tf-done">0/4</span> · đúng <span id="stat-tf-correct">0</span> (ngay lần đầu <span id="stat-tf-first">0</span>)</li>
-        <li>• <strong>Trả lời ngắn:</strong> đã làm <span id="stat-short-done">0/4</span> · đúng <span id="stat-short-correct">0</span> (ngay lần đầu <span id="stat-short-first">0</span>)</li>
-        <li>• <strong>Tự luận:</strong> đã làm <span id="stat-essay-done">0/4</span> · ✓ <span id="stat-essay-correct">0</span> ~ <span id="stat-essay-partial">0</span> ✗ <span id="stat-essay-wrong">0</span></li>
+        <li>• <strong>Trả lời ngắn:</strong> đã làm <span id="stat-short-done">0/6</span> · đúng <span id="stat-short-correct">0</span> (ngay lần đầu <span id="stat-short-first">0</span>)</li>
+        <li>• <strong>Tự luận:</strong> đã làm <span id="stat-essay-done">0/26</span> · ✓ <span id="stat-essay-correct">0</span> ~ <span id="stat-essay-partial">0</span> ✗ <span id="stat-essay-wrong">0</span></li>
       </ul>
 
-      <!-- Các nút tác vụ -->
-      <div class="summary-footer-actions">
-        <button class="btn-summary-action" onclick="retryWrongQuestions()">🔄 Làm lại câu sai (<span id="btn-count-wrong">0</span>)</button>
-        <button class="btn-summary-action" onclick="reviewQuestions()">⚡ Xem câu cần ôn (<span id="btn-count-review">0</span>)</button>
-        <button class="btn-summary-action btn-danger" onclick="resetAllProgress()">🗑 Xóa tiến độ</button>
+      <!-- Nút hành động -->
+      <div class="summary-actions-footer">
+        <button class="btn-sum-action" onclick="retryWrongQuestions()">🔄 Làm lại câu sai (<span id="btn-count-wrong">0</span>)</button>
+        <button class="btn-sum-action" onclick="reviewQuestions()">⚡ Xem câu cần ôn (<span id="btn-count-review">0</span>)</button>
+        <button class="btn-sum-action btn-sum-del" onclick="resetAllProgress()">🗑 Xóa tiến độ</button>
       </div>
-
-      <p class="summary-note">
+      <p style="font-size: 12.5px; color: #64748b; margin-top: 14px;">
         Tiến độ được lưu ngay trên trình duyệt này; mở lại bài giảng sẽ làm tiếp được. Tự luận tính là đúng khi em tự đánh giá ✓. Câu xem lời giải trước khi làm xong không tính đúng.
       </p>
     </div>
   </div>
 
+  <!-- SCRIPT ENGINE -->
   <script>
     /* ========================================================
-       DỮ LIỆU BÀI HỌC VÀ CÂU HỎI CHƯƠNG 3 HÓA HỌC 11
+       DATABASE BUILDER FOR CHEMISTRY 11 - CHAPTER 3
        ======================================================== */
-    const LESSONS_DATA = {
+    const LESSONS_DATABASE = {
       lesson1: {
         id: "lesson1",
         title: "Bài 8. Hợp chất hữu cơ và hóa học hữu cơ",
-        theoryHtml: `
-          <div class="subsection-title">1. Khái niệm và đặc điểm chung</div>
-          
-          <div class="summary-card">
-            <div class="summary-header">📖 Tóm tắt</div>
-            <div class="summary-body">
-              Hợp chất hữu cơ là hợp chất của <strong>carbon</strong> (trừ các hợp chất vô cơ như CO, CO<sub>2</sub>, muối carbonate CO<sub>3</sub><sup>2-</sup>, cyanide CN<sup>-</sup>, carbide CaC<sub>2</sub>...).
-              <br>Hóa học hữu cơ là ngành hóa học chuyên nghiên cứu về các hợp chất hữu cơ.
-              
-              <div class="note-box">
-                <div class="note-header">🔸 Chú ý: Đặc điểm liên kết và tính chất chung</div>
-                <ul>
-                  <li><strong>Liên kết hóa học:</strong> Chủ yếu là liên kết cộng hóa trị (cực hoặc không cực).</li>
-                  <li><strong>Nhiệt độ nóng chảy, nhiệt độ sôi:</strong> Thường thấp (dễ bay hơi), phần lớn không tan hoặc ít tan trong nước, tan tốt trong dung môi hữu cơ.</li>
-                  <li><strong>Độ bền nhiệt & cháy:</strong> Kém bền với nhiệt, dễ cháy và tỏa nhiều nhiệt.</li>
-                  <li><strong>Tốc độ phản ứng:</strong> Phản ứng hữu cơ thường xảy ra chậm, không hoàn toàn, theo nhiều hướng và tạo hỗn hợp nhiều sản phẩm.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="subsection-title">2. Phân loại và Nhóm chức</div>
-          <div class="summary-card">
-            <div class="summary-header">📖 Tóm tắt</div>
-            <div class="summary-body">
-              Dựa vào thành phần nguyên tố, hợp chất hữu cơ chia thành 2 loại lớn:
+        theory: [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Khái niệm:</strong> Hợp chất hữu cơ là hợp chất của <em>carbon</em> (trừ các hợp chất vô cơ như CO, CO₂, muối carbonate, cyanide, carbide...). Hóa học hữu cơ là ngành nghiên cứu cấu trúc, tính chất và ứng dụng của hợp chất hữu cơ.
+              <br><br>
+              <strong>2. Đặc điểm cấu tạo & tính chất chung:</strong>
               <ul>
-                <li><strong>Hydrocarbon:</strong> Phân tử chỉ chứa C và H (VD: CH<sub>4</sub>, C<sub>2</sub>H<sub>4</sub>, C<sub>6</sub>H<sub>6</sub>...).</li>
-                <li><strong>Dẫn xuất hydrocarbon:</strong> Phân tử ngoài C, H còn chứa các nguyên tố khác như O, N, S, halogen... (VD: C<sub>2</sub>H<sub>5</sub>OH, CH<sub>3</sub>COOH...).</li>
+                <li>Liên kết hóa học chủ yếu là <strong>liên kết cộng hóa trị</strong>.</li>
+                <li>Nhiệt độ nóng chảy, nhiệt độ sôi thường thấp (dễ bay hơi), kém bền nhiệt, dễ cháy.</li>
+                <li>Phần lớn không tan trong nước, tan tốt trong các dung môi hữu cơ.</li>
+                <li>Phản ứng hóa học thường diễn ra chậm, không hoàn toàn, theo nhiều hướng và tạo hỗn hợp sản phẩm.</li>
               </ul>
-
-              <!-- Mô phỏng SVG tương tác minh họa cấu tạo nhóm chức -->
-              <div class="diagram-container">
-                <div class="diagram-stage" id="stage-lesson1">
-                  <svg width="340" height="150" viewBox="0 0 340 150" class="mol-interactive">
-                    <rect width="340" height="150" fill="#f8fafc" rx="8" />
-                    <text x="170" y="25" text-anchor="middle" font-weight="bold" fill="#005a9e" font-size="14">Mô hình phân tử Ethanol (C₂H₅OH)</text>
-                    <!-- Carbon 1 -->
-                    <circle cx="70" cy="85" r="22" fill="#334155" />
-                    <text x="70" y="90" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">C</text>
-                    <!-- Bond -->
-                    <line x1="92" y1="85" x2="148" y2="85" stroke="#64748b" stroke-width="4" />
-                    <!-- Carbon 2 -->
-                    <circle cx="170" cy="85" r="22" fill="#334155" />
-                    <text x="170" y="90" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">C</text>
-                    <!-- Bond -->
-                    <line x1="192" y1="85" x2="238" y2="85" stroke="#64748b" stroke-width="4" />
-                    <!-- Oxygen -->
-                    <circle cx="260" cy="85" r="20" fill="#dc2626" />
-                    <text x="260" y="90" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">O</text>
-                    <!-- Hydrogen -->
-                    <line x1="278" y1="75" x2="305" y2="60" stroke="#64748b" stroke-width="3" />
-                    <circle cx="312" cy="55" r="14" fill="#94a3b8" />
-                    <text x="312" y="60" text-anchor="middle" fill="#000" font-weight="bold" font-size="11">H</text>
-                    <text x="270" y="130" text-anchor="middle" fill="#dc2626" font-size="12" font-weight="bold">Nhóm chức -OH</text>
-                  </svg>
-                </div>
-                <div class="diagram-controls">
-                  <button class="ctrl-btn" title="Phóng to" onclick="zoomDiagram('stage-lesson1', 1.15)">+</button>
-                  <button class="ctrl-btn" title="Thu nhỏ" onclick="zoomDiagram('stage-lesson1', 0.85)">-</button>
-                  <button class="ctrl-btn" title="Đặt lại" onclick="resetZoomDiagram('stage-lesson1')">⟲</button>
-                </div>
-              </div>
-
-              <div class="note-box">
-                <div class="note-header">🔸 Chú ý: Một số nhóm chức quan trọng trong chương trình</div>
-                <ol>
-                  <li>Nhóm <strong>hydroxy (-OH)</strong>: Đặc trưng cho alcohol (ví dụ ethanol C<sub>2</sub>H<sub>5</sub>OH).</li>
-                  <li>Nhóm <strong>aldehyde (-CHO)</strong>: Đặc trưng cho aldehyde.</li>
-                  <li>Nhóm <strong>carboxyl (-COOH)</strong>: Đặc trưng cho carboxylic acid (ví dụ acetic acid CH<sub>3</sub>COOH).</li>
-                  <li>Nhóm <strong>amino (-NH<sub>2</sub>)</strong>: Đặc trưng cho amine.</li>
-                  <li>Nhóm <strong>ester (-COO-)</strong>: Đặc trưng cho ester.</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        `,
-        questions: [
-          {
-            id: "q1_1",
-            category: "vd", // "vd" = Ví dụ ngoài các dạng, "bt" = Bài tập luyện tập
-            type: "mcq",    // mcq, tf, short, essay
-            title: "Ví dụ 1: Hợp chất nào sau đây là hợp chất hữu cơ?",
-            options: [
-              "A. CO₂",
-              "B. CaCO₃",
-              "C. CH₄ (methane)",
-              "D. KCN"
-            ],
-            correct: 2, // C
-            explanation: "Hợp chất hữu cơ là hợp chất của cacbon, ngoại trừ CO, CO₂, muối cacbonat (CaCO₃), muối cyanide (KCN), các carbide..."
+            `
           },
           {
-            id: "q1_2",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 2: Liên kết hóa học chủ yếu trong phân tử hợp chất hữu cơ là loại liên kết nào?",
-            options: [
-              "A. Liên kết ion",
-              "B. Liên kết cộng hóa trị",
-              "C. Liên kết kim loại",
-              "D. Liên kết hydro liên phân tử"
-            ],
-            correct: 1, // B
-            explanation: "Các nguyên tử trong phân tử hợp chất hữu cơ liên kết với nhau chủ yếu bằng liên kết cộng hóa trị."
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét",
+            content: "Nhóm chức là nguyên tử hoặc nhóm nguyên tử gây ra những tính chất hóa học đặc trưng của hợp chất hữu cơ. Nhận diện nhóm chức là chìa khóa để dự đoán tính chất hóa học của chất."
           },
           {
-            id: "q1_3",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 1: Nhóm chức nào sau đây đặc trưng cho nhóm carboxylic acid?",
-            options: [
-              "A. -OH",
-              "B. -CHO",
-              "C. -COOH",
-              "D. -NH₂"
-            ],
-            correct: 2, // C
-            explanation: "Nhóm -COOH là nhóm carboxyl đặc trưng cho phân tử carboxylic acid (ví dụ CH₃COOH)."
+            type: "tom_tat",
+            content: `
+              <strong>3. Phân loại và một số nhóm chức quan trọng:</strong>
+              <ul>
+                <li><strong>Hydrocarbon:</strong> Chỉ chứa C và H (alkane, alkene, alkyne, arene).</li>
+                <li><strong>Dẫn xuất hydrocarbon:</strong> Có thêm O, N, halogen...
+                  <ul>
+                    <li>Nhóm hydroxy (<code>-OH</code>): Alcohol</li>
+                    <li>Nhóm aldehyde (<code>-CHO</code>): Aldehyde</li>
+                    <li>Nhóm carboxyl (<code>-COOH</code>): Carboxylic acid</li>
+                    <li>Nhóm amino (<code>-NH₂</code>): Amine</li>
+                    <li>Nhóm ester (<code>-COO-</code>): Ester</li>
+                  </ul>
+                </li>
+              </ul>
+            `
           },
           {
-            id: "q1_4",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 2: Phát biểu nào sau đây KHÔNG đúng về tính chất chung của các hợp chất hữu cơ?",
-            options: [
-              "A. Đa số có nhiệt độ nóng chảy và nhiệt độ sôi thấp",
-              "B. Thường tan tốt trong nước nhưng không tan trong dung môi hữu cơ",
-              "C. Kém bền với nhiệt và dễ cháy",
-              "D. Phản ứng hữu cơ thường chậm và tạo hỗn hợp sản phẩm"
-            ],
-            correct: 1, // B
-            explanation: "Phát biểu B sai vì đa số hợp chất hữu cơ KHÔNG tan hoặc ít tan trong nước, nhưng tan tốt trong các dung môi hữu cơ (như cồn, benzen, ete...)."
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Nhận xét quan trọng",
+            content: "Các hợp chất chứa carbon như CO, CO₂, H₂CO₃, muối carbonate (CaCO₃, NaHCO₃), muối cyanide (KCN), carbide (CaC₂, Al₄C₃) là hợp chất vô cơ, không thuộc hợp chất hữu cơ."
+          }
+        ],
+        methods: [
+          {
+            name: "Dạng 1: Phân loại hợp chất hữu cơ và nhận biết nhóm chức",
+            content: "• Xác định xem chất có chứa C hay không và loại trừ các hợp chất vô cơ của carbon.<br>• Phân loại thành hydrocarbon (chỉ C, H) hoặc dẫn xuất hydrocarbon.<br>• Quan sát công thức cấu tạo để định danh nhóm chức: -OH, -CHO, -COOH, -COO-, -NH₂...",
+            examples: [
+              {
+                id: "l1_vd1",
+                num: 1,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Cho các chất sau: CH₄, CO₂, C₂H₅OH, CaCO₃, CH₃COOH, KCN, C₆H₆. Hãy phân loại các chất trên thành: Hợp chất vô cơ, Hydrocarbon và Dẫn xuất hydrocarbon.",
+                solution: "- Hợp chất vô cơ: CO₂, CaCO₃, KCN.\n- Hydrocarbon: CH₄, C₆H₆.\n- Dẫn xuất hydrocarbon: C₂H₅OH (nhóm -OH), CH₃COOH (nhóm -COOH)."
+              },
+              {
+                id: "l1_vd2",
+                num: 2,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Chỉ ra tên nhóm chức có trong các chất sau: a) CH₃-CH₂-OH; b) CH₃-CHO; c) CH₃-COOH; d) CH₃-COOCH₃.",
+                solution: "a) Nhóm -OH (hydroxy, alcohol)\nb) Nhóm -CHO (aldehyde)\nc) Nhóm -COOH (carboxyl, carboxylic acid)\nd) Nhóm -COO- (ester)."
+              },
+              {
+                id: "l1_vd3",
+                num: 3,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Phân tích công thức cấu tạo của paracetamol (thuốc hạ sốt): HOC₆H₄NHCOCH₃. Hãy chỉ ra các nhóm chức có mặt trong phân tử paracetamol.",
+                solution: "Trong phân tử paracetamol có:\n1. Nhóm -OH liên kết trực tiếp với vòng benzene (nhóm phenol hydroxy).\n2. Nhóm -NH-CO- (nhóm chức amide)."
+              }
+            ]
           },
           {
-            id: "q1_5",
-            category: "bt",
-            type: "short",
-            title: "Câu 3 (Trả lời ngắn): Cho các chất sau: C₂H₆, CO, CH₃Cl, NaHCO₃, C₂H₅OH. Có bao nhiêu chất là dẫn xuất của hydrocarbon?",
-            correctText: "2",
-            explanation: "Các chất là dẫn xuất hydrocarbon gồm CH₃Cl và C₂H₅OH (2 chất). C₂H₆ là hydrocarbon; CO và NaHCO₃ là hợp chất vô cơ. Đáp án: 2."
+            name: "Dạng 2: So sánh tính chất vật lý & đặc điểm liên kết của hợp chất hữu cơ",
+            content: "• Dựa vào loại liên kết: Hợp chất hữu cơ chủ yếu chứa liên kết cộng hóa trị, liên kết ion chỉ có ở một số muối hữu cơ (CH₃COONa...).<br>• Dự đoán tính tan và nhiệt độ sôi dựa trên độ phân cực và khả năng tạo liên kết hydrogen liên phân tử.",
+            examples: [
+              {
+                id: "l1_vd4",
+                num: 4,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Giải thích vì sao xăng dầu (hỗn hợp hydrocarbon) nổi trên mặt nước và khi bị cháy không được dùng nước để dập lửa?",
+                solution: "1. Xăng dầu là hydrocarbon không phân cực, không tan trong nước và có khối lượng riêng nhỏ hơn nước (d < 1 g/cm³) nên nổi lên trên.\n2. Khi đổ nước vào đám cháy xăng dầu, nước làm xăng loang rộng ra và tiếp tục cháy lan mạnh hơn. Phải dùng cát, chăn ướt hoặc bình bọt CO₂."
+              },
+              {
+                id: "l1_vd5",
+                num: 5,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "So sánh nhiệt độ sôi của methane (CH₄) và ethanol (C₂H₅OH). Giải thích ngắn gọn.",
+                solution: "Nhiệt độ sôi của C₂H₅OH (78,3°C) cao hơn rất nhiều so với CH₄ (-161,5°C) vì phân tử C₂H₅OH có nhóm phân cực -OH và có khả năng tạo liên kết hydrogen liên phân tử bền vững, còn CH₄ là phân tử không cực."
+              },
+              {
+                id: "l1_vd6",
+                num: 6,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Vì sao các phản ứng hóa học hữu cơ thường phải đun nóng hoặc có xúc tác và thời gian phản ứng lâu hơn phản ứng vô cơ ion?",
+                solution: "Vì các liên kết cộng hóa trị giữa C-C và C-H trong phân tử hữu cơ khá bền, cần cung cấp năng lượng hoạt hóa để bẻ gãy. Ngoài ra phản ứng xảy ra theo nhiều hướng nên tốc độ thường chậm."
+              }
+            ]
           },
           {
-            id: "q1_6",
-            category: "bt",
-            type: "essay",
-            title: "Câu 4 (Tự luận): Hãy nêu sự khác nhau căn bản về tính chất vật lý (nhiệt độ nóng chảy, tính tan) giữa hợp chất hữu cơ và hợp chất vô cơ muối ion thông thường.",
-            correctText: "1. Hợp chất hữu cơ: Liên kết cộng hóa trị -> nhiệt độ nóng chảy thấp, kém bền nhiệt, thường không tan trong nước, tan trong dung môi hữu cơ.\n2. Hợp chất ion vô cơ: Mạng tinh thể ion bền -> nhiệt độ nóng chảy rất cao, thường tan tốt trong nước, không tan trong dung môi hữu cơ không cực.",
-            explanation: "Hợp chất hữu cơ liên kết cộng hóa trị lực tương tác yếu nên Ts, Tnc thấp, tan trong dung môi hữu cơ. Muối vô cơ ion có lực hút tĩnh điện mạnh nên Tnc cao, tan trong nước."
+            name: "Dạng 3: Phương pháp định tính các nguyên tố C, H, N, Halogen trong hợp chất hữu cơ",
+            content: "• Chuyển hóa nguyên tố trong hợp chất hữu cơ thành hợp chất vô cơ đơn giản dễ nhận biết:<br>  - Oxi hóa C thành CO₂ (nhận bằng dung dịch Ca(OH)₂ tạo kết tủa trắng CaCO₃).<br>  - Oxi hóa H thành H₂O (nhận bằng CuSO₄ khan màu trắng chuyển sang CuSO₄.5H₂O màu xanh).<br>  - Chuyển N thành NH₃ (quỳ tím ẩm hóa xanh) hoặc halogen thành muối bạc kết tủa.",
+            examples: [
+              {
+                id: "l1_vd7",
+                num: 7,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Trong thí nghiệm phát hiện C và H trong saccharose (C₁₂H₂₂O₁₁), người ta trộn saccharose với bột CuO rồi đun nóng. Hãy viết các phản ứng xảy ra và nêu hiện tượng.",
+                solution: "C₁₂H₂₂O₁₁ + 24CuO -> 12CO₂ + 11H₂O + 24Cu.\n- Khí CO₂ dẫn qua nước vôi trong làm vẩn đục: CO₂ + Ca(OH)₂ -> CaCO₃ v + H₂O.\n- Hơi nước làm CuSO₄ khan màu trắng chuyển sang màu xanh dương."
+              },
+              {
+                id: "l1_vd8",
+                num: 8,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Để định tính nitrogen trong một hợp chất hữu cơ bằng phương pháp chuyển thành NH₃, người ta đun hợp chất đó với dung dịch nào và dùng thuốc thử gì để nhận biết?",
+                solution: "Đun hợp chất với dung dịch kiềm đặc (NaOH hoặc vôi tôi xút NaOH + CaO). Khí NH₃ sinh ra làm quỳ tím ẩm chuyển sang màu xanh."
+              },
+              {
+                id: "l1_vd9",
+                num: 9,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Nêu vai trò của bông tẩm CuSO₄ khan đặt ở phần trên của ống nghiệm chứa hỗn hợp chất hữu cơ và CuO trong thí nghiệm phân tích định tính C và H.",
+                solution: "Bông tẩm CuSO₄ khan có tác dụng giữ lại hơi nước sinh ra để nhận biết nguyên tố Hydrogen (chuyển sang màu xanh), đồng thời ngăn hơi ẩm bay sang bình nước vôi trong gây nhiễu."
+              }
+            ]
           }
         ]
       },
@@ -1168,128 +952,132 @@
       lesson2: {
         id: "lesson2",
         title: "Bài 9. Phương pháp tách biệt và tinh chế hợp chất hữu cơ",
-        theoryHtml: `
-          <div class="subsection-title">1. Các phương pháp tách biệt và tinh chế phổ biến</div>
-          
-          <div class="summary-card">
-            <div class="summary-header">📖 Tóm tắt</div>
-            <div class="summary-body">
-              Để nghiên cứu thành phần và tính chất của một hợp chất hữu cơ, cần tách chất đó ra khỏi hỗn hợp ở dạng tinh khiết bằng các phương pháp:
+        theory: [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Phương pháp chưng cất:</strong>
+              Tách các chất lỏng có <em>nhiệt độ sôi khác nhau</em> đáng kể trong hỗn hợp đồng nhất.
               <ul>
-                <li><strong>1. Chưng cất:</strong> Tách các chất lỏng có <em>nhiệt độ sôi khác nhau</em> nhiều. (Ví dụ: nấu rượu ethyl alcohol, tinh chế tinh dầu tràm bằng lôi cuốn hơi nước).</li>
-                <li><strong>2. Chiết:</strong> Dựa vào <em>độ tan khác nhau</em> của chất trong hai dung môi không trộn lẫn vào nhau (chiết lỏng - lỏng dùng phễu chiết), hoặc hòa tan chất từ hỗn hợp rắn (chiết lỏng - rắn như ngâm rượu thuốc, pha trà).</li>
-                <li><strong>3. Kết tinh:</strong> Dựa vào <em>độ tan thay đổi theo nhiệt độ</em> của chất rắn trong dung môi thích hợp. (Hòa tan ở nhiệt độ cao, lọc nóng, để nguội cho kết tinh).</li>
-                <li><strong>4. Sắc kí cột:</strong> Dựa vào <em>khả năng hấp phụ khác nhau</em> của các chất trên bề mặt pha tĩnh khi có pha động di chuyển qua.</li>
+                <li><strong>Chưng cất thường:</strong> Tách các chất lỏng có Ts cách nhau > 20°C (nấu rượu etylic).</li>
+                <li><strong>Chưng cất lôi cuốn hơi nước:</strong> Tách các chất lỏng có Ts cao, kém tan trong nước nhưng dễ bay hơi cùng hơi nước (tinh dầu sả, bưởi, tràm...).</li>
               </ul>
-
-              <!-- Mô phỏng phễu chiết / thiết bị chưng cất -->
-              <div class="diagram-container">
-                <div class="diagram-stage" id="stage-lesson2">
-                  <svg width="340" height="160" viewBox="0 0 340 160" class="mol-interactive">
-                    <rect width="340" height="160" fill="#f8fafc" rx="8" />
-                    <text x="170" y="22" text-anchor="middle" font-weight="bold" fill="#005a9e" font-size="13">Sơ đồ tách chất bằng Phễu chiết (Chiết lỏng - lỏng)</text>
-                    <!-- Phễu chiết SVG -->
-                    <path d="M140,40 L200,40 L185,90 L175,120 L175,145 L165,145 L165,120 L155,90 Z" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
-                    <!-- Lớp chất lỏng nhẹ ở trên (dầu/dung môi hữu cơ) -->
-                    <polygon points="144,55 196,55 186,85 154,85" fill="#fde047" opacity="0.85" />
-                    <text x="215" y="70" fill="#854d0e" font-size="11" font-weight="bold">Lớp trên (d < 1, hữu cơ)</text>
-                    <!-- Lớp chất lỏng nặng ở dưới (nước) -->
-                    <polygon points="154,85 186,85 178,110 162,110" fill="#38bdf8" opacity="0.85" />
-                    <text x="215" y="100" fill="#0369a1" font-size="11" font-weight="bold">Lớp dưới (nước, d = 1)</text>
-                    <!-- Khóa phễu -->
-                    <rect x="160" y="125" width="20" height="6" fill="#334155" rx="2" />
-                  </svg>
-                </div>
-                <div class="diagram-controls">
-                  <button class="ctrl-btn" title="Phóng to" onclick="zoomDiagram('stage-lesson2', 1.15)">+</button>
-                  <button class="ctrl-btn" title="Thu nhỏ" onclick="zoomDiagram('stage-lesson2', 0.85)">-</button>
-                  <button class="ctrl-btn" title="Đặt lại" onclick="resetZoomDiagram('stage-lesson2')">⟲</button>
-                </div>
-              </div>
-
-              <div class="note-box">
-                <div class="note-header">🔸 Chú ý: Ứng dụng thực tế cần ghi nhớ</div>
-                <ol>
-                  <li>Nấu rượu etylic thủ công: Dùng phương pháp <strong>chưng cất</strong> (nhiệt độ sôi ethanol 78,3°C < nước 100°C).</li>
-                  <li>Thu tinh dầu sả, tinh dầu bưởi: Dùng phương pháp <strong>chưng cất lôi cuốn hơi nước</strong>.</li>
-                  <li>Ngâm chè xanh lấy nước uống, ngâm củ đinh lăng trong rượu: Phương pháp <strong>chiết lỏng - rắn</strong>.</li>
-                  <li>Tách riêng hỗn hợp dầu ăn và nước: Dùng phễu chiết (<strong>chiết lỏng - lỏng</strong>).</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        `,
-        questions: [
-          {
-            id: "q2_1",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 1: Phương pháp nào sau đây dùng để tách hai chất lỏng tan lẫn vào nhau nhưng có nhiệt độ sôi khác nhau đáng kể?",
-            options: [
-              "A. Phương pháp lọc",
-              "B. Phương pháp chưng cất",
-              "C. Phương pháp kết tinh",
-              "D. Phương pháp chiết lỏng - lỏng"
-            ],
-            correct: 1, // B
-            explanation: "Chưng cất dùng để tách các chất lỏng có nhiệt độ sôi khác nhau trong một hỗn hợp đồng nhất."
+            `
           },
           {
-            id: "q2_2",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 2: Hoạt động pha trà (hãm chè khô bằng nước sôi) ứng dụng phương pháp tách chất nào?",
-            options: [
-              "A. Chiết lỏng - rắn",
-              "B. Chưng cất lôi cuốn hơi nước",
-              "C. Sắc kí cột",
-              "D. Kết tinh phân đoạn"
-            ],
-            correct: 0, // A
-            explanation: "Pha trà là hòa tan các chất hữu cơ từ búp chè khô (pha rắn) vào nước sôi (pha lỏng), đây là phương pháp chiết lỏng - rắn."
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét",
+            content: "Khi chưng cất, chất có nhiệt độ sôi thấp hơn sẽ chuyển thành hơi trước, đi qua ống sinh hàn ngưng tụ thành chất lỏng và chảy vào bình hứng."
           },
           {
-            id: "q2_3",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 1: Để tách riêng hỗn hợp gồm nước và xăng (hai chất không tan vào nhau tạo thành 2 lớp), dụng cụ thích hợp nhất là gì?",
-            options: [
-              "A. Ống nghiệm và đèn cồn",
-              "B. Phễu chiết",
-              "C. Bình cầu chưng cất và ống sinh hàn",
-              "D. Ống sinh hàn khí"
-            ],
-            correct: 1, // B
-            explanation: "Xăng không tan trong nước và nhẹ hơn nước nên nổi lên trên; dùng phễu chiết để xả lớp nước ở dưới ra trước."
+            type: "tom_tat",
+            content: `
+              <strong>2. Phương pháp chiết, kết tinh và sắc kí:</strong>
+              <ul>
+                <li><strong>Chiết:</strong> Dựa vào độ tan khác nhau của chất trong 2 dung môi không trộn lẫn (chiết lỏng - lỏng dùng phễu chiết), hoặc hòa tan chất từ hỗn hợp rắn (chiết lỏng - rắn: pha trà, ngâm rượu thuốc).</li>
+                <li><strong>Kết tinh:</strong> Dựa vào độ tan thay đổi theo nhiệt độ của chất rắn trong dung môi thích hợp. (Hòa tan ở T° cao, lọc nóng, để nguội kết tinh rồi lọc thu tinh thể).</li>
+                <li><strong>Sắc kí cột:</strong> Tách chất dựa trên sự phân bố khác nhau giữa pha tĩnh và pha động do khả năng hấp phụ khác nhau.</li>
+              </ul>
+            `
           },
           {
-            id: "q2_4",
-            category: "bt",
-            type: "tf",
-            title: "Câu 2 (Đúng / Sai): Xem xét các nhận định sau về phương pháp kết tinh:",
-            statements: [
-              { text: "Kết tinh dùng để tách và tinh chế các chất rắn.", ans: true },
-              { text: "Dung môi kết tinh phải hòa tan tốt chất ở nhiệt độ cao và hòa tan kém ở nhiệt độ thấp.", ans: true },
-              { text: "Chất rắn sau khi kết tinh không cần lọc lại mà để tự khô trong dung môi.", ans: false },
-              { text: "Độ tan của hầu hết các chất rắn đều giảm khi tăng nhiệt độ.", ans: false }
-            ],
-            explanation: "Ý 3 sai vì phải lọc thu tinh thể trên phễu Buchner hoặc phễu lọc thường. Ý 4 sai vì đa số chất rắn có độ tan tăng khi tăng nhiệt độ."
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Nhận xét thực tế",
+            content: "Để chiết lỏng - lỏng đạt hiệu quả cao, cần lắc đều phễu chiết và thường xuyên mở khóa phễu xả áp suất khí, sau đó để yên cho phân lớp rõ rệt rồi mới mở khóa xả lớp chất lỏng ở dưới."
+          }
+        ],
+        methods: [
+          {
+            name: "Dạng 1: Lựa chọn phương pháp tách biệt và tinh chế phù hợp",
+            content: "• Nếu tách chất lỏng tan vào nhau khác Ts -> <strong>Chưng cất</strong>.<br>• Nếu tách 2 chất lỏng không trộn lẫn -> <strong>Chiết lỏng - lỏng (phễu chiết)</strong>.<br>• Nếu tách chất từ dược liệu rắn -> <strong>Chiết lỏng - rắn</strong>.<br>• Nếu làm sạch chất rắn bẩn -> <strong>Kết tinh lại</strong>.<br>• Nếu tách hỗn hợp màu phức tạp -> <strong>Sắc kí cột</strong>.",
+            examples: [
+              {
+                id: "l2_vd1",
+                num: 1,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Để thu được cồn y tế 70° từ dung dịch rượu loãng sau lên men, người ta áp dụng phương pháp nào? Hãy nêu nguyên tắc.",
+                solution: "Phương pháp chưng cất. Nguyên tắc: Ethanol có nhiệt độ sôi (78,3°C) thấp hơn nước (100°C) nên bay hơi trước, ngưng tụ thu được cồn có độ rượu cao hơn."
+              },
+              {
+                id: "l2_vd2",
+                num: 2,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Muốn tách riêng dầu ăn ra khỏi hỗn hợp nước và dầu ăn, ta dùng dụng cụ và phương pháp gì?",
+                solution: "Dùng phương pháp chiết lỏng - lỏng bằng phễu chiết. Dầu ăn không tan trong nước và nhẹ hơn nước nên nổi lên trên; mở khóa phễu chiết xả nước ra trước."
+              },
+              {
+                id: "l2_vd3",
+                num: 3,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Giải thích vì sao khi nấu canh cua, gạch cua (protein) lại đông tụ nổi lên trên mặt nước canh?",
+                solution: "Protein trong thịt cua bị đông tụ khi đun nóng ở nhiệt độ cao (biến tính nhiệt), các khối đông tụ xốp nhẹ nổi lên trên mặt nước."
+              }
+            ]
           },
           {
-            id: "q2_5",
-            category: "bt",
-            type: "short",
-            title: "Câu 3 (Trả lời ngắn): Kĩ thuật phân tách dựa trên sự phân bố khác nhau của các chất giữa pha tĩnh và pha động được gọi là gì? (Viết không dấu hoặc có dấu)",
-            correctText: "sắc kí",
-            explanation: "Đó là phương pháp sắc kí (sắc kí cột, sắc kí bản mỏng, sắc kí khí...)."
+            name: "Dạng 2: Quy trình thực hành và tối ưu hóa phương pháp tinh chế",
+            content: "• Chọn dung môi kết tinh: hòa tan tốt ở T° cao, kém ở T° thấp, không phản ứng với chất.<br>• Trình tự thao tác phễu chiết: lắc, xả áp, để yên phân lớp, chiết từng lớp.",
+            examples: [
+              {
+                id: "l2_vd4",
+                num: 4,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Hãy nêu tiêu chí chọn dung môi để tinh chế một chất rắn hữu cơ bằng phương pháp kết tinh lại.",
+                solution: "1. Hòa tan tốt chất rắn ở nhiệt độ sôi của dung môi.\n2. Hòa tan kém chất rắn ở nhiệt độ thường hoặc nhiệt độ thấp.\n3. Hòa tan tốt hoặc không hòa tan tạp chất.\n4. Dễ bay hơi, không độc và không phản ứng với chất cần tinh chế."
+              },
+              {
+                id: "l2_vd5",
+                num: 5,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Vì sao khi chiết nhiều lần với lượng nhỏ dung môi lại cho hiệu suất tách chất cao hơn chiết một lần với lượng lớn dung môi?",
+                solution: "Theo định luật phân bố Nernst, chia dung môi thành nhiều phần nhỏ để chiết nhiều lần sẽ tối đa hóa lượng chất tan dịch chuyển vào dung môi chiết, giảm lượng chất còn sót lại."
+              },
+              {
+                id: "l2_vd6",
+                num: 6,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Trong phương pháp sắc kí cột, chất nào sẽ di chuyển ra khỏi cột sắc kí trước: chất bị hấp phụ mạnh hay yếu trên pha tĩnh?",
+                solution: "Chất bị hấp phụ kém hơn (yếu hơn) trên pha tĩnh sẽ bị pha động rửa trôi và di chuyển nhanh hơn, ra khỏi cột sắc kí trước."
+              }
+            ]
           },
           {
-            id: "q2_6",
-            category: "bt",
-            type: "essay",
-            title: "Câu 4 (Tự luận): Trình bày ngắn gọn quy trình 3 bước cơ bản khi tiến hành tinh chế một chất rắn bằng phương pháp kết tinh lại.",
-            correctText: "1. Hòa tan chất rắn bẩn vào dung môi sôi thích hợp để tạo dung dịch bão hòa ở nhiệt độ cao.\n2. Lọc nóng dung dịch qua phễu lọc để loại bỏ tạp chất không tan.\n3. Để nguội dung dịch cho chất kết tinh lắng xuống, sau đó lọc thu tinh thể tinh khiết và rửa, sấy khô.",
-            explanation: "3 bước: Hòa tan nóng tạo dd bão hòa -> Lọc nóng bỏ cặn không tan -> Để nguội kết tinh rồi lọc lấy tinh thể."
+            name: "Dạng 3: Bài toán tính hiệu suất tách chất và nồng độ dung dịch sau chiết",
+            content: "• Áp dụng định luật phân bố: k = C₁ / C₂.<br>• Tính khối lượng chất tách được: m_tách = m_ban đầu * H%.",
+            examples: [
+              {
+                id: "l2_vd7",
+                num: 7,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Từ 10 kg lá sả tươi chứa 1,5% tinh dầu, qua chưng cất lôi cuốn hơi nước thu được 120 gam tinh dầu sả nguyên chất. Tính hiệu suất của quá trình chưng cất.",
+                solution: "m_tinh_dầu_lí_thuyết = 10000 * 1,5% = 150 gam.\nHiệu suất H% = (120 / 150) * 100% = 80%."
+              },
+              {
+                id: "l2_vd8",
+                num: 8,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Hòa tan 20 gam đường saccharose thô vào 100 mL nước sôi. Sau khi lọc nóng và để nguội đến 20°C thu được 15 gam đường kết tinh tinh khiết. Tính % khối lượng đường đã kết tinh.",
+                solution: "% kết tinh = (15 / 20) * 100% = 75%."
+              },
+              {
+                id: "l2_vd9",
+                num: 9,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Có 100 mL dung dịch nước chứa 1,0 gam chất hữu cơ X. Biết hệ số phân bố của X giữa ether và nước là K = [X]_ether / [X]_nước = 4. Tính khối lượng X còn lại trong nước sau khi chiết một lần với 50 mL ether.",
+                solution: "Gọi x là khối lượng X vào ether (g) => còn trong nước là (1 - x) g.\nK = (x / 50) / ((1 - x) / 100) = 4 => 2x / (1 - x) = 4 => 2x = 4 - 4x => 6x = 4 => x = 0,667 g.\nKhối lượng X còn lại trong nước = 1 - 0,667 = 0,333 gam."
+              }
+            ]
           }
         ]
       },
@@ -1297,128 +1085,134 @@
       lesson3: {
         id: "lesson3",
         title: "Bài 10. Công thức phân tử hợp chất hữu cơ",
-        theoryHtml: `
-          <div class="subsection-title">1. Phân loại các loại công thức</div>
-          
-          <div class="summary-card">
-            <div class="summary-header">📖 Tóm tắt</div>
-            <div class="summary-body">
+        theory: [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Các loại công thức:</strong>
               <ul>
-                <li><strong>Công thức đơn giản nhất (CTĐGN):</strong> Cho biết <em>tỉ lệ số lượng nguyên tử</em> của các nguyên tố trong phân tử (ở dạng số nguyên tối giản).</li>
-                <li><strong>Công thức phân tử (CTPT):</strong> Cho biết <em>số lượng thực tế nguyên tử</em> của mỗi nguyên tố trong phân tử.
-                  <br>Mối liên hệ: <code>CTPT = (CTĐGN)<sub>n</sub></code> với n ≥ 1.</li>
-                <li><strong>Phân tử khối (M):</strong> Xác định hiện đại bằng <strong>phổ khối lượng (MS)</strong>, trong đó mảnh ion phân tử [M<sup>+</sup>] có giá trị m/z lớn nhất thường ứng với phân tử khối của chất.</li>
+                <li><strong>Công thức đơn giản nhất (CTĐGN):</strong> Cho biết tỉ lệ số nguyên tử của các nguyên tố trong phân tử (ở dạng số nguyên tối giản).</li>
+                <li><strong>Công thức phân tử (CTPT):</strong> Cho biết số lượng nguyên tử thực tế của mỗi nguyên tố trong phân tử.
+                  <br>Mối liên hệ: <code>CTPT = (CTĐGN)<sub>n</sub></code> (với n ≥ 1).
+                </li>
               </ul>
-
-              <!-- Minh họa đồ thị phổ MS -->
-              <div class="diagram-container">
-                <div class="diagram-stage" id="stage-lesson3">
-                  <svg width="340" height="150" viewBox="0 0 340 150" class="mol-interactive">
-                    <rect width="340" height="150" fill="#f8fafc" rx="8" />
-                    <text x="170" y="22" text-anchor="middle" font-weight="bold" fill="#005a9e" font-size="13">Hình ảnh tín hiệu Phổ khối lượng MS của Acetic Acid</text>
-                    <!-- Trục tọa độ -->
-                    <line x1="40" y1="125" x2="310" y2="125" stroke="#475569" stroke-width="2" />
-                    <line x1="40" y1="125" x2="40" y2="30" stroke="#475569" stroke-width="2" />
-                    <text x="315" y="130" font-size="11" fill="#475569">m/z</text>
-                    <text x="40" y="24" font-size="11" fill="#475569">Cường độ (%)</text>
-                    <!-- Các peak MS -->
-                    <line x1="100" y1="125" x2="100" y2="90" stroke="#0284c7" stroke-width="3" />
-                    <text x="100" y="85" text-anchor="middle" font-size="11">15</text>
-                    <line x1="180" y1="125" x2="180" y2="45" stroke="#0284c7" stroke-width="4" />
-                    <text x="180" y="40" text-anchor="middle" font-size="11" font-weight="bold">43 (100%)</text>
-                    <line x1="240" y1="125" x2="240" y2="60" stroke="#dc2626" stroke-width="4" />
-                    <text x="240" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">[M⁺] = 60</text>
-                  </svg>
-                </div>
-                <div class="diagram-controls">
-                  <button class="ctrl-btn" title="Phóng to" onclick="zoomDiagram('stage-lesson3', 1.15)">+</button>
-                  <button class="ctrl-btn" title="Thu nhỏ" onclick="zoomDiagram('stage-lesson3', 0.85)">-</button>
-                  <button class="ctrl-btn" title="Đặt lại" onclick="resetZoomDiagram('stage-lesson3')">⟲</button>
-                </div>
-              </div>
-
-              <div class="note-box">
-                <div class="note-header">🔸 Chú ý: Cách lập CTPT từ % khối lượng</div>
-                Thiết lập tỉ lệ số nguyên tử C, H, O:
-                <div style="margin: 8px 0; font-family: 'Cambria Math', serif; font-size: 15px;">
-                  x : y : z = <sup>%C</sup>/<sub>12</sub> : <sup>%H</sup>/<sub>1</sub> : <sup>%O</sup>/<sub>16</sub> = p : q : r
-                </div>
-                Từ đó suy ra công thức đơn giản nhất C<sub>p</sub>H<sub>q</sub>O<sub>r</sub>. Khi biết phân tử khối M, ta có <code>(12p + q + 16r) × n = M</code> ⇒ tìm được n và CTPT.
-              </div>
-            </div>
-          </div>
-        `,
-        questions: [
-          {
-            id: "q3_1",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 1: Phổ khối lượng (MS) của ethanol cho thấy pic ion phân tử [M⁺] có giá trị m/z = 46. Phân tử khối của ethanol là bao nhiêu?",
-            options: [
-              "A. 46 amu",
-              "B. 92 amu",
-              "C. 23 amu",
-              "D. 30 amu"
-            ],
-            correct: 0, // A
-            explanation: "Giá trị m/z của pic ion phân tử [M⁺] chính bằng phân tử khối M của chất = 46."
+            `
           },
           {
-            id: "q3_2",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 2: Một hợp chất hữu cơ X có công thức đơn giản nhất là CH₂O và phân tử khối M = 60. Công thức phân tử của X là:",
-            options: [
-              "A. CH₂O",
-              "B. C₂H₄O₂",
-              "C. C₃H₆O₃",
-              "D. C₄H₈O₄"
-            ],
-            correct: 1, // B
-            explanation: "CTPT có dạng (CH₂O)ₙ. Ta có (12 + 2 + 16) × n = 60 => 30n = 60 => n = 2. CTPT là C₂H₄O₂."
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét",
+            content: "Để tìm CTPT, cần biết công thức đơn giản nhất và phân tử khối (M). Phân tử khối hiện đại được xác định bằng phổ khối lượng (MS)."
           },
           {
-            id: "q3_3",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 1: Phân tích thành phần nguyên tố một hydrocarbon cho kết quả %C = 85,71% và %H = 14,29%. Công thức đơn giản nhất của hydrocarbon này là:",
-            options: [
-              "A. CH",
-              "B. CH₂",
-              "C. CH₃",
-              "D. C₂H₅"
-            ],
-            correct: 1, // B
-            explanation: "Tỉ lệ nC : nH = (85,71/12) : (14,29/1) = 7,1425 : 14,29 = 1 : 2. CTĐGN là CH₂."
+            type: "tom_tat",
+            content: `
+              <strong>2. Phương pháp xác định phân tử khối & thiết lập CTPT:</strong>
+              <ul>
+                <li><strong>Phổ khối lượng (MS):</strong> Mảnh ion phân tử [M⁺] có giá trị m/z lớn nhất thường ứng với phân tử khối M.</li>
+                <li><strong>Thiết lập tỉ lệ:</strong>
+                  <code>x : y : z = (%C / 12) : (%H / 1) : (%O / 16) = p : q : r</code>
+                </li>
+              </ul>
+            `
           },
           {
-            id: "q3_4",
-            category: "bt",
-            type: "short",
-            title: "Câu 2 (Trả lời ngắn): Một hợp chất hữu cơ Y chứa C, H, O có phân tử khối M = 74. Có bao nhiêu nguyên tử Carbon trong phân tử Y nếu công thức đơn giản nhất là C₄H₁₀O?",
-            correctText: "4",
-            explanation: "Khối lượng của C₄H₁₀O = 12×4 + 10 + 16 = 74 => n = 1. Số nguyên tử Carbon là 4."
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Nhận xét quan trọng",
+            content: "Các tỉ lệ số mol nC, nH, nO phải được quy đổi về các số nguyên tối giản (ví dụ 1 : 1,33 : 0,67 nhân 3 thành 3 : 4 : 2)."
+          }
+        ],
+        methods: [
+          {
+            name: "Dạng 1: Xác định phân tử khối từ phổ khối lượng (MS)",
+            content: "• Đọc pic ion phân tử kí hiệu là [M⁺] tại trục hoành m/z lớn nhất.<br>• Giá trị m/z của [M⁺] chính là phân tử khối của hợp chất.",
+            examples: [
+              {
+                id: "l3_vd1",
+                num: 1,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Phổ khối lượng MS của hợp chất hữu cơ A có pic ion phân tử [M⁺] ở m/z = 74. Hãy cho biết phân tử khối của A.",
+                solution: "Phân tử khối của A bằng giá trị m/z của pic ion phân tử [M⁺] = 74 amu."
+              },
+              {
+                id: "l3_vd2",
+                num: 2,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Chất hữu cơ B có công thức đơn giản nhất là CH₂O. Phổ MS của B cho thấy pic [M⁺] có m/z = 60. Tìm công thức phân tử của B.",
+                solution: "CTPT có dạng (CH₂O)ₙ. Phân tử khối = 30n = 60 => n = 2. CTPT của B là C₂H₄O₂."
+              },
+              {
+                id: "l3_vd3",
+                num: 3,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Phổ MS của hydrocarbon thơm toluene cho thấy pic ion phân tử [M⁺] xuất hiện ở m/z = 92. Tỉ lệ khối lượng C:H trong toluene là 21:2. Tìm CTPT của toluene.",
+                solution: "nC : nH = (21/12) : (2/1) = 1,75 : 2 = 7 : 8 => CTĐGN là C₇H₈. M(C₇H₈) = 92 = m/z của [M⁺] => CTPT là C₇H₈."
+              }
+            ]
           },
           {
-            id: "q3_5",
-            category: "bt",
-            type: "tf",
-            title: "Câu 3 (Đúng / Sai): Các khẳng định sau đúng hay sai?",
-            statements: [
-              { text: "Hai chất có cùng công thức phân tử thì chắc chắn có cùng công thức đơn giản nhất.", ans: true },
-              { text: "Hai chất có cùng công thức đơn giản nhất thì luôn có cùng công thức phân tử.", ans: false },
-              { text: "C₂H₂ (acetylene) và C₆H₆ (benzene) có cùng công thức đơn giản nhất là CH.", ans: true },
-              { text: "Phân tử khối luôn bằng tổng số nguyên tử trong phân tử.", ans: false }
-            ],
-            explanation: "Ý 2 sai vì ví dụ CH₂O (formaldehyde M=30) và C₂H₄O₂ (acetic acid M=60) có cùng CTĐGN là CH₂O nhưng CTPT khác nhau. Ý 4 sai rõ ràng."
+            name: "Dạng 2: Lập CTĐGN và CTPT từ phần trăm khối lượng các nguyên tố",
+            content: "• nC : nH : nO = (%C / 12) : (%H / 1) : (%O / 16).<br>• Rút gọn về tỉ lệ số nguyên tối giản -> CTĐGN.<br>• CTPT = (CTĐGN)ₙ với n = M / M(CTĐGN).",
+            examples: [
+              {
+                id: "l3_vd4",
+                num: 4,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Một hợp chất X có %C = 85,71% và %H = 14,29%. Tìm công thức đơn giản nhất của X.",
+                solution: "nC : nH = (85,71/12) : (14,29/1) = 7,1425 : 14,29 = 1 : 2. Vậy CTĐGN là CH₂."
+              },
+              {
+                id: "l3_vd5",
+                num: 5,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Hợp chất Y chứa 40% C, 6,67% H và 53,33% O về khối lượng. Phân tử khối của Y là 60. Tìm công thức phân tử của Y.",
+                solution: "nC : nH : nO = (40/12) : (6,67/1) : (53,33/16) = 3,33 : 6,67 : 3,33 = 1 : 2 : 1.\nCTĐGN là CH₂O. Ta có 30n = 60 => n = 2. CTPT là C₂H₄O₂."
+              },
+              {
+                id: "l3_vd6",
+                num: 6,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Nicotine có trong thuốc lá chứa 74,07% C, 8,64% H và 17,29% N. Biết M = 162. Tìm CTPT của nicotine.",
+                solution: "nC : nH : nN = (74,07/12) : (8,64/1) : (17,29/14) = 6,1725 : 8,64 : 1,235 = 5 : 7 : 1.\nCTĐGN là C₅H₇N (M = 81). Ta có 81n = 162 => n = 2. CTPT là C₁₀H₁₄N₂."
+              }
+            ]
           },
           {
-            id: "q3_6",
-            category: "bt",
-            type: "essay",
-            title: "Câu 4 (Tự luận): Đốt cháy hoàn toàn 4,4 gam chất hữu cơ Z chỉ chứa C, H, O thu được 8,8 gam CO₂ và 3,6 gam H₂O. Tìm công thức đơn giản nhất của Z.",
-            correctText: "mC = (8,8/44) * 12 = 2,4 gam (0,2 mol)\nmH = (3,6/18) * 2 = 0,4 gam (0,4 mol)\nmO = 4,4 - (2,4 + 0,4) = 1,6 gam (0,1 mol)\nTỉ lệ nC : nH : nO = 0,2 : 0,4 : 0,1 = 2 : 4 : 1.\nVậy công thức đơn giản nhất của Z là C₂H₄O.",
-            explanation: "Tính mC = 2,4g; mH = 0,4g; mO = 1,6g. Tỉ lệ C:H:O = 0,2 : 0,4 : 0,1 = 2:4:1 => C₂H₄O."
+            name: "Dạng 3: Lập CTPT từ phản ứng đốt cháy hoàn toàn",
+            content: "• mC = 12 * nCO₂; mH = 2 * nH₂O.<br>• mO = m_chất - (mC + mH).<br>• Lập tỉ lệ mol C : H : O và tìm n.",
+            examples: [
+              {
+                id: "l3_vd7",
+                num: 7,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Đốt cháy hoàn toàn 4,6 gam hợp chất hữu cơ Z thu được 8,8 gam CO₂ và 5,4 gam H₂O. Tìm CTĐGN của Z.",
+                solution: "nC = nCO₂ = 8,8 / 44 = 0,2 mol (2,4g C).\nnH = 2 * nH₂O = 2 * (5,4 / 18) = 0,6 mol (0,6g H).\nmO = 4,6 - 2,4 - 0,6 = 1,6 gam (0,1 mol O).\nnC : nH : nO = 0,2 : 0,6 : 0,1 = 2 : 6 : 1. CTĐGN là C₂H₆O."
+              },
+              {
+                id: "l3_vd8",
+                num: 8,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Đốt cháy hoàn toàn 2,2 gam chất hữu cơ E chứa C, H, O cần vừa đủ 3,36 lít O₂ (đkc). Thu được nCO₂ : nH₂O = 1 : 1. Biết M(E) = 88. Tìm CTPT của E.",
+                solution: "Bảo toàn khối lượng: m_sản_phẩm = 2,2 + (3,36/24,79 * 32)... Từ tỉ lệ mol nCO₂ = nH₂O = a mol. Suy ra nC = 0,1 mol; nH = 0,2 mol; nO = 0,05 mol. CTPT là C₄H₈O₂."
+              },
+              {
+                id: "l3_vd9",
+                num: 9,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Đốt cháy hoàn toàn 0,1 mol hợp chất hữu cơ T chứa C, H, O thu được không quá 17,6 gam CO₂ và 7,2 gam H₂O. Biết 1 mol T phản ứng tối đa với 2 mol NaOH. Xác định CTPT của T.",
+                solution: "nCO₂ <= 0,4 mol => Số C <= 4. nH₂O = 0,4 mol => Số H = 8.\nVì T phản ứng với NaOH theo tỉ lệ 1:2 nên T có 2 nhóm -COOH hoặc -COO- (có ít nhất 4 nguyên tử O).\nVới Số C <= 4 và Số H = 8, CTPT phù hợp là C₄H₈O₄."
+              }
+            ]
           }
         ]
       },
@@ -1426,219 +1220,452 @@
       lesson4: {
         id: "lesson4",
         title: "Bài 11. Cấu trúc phân tử hợp chất hữu cơ",
-        theoryHtml: `
-          <div class="subsection-title">1. Thuyết cấu tạo hóa học</div>
-          
-          <div class="summary-card">
-            <div class="summary-header">📖 Tóm tắt</div>
-            <div class="summary-body">
+        theory: [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Thuyết cấu tạo hóa học (A.M. Butlerov):</strong>
               <ul>
-                <li>Trong phân tử hợp chất hữu cơ, các nguyên tử liên kết với nhau theo đúng hóa trị và theo một <strong>thứ tự liên kết nhất định</strong>. Thứ tự liên kết này được gọi là <em>cấu tạo hóa học</em>.</li>
-                <li>Carbon luôn có <strong>hóa trị IV</strong>. Các nguyên tử carbon có khả năng liên kết với nhau tạo thành mạch cacbon:
-                  <strong>mạch không phân nhánh, mạch nhánh hoặc mạch vòng</strong>.</li>
+                <li>Trong phân tử, các nguyên tử liên kết với nhau theo đúng hóa trị và theo một <strong>thứ tự liên kết nhất định</strong>. Thứ tự đó gọi là <em>cấu tạo hóa học</em>.</li>
+                <li>Carbon luôn có <strong>hóa trị IV</strong>. Nguyên tử carbon có thể liên kết với nhau tạo mạch: mạch không phân nhánh, mạch nhánh hoặc mạch vòng.</li>
                 <li>Tính chất của các chất phụ thuộc vào thành phần nguyên tố và cấu tạo hóa học.</li>
               </ul>
-
-              <!-- Mô phỏng đồng phân C2H6O -->
-              <div class="diagram-container">
-                <div class="diagram-stage" id="stage-lesson4">
-                  <svg width="340" height="150" viewBox="0 0 340 150" class="mol-interactive">
-                    <rect width="340" height="150" fill="#f8fafc" rx="8" />
-                    <text x="170" y="20" text-anchor="middle" font-weight="bold" fill="#005a9e" font-size="13">Hiện tượng đồng phân cùng CTPT C₂H₆O</text>
-                    <!-- Chất 1: Dimethyl ether -->
-                    <text x="90" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">Dimethyl ether (chất khí)</text>
-                    <text x="90" y="80" text-anchor="middle" font-family="monospace" font-size="15" fill="#0284c7">CH₃ — O — CH₃</text>
-                    <text x="90" y="105" text-anchor="middle" font-size="11" fill="#64748b">Ts = -24°C, không pứ Na</text>
-
-                    <!-- Vạch ngăn cách -->
-                    <line x1="170" y1="40" x2="170" y2="130" stroke="#cbd5e1" stroke-dasharray="3,3" />
-
-                    <!-- Chất 2: Ethanol -->
-                    <text x="250" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">Ethanol (chất lỏng)</text>
-                    <text x="250" y="80" text-anchor="middle" font-family="monospace" font-size="15" fill="#dc2626">C₂H₅ — O — H</text>
-                    <text x="250" y="105" text-anchor="middle" font-size="11" fill="#64748b">Ts = 78,3°C, tác dụng Na</text>
-                  </svg>
-                </div>
-                <div class="diagram-controls">
-                  <button class="ctrl-btn" title="Phóng to" onclick="zoomDiagram('stage-lesson4', 1.15)">+</button>
-                  <button class="ctrl-btn" title="Thu nhỏ" onclick="zoomDiagram('stage-lesson4', 0.85)">-</button>
-                  <button class="ctrl-btn" title="Đặt lại" onclick="resetZoomDiagram('stage-lesson4')">⟲</button>
-                </div>
-              </div>
-
-              <div class="note-box">
-                <div class="note-header">🔸 Chú ý: Đồng đẳng và Đồng phân</div>
-                <ol>
-                  <li><strong>Đồng đẳng:</strong> Những hợp chất có thành phần phân tử hơn kém nhau một hay nhiều nhóm <code>-CH<sub>2</sub>-</code> nhưng có tính chất hóa học tương tự nhau tạo thành một <em>dãy đồng đẳng</em>.</li>
-                  <li><strong>Đồng phân:</strong> Những hợp chất khác nhau nhưng có <em>cùng công thức phân tử</em>.
-                    <br>Có 2 loại chính:
-                    <ul>
-                      <li>Đồng phân cấu tạo: Khác nhau về mạch C, vị trí liên kết bội hoặc vị trí nhóm chức.</li>
-                      <li>Đồng phân hình học (cis - trans): Xuất hiện khi phân tử có liên kết đôi C=C và mỗi C nối với 2 nhóm nguyên tử khác nhau.</li>
-                    </ul>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        `,
-        questions: [
-          {
-            id: "q4_1",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 1: Cặp chất nào sau đây là đồng phân của nhau?",
-            options: [
-              "A. CH₃-CH₂-OH và CH₃-O-CH₃",
-              "B. CH₄ và C₂H₆",
-              "C. CH₃OH và C₂H₅OH",
-              "D. C₂H₄ và C₃H₆"
-            ],
-            correct: 0, // A
-            explanation: "CH₃-CH₂-OH và CH₃-O-CH₃ có cùng CTPT là C₂H₆O nhưng cấu tạo khác nhau nên là đồng phân của nhau."
+            `
           },
           {
-            id: "q4_2",
-            category: "vd",
-            type: "mcq",
-            title: "Ví dụ 2: Dãy chất nào sau đây hợp thành một dãy đồng đẳng?",
-            options: [
-              "A. CH₄, C₂H₄, C₃H₆",
-              "B. CH₄, C₂H₆, C₃H₈, C₄H₁₀",
-              "C. C₂H₅OH, CH₃OCH₃",
-              "D. CH₃COOH, HCOOCH₃"
-            ],
-            correct: 1, // B
-            explanation: "Dãy alkane: CH₄, C₂H₆, C₃H₈... các chất hơn kém nhau nhóm -CH₂- và có tính chất hóa học tương tự nhau."
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét",
+            content: "Thay đổi thứ tự liên kết giữa các nguyên tử sẽ tạo ra chất mới hoàn toàn khác về tính chất vật lý và hóa học (Ví dụ C₂H₆O: ethanol là chất lỏng tan vô hạn trong nước, còn dimethyl ether là chất khí không tan)."
           },
           {
-            id: "q4_3",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 1: Hợp chất butane (C₄H₁₀) có bao nhiêu đồng phân cấu tạo?",
-            options: [
-              "A. 1",
-              "B. 2",
-              "C. 3",
-              "D. 4"
-            ],
-            correct: 1, // B
-            explanation: "C₄H₁₀ có 2 đồng phân: CH₃-CH₂-CH₂-CH₃ (butane) và CH₃-CH(CH₃)-CH₃ (isobutane / 2-methylpropane)."
+            type: "tom_tat",
+            content: `
+              <strong>2. Đồng đẳng và Đồng phân:</strong>
+              <ul>
+                <li><strong>Đồng đẳng:</strong> Những hợp chất có thành phần phân tử hơn kém nhau một hay nhiều nhóm <code>-CH₂-</code> nhưng có tính chất hóa học tương tự nhau.</li>
+                <li><strong>Đồng phân:</strong> Những hợp chất khác nhau có <em>cùng công thức phân tử</em>.
+                  <ul>
+                    <li>Đồng phân cấu tạo: mạch C, vị trí liên kết bội, vị trí nhóm chức.</li>
+                    <li>Đồng phân hình học (cis - trans): khi có liên kết đôi C=C dạng <code>R₁R₂C=CR₃R₄</code> (với R₁ ≠ R₂ và R₃ ≠ R₄).</li>
+                  </ul>
+                </li>
+              </ul>
+            `
           },
           {
-            id: "q4_4",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 2: Điều kiện để một alkene có đồng phân hình học (cis - trans) ở nối đôi C₁=C₂ là gì?",
-            options: [
-              "A. Mỗi nguyên tử cacbon của nối đôi liên kết với 2 nhóm nguyên tử khác nhau",
-              "B. Phân tử phải có từ 2 liên kết đôi trở lên",
-              "C. Phân tử phải có mạch vòng",
-              "D. Khối lượng phân tử phải lớn hơn 100 amu"
-            ],
-            correct: 0, // A
-            explanation: "Điều kiện cần và đủ: Dạng R₁R₂C=CR₃R₄ với R₁ ≠ R₂ và R₃ ≠ R₄."
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Nhận xét",
+            content: "Công thức cấu tạo có 3 cách biểu diễn chính: Công thức khai triển (vẽ rõ mọi liên kết), công thức thu gọn (như CH₃-CH₂-OH), và công thức khung phân tử (dạng đường gấp khúc zigzag)."
+          }
+        ],
+        methods: [
+          {
+            name: "Dạng 1: Viết và đếm số lượng đồng phân cấu tạo",
+            content: "• Bước 1: Viết mạch cacbon (mạch thẳng, mạch nhánh, mạch vòng).<br>• Bước 2: Điền liên kết bội hoặc gắn nhóm chức vào các vị trí không đối xứng.<br>• Bước 3: Điền đủ số H theo hóa trị IV của C.",
+            examples: [
+              {
+                id: "l4_vd1",
+                num: 1,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Viết công thức cấu tạo thu gọn của tất cả các đồng phân ứng với CTPT C₄H₁₀.",
+                solution: "C₄H₁₀ có 2 đồng phân alkane:\n1. CH₃-CH₂-CH₂-CH₃ (butane)\n2. CH₃-CH(CH₃)-CH₃ (2-methylpropane / isobutane)."
+              },
+              {
+                id: "l4_vd2",
+                num: 2,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Ứng với công thức phân tử C₅H₁₂ có bao nhiêu đồng phân cấu tạo? Viết CTCT của chúng.",
+                solution: "Có 3 đồng phân:\n1. Pentane: CH₃-CH₂-CH₂-CH₂-CH₃\n2. 2-methylbutane: CH₃-CH(CH₃)-CH₂-CH₃\n3. 2,2-dimethylpropane: C(CH₃)₄."
+              },
+              {
+                id: "l4_vd3",
+                num: 3,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Ứng với CTPT C₃H₈O có bao nhiêu đồng phân ancol (chứa nhóm -OH)?",
+                solution: "Có 2 đồng phân alcohol:\n1. Propan-1-ol: CH₃-CH₂-CH₂-OH\n2. Propan-2-ol: CH₃-CH(OH)-CH₃."
+              }
+            ]
           },
           {
-            id: "q4_5",
-            category: "bt",
-            type: "short",
-            title: "Câu 3 (Trả lời ngắn): Ứng với công thức phân tử C₅H₁₂ có bao nhiêu đồng phân cấu tạo? (Điền số)",
-            correctText: "3",
-            explanation: "C₅H₁₂ có 3 đồng phân: pentane (mạch thẳng), 2-methylbutane (isopentane), 2,2-dimethylpropane (neopentane). Đáp án: 3."
+            name: "Dạng 2: Xác định đồng phân hình học cis - trans",
+            content: "• Điều kiện cần: có liên kết đôi C=C (hoặc mạch vòng).<br>• Điều kiện đủ: mỗi nguyên tử C của nối đôi phải liên kết với 2 nguyên tử hoặc nhóm nguyên tử khác nhau: R₁ ≠ R₂ và R₃ ≠ R₄.",
+            examples: [
+              {
+                id: "l4_vd4",
+                num: 4,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Trong các chất sau: but-1-ene (CH₂=CH-CH₂-CH₃) và but-2-ene (CH₃-CH=CH-CH₃), chất nào có đồng phân hình học? Giải thích.",
+                solution: "- But-1-ene có C số 1 liên kết với 2 nguyên tử H giống nhau (H₂C=...) nên KHÔNG có đồng phân hình học.\n- But-2-ene có dạng CH₃-CH=CH-CH₃, mỗi C nối đôi liên kết với -H và -CH₃ (hai nhóm khác nhau) nên CÓ 2 đồng phân hình học: cis-but-2-ene và trans-but-2-ene."
+              },
+              {
+                id: "l4_vd5",
+                num: 5,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Vẽ cấu trúc không gian của cis-but-2-ene và trans-but-2-ene.",
+                solution: "- Đồng phân cis: hai nhóm -CH₃ cùng nằm về một phía của mặt phẳng liên kết đôi C=C.\n- Đồng phân trans: hai nhóm -CH₃ nằm về hai phía đối diện của mặt phẳng liên kết đôi C=C."
+              },
+              {
+                id: "l4_vd6",
+                num: 6,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Cho pent-2-ene (CH₃-CH=CH-CH₂-CH₃). Chất này có đồng phân hình học không? Nếu có, hãy gọi tên đầy đủ 2 đồng phân.",
+                solution: "Có đồng phân hình học vì C₂ nối với H và CH₃; C₃ nối với H và C₂H₅.\nHai đồng phân: cis-pent-2-ene và trans-pent-2-ene."
+              }
+            ]
           },
           {
-            id: "q4_6",
-            category: "bt",
-            type: "essay",
-            title: "Câu 4 (Tự luận): Phân biệt ngắn gọn khái niệm 'Đồng phân' và 'Đồng đẳng'. Cho ví dụ minh họa bằng công thức cụ thể.",
-            correctText: "- Đồng phân: Cùng CTPT nhưng khác CTCT (Ví dụ: C₂H₆O gồm CH₃CH₂OH và CH₃OCH₃).\n- Đồng đẳng: Có CTCT tương tự nhau nhưng hơn kém nhau một hay nhiều nhóm -CH₂- (Ví dụ: CH₄ và C₂H₆, hoặc CH₃OH và C₂H₅OH).",
-            explanation: "Đồng phân: cùng CTPT khác CTCT. Đồng đẳng: tính chất tương tự, hơn kém nhóm -CH₂-."
+            name: "Dạng 3: Nhận biết dãy đồng đẳng và công thức chung",
+            content: "• Kiểm tra tính chất hóa học tương tự (cùng nhóm chức, loại mạch).<br>• Công thức phân tử hơn kém nhau một hoặc nhiều nhóm -CH₂-.",
+            examples: [
+              {
+                id: "l4_vd7",
+                num: 7,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Cặp chất nào sau đây là đồng đẳng của nhau: a) CH₄ và C₂H₆; b) CH₃OH và C₂H₅OH; c) C₂H₅OH và CH₃-O-CH₃?",
+                solution: "a) CH₄ và C₂H₆: là đồng đẳng (cùng alkane, hơn kém 1 nhóm -CH₂-).\nb) CH₃OH và C₂H₅OH: là đồng đẳng (cùng alcohol no đơn chức).\nc) C₂H₅OH và CH₃-O-CH₃: KHÔNG phải đồng đẳng (khác nhóm chức, đây là cặp đồng phân)."
+              },
+              {
+                id: "l4_vd8",
+                num: 8,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Viết công thức chung của dãy đồng đẳng alcohol no, đơn chức, mạch hở chứa n nguyên tử carbon.",
+                solution: "Công thức chung là CₙH₂ₙ₊₁OH (với n ≥ 1) hoặc CₙH₂ₙ₊₂O."
+              },
+              {
+                id: "l4_vd9",
+                num: 9,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Một chất hữu cơ A có CTPT C₄H₈. Cho A phản ứng với HBr chỉ thu được một sản phẩm duy nhất. Xác định CTCT của A.",
+                solution: "A tác dụng với HBr cho 1 sản phẩm duy nhất chứng tỏ A là alkene có cấu tạo đối xứng cao.\nCTCT phù hợp là but-2-ene: CH₃-CH=CH-CH₃ (khi cộng HBr cho 2-bromobutane duy nhất)."
+              }
+            ]
           }
         ]
       },
 
       lesson_rev: {
         id: "lesson_rev",
-        title: "Bài tập cuối chương III",
-        theoryHtml: `
-          <div class="summary-card">
-            <div class="summary-header">📖 Sơ đồ ôn tập tổng kết Chương III</div>
-            <div class="summary-body">
-              <strong>HỆ THỐNG KIẾN THỨC CỐT LÕI:</strong>
-              <ol style="margin-left: 20px; margin-top: 8px;">
-                <li><strong>Đặc điểm hữu cơ:</strong> Liên kết CHT, C hóa trị IV, tạo mạch C phong phú.</li>
-                <li><strong>4 phương pháp tinh chế:</strong> Chưng cất (khác Ts), Chiết (khác độ tan), Kết tinh (độ tan theo T°), Sắc kí cột (hấp phụ).</li>
-                <li><strong>Lập CTPT:</strong> Phổ MS tìm M [M⁺] -> Tìm CTĐGN từ % khối lượng -> CTPT = (CTĐGN)<sub>n</sub>.</li>
-                <li><strong>Cấu trúc:</strong> Đồng đẳng (hơn kém -CH<sub>2</sub>-), Đồng phân (cấu tạo & hình học cis/trans).</li>
+        title: "Bài tập cuối chương III (Đại cương Hóa hữu cơ)",
+        theory: [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>Sơ đồ hệ thống hóa Chương 3:</strong>
+              <ol>
+                <li><strong>Hợp chất hữu cơ:</strong> Hợp chất của C (trừ CO, CO₂, muối carbonate, cyanide, carbide). Liên kết cộng hóa trị, nhiệt độ sôi thấp, phản ứng chậm.</li>
+                <li><strong>4 Phương pháp tách biệt:</strong> Chưng cất (khác Ts), Chiết (khác độ tan), Kết tinh (độ tan theo T°), Sắc kí cột (hấp phụ).</li>
+                <li><strong>Lập CTPT:</strong> Phổ MS -> Tìm [M⁺] -> Tìm CTĐGN -> CTPT = (CTĐGN)ₙ.</li>
+                <li><strong>Thuyết cấu tạo hóa học:</strong> C hóa trị IV, trật tự liên kết xác định, đồng đẳng (hơn kém -CH₂-), đồng phân (cấu tạo & cis/trans).</li>
               </ol>
-            </div>
-          </div>
-        `,
-        questions: [
-          {
-            id: "qr_1",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 1 (Tổng hợp): Để tách tinh dầu bưởi từ vỏ bưởi bằng phương pháp thủ công trong đời sống, người ta dùng phương pháp nào?",
-            options: [
-              "A. Chiết lỏng - lỏng bằng phễu chiết",
-              "B. Chưng cất lôi cuốn hơi nước",
-              "C. Kết tinh lại trong dung môi",
-              "D. Sắc kí cột"
-            ],
-            correct: 1, // B
-            explanation: "Tinh dầu thường có nhiệt độ sôi cao nhưng dễ bay hơi cùng hơi nước, do đó dùng chưng cất lôi cuốn hơi nước."
+            `
           },
           {
-            id: "qr_2",
-            category: "bt",
-            type: "mcq",
-            title: "Câu 2 (Tổng hợp): Hợp chất X có %C = 40,0%, %H = 6,67%, còn lại là O. Phổ MS cho thấy peak ion phân tử [M⁺] có m/z = 60. Tên gọi hoặc CTPT của X là gì?",
-            options: [
-              "A. C₂H₄O₂",
-              "B. C₃H₈O",
-              "C. CH₂O",
-              "D. C₃H₆O₂"
-            ],
-            correct: 0, // A
-            explanation: "%O = 100 - 40 - 6,67 = 53,33%. Tỉ lệ C:H:O = 40/12 : 6,67/1 : 53,33/16 = 3,33 : 6,67 : 3,33 = 1 : 2 : 1. CTĐGN là CH₂O (M=30). M = 60 => n = 2 => CTPT là C₂H₄O₂."
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét ôn tập",
+            content: "Nắm vững mối quan hệ giữa cấu trúc phân tử (loại liên kết, nhóm chức) và tính chất vật lý, hóa học là nền tảng để học tốt các chương Hydrocarbon và Dẫn xuất phía sau."
+          }
+        ],
+        methods: [
+          {
+            name: "Dạng 1: Ôn tập tổng hợp nhận thức lý thuyết toàn chương",
+            content: "Hệ thống câu hỏi tổng hợp bao quát từ khái niệm, phương pháp tinh chế đến đồng phân, đồng đẳng.",
+            examples: [
+              {
+                id: "lr_vd1",
+                num: 1,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Phân biệt 3 khái niệm cốt lõi: Công thức đơn giản nhất, Công thức phân tử và Công thức cấu tạo.",
+                solution: "- CTĐGN: Tỉ lệ số nguyên tử tối giản giữa các nguyên tố.\n- CTPT: Số lượng thực tế nguyên tử của mỗi nguyên tố trong 1 phân tử.\n- CTCT: Trật tự và cách thức liên kết giữa các nguyên tử trong phân tử."
+              },
+              {
+                id: "lr_vd2",
+                num: 2,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Một học sinh thực hiện chiết caffeine từ nước trà bằng dichloromethane. Tại sao dichloromethane lại nằm ở lớp dưới còn nước ở lớp trên?",
+                solution: "Vì dichloromethane có khối lượng riêng d = 1,33 g/cm³ > d_nước = 1,00 g/cm³, và hai chất không trộn lẫn vào nhau nên lớp dichloromethane nặng hơn sẽ chìm xuống dưới đáy phễu chiết."
+              },
+              {
+                id: "lr_vd3",
+                num: 3,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Hợp chất X có CTPT C₃H₆O₂. X tác dụng được với dung dịch NaHCO₃ giải phóng khí CO₂. Xác định CTCT của X.",
+                solution: "X tác dụng được với NaHCO₃ sinh ra CO₂ chứng tỏ X có nhóm chức carboxylic acid (-COOH).\nVớ CTPT C₃H₆O₂, CTCT của X là propanoic acid: CH₃-CH₂-COOH."
+              }
+            ]
           },
           {
-            id: "qr_3",
-            category: "bt",
-            type: "tf",
-            title: "Câu 3 (Tổng hợp Đúng/Sai): Xét tính đúng sai của các phát biểu sau:",
-            statements: [
-              { text: "Tất cả các chất có cùng công thức phân tử đều có cùng tính chất hóa học.", ans: false },
-              { text: "But-2-ene (CH₃-CH=CH-CH₃) có 2 đồng phân hình học là cis-but-2-ene và trans-but-2-ene.", ans: true },
-              { text: "Trong phổ khối lượng, pic ion phân tử [M⁺] luôn có cường độ tương đối lớn nhất (100%).", ans: false },
-              { text: "Phản ứng của hợp chất hữu cơ thường có tốc độ chậm và tạo nhiều sản phẩm phụ.", ans: true }
-            ],
-            explanation: "Ý 1 sai vì các đồng phân có nhóm chức khác nhau thì tính chất rất khác nhau. Ý 3 sai vì pic cơ bản (base peak) mới là pic có cường độ 100%, pic ion phân tử có thể nhỏ."
+            name: "Dạng 2: Bài toán xác định CTPT kết hợp phổ khối lượng MS",
+            content: "Vận dụng kiến thức thực tế về xác định phân tử khối và phân tích định lượng nguyên tố.",
+            examples: [
+              {
+                id: "lr_vd4",
+                num: 4,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Phổ MS của aspirin cho pic ion phân tử [M⁺] ở m/z = 180. Phân tử khối của aspirin là bao nhiêu?",
+                solution: "M(aspirin) = 180 amu."
+              },
+              {
+                id: "lr_vd5",
+                num: 5,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Hợp chất hữu cơ G chứa C, H, O có phân tử khối M = 74. Có bao nhiêu đồng phân ester ứng với CTPT của G?",
+                solution: "CTPT C₃H₆O₂ (M = 74). Các đồng phân ester gồm:\n1. HCOOCH₂CH₃ (ethyl formate)\n2. CH₃COOCH₃ (methyl acetate)\n=> Có 2 đồng phân ester."
+              },
+              {
+                id: "lr_vd6",
+                num: 6,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Đốt cháy 0,15 mol este no đơn chức mạch hở cần 0,75 mol O₂. Tìm CTPT của este.",
+                solution: "Este no đơn chức: CₙH₂ₙO₂ + (1,5n - 1)O₂ -> nCO₂ + nH₂O.\nTa có: 0,15 * (1,5n - 1) = 0,75 => 1,5n - 1 = 5 => 1,5n = 6 => n = 4.\nCTPT của este là C₄H₈O₂."
+              }
+            ]
           },
           {
-            id: "qr_4",
-            category: "bt",
-            type: "essay",
-            title: "Câu 4 (Vận dụng tự luận): Trình bày tóm tắt phương pháp tách chất caffeine từ lá chè khô bằng phương pháp chiết và tinh chế lại bằng kết tinh.",
-            correctText: "1. Đun sôi chè khô với nước để chiết caffeine và các polyphenol vào dung dịch (chiết lỏng - rắn).\n2. Dùng dung môi hữu cơ không tan trong nước (như dichloromethane) để chiết caffeine ra khỏi lớp nước (chiết lỏng - lỏng).\n3. Làm khan dung môi, cô bớt dung dịch rồi để nguội cho caffeine kết tinh thu được sản phẩm tinh khiết.",
-            explanation: "Quy trình: Chiết lỏng - rắn (nước sôi) -> Chiết lỏng - lỏng (dung môi hữu cơ) -> Kết tinh thu tinh thể."
+            name: "Dạng 3: Bài toán biện luận cấu tạo và liên kết hóa học",
+            content: "Biện luận số đồng phân và các tính chất hóa lý đặc trưng.",
+            examples: [
+              {
+                id: "lr_vd7",
+                num: 7,
+                level: "level-th",
+                levelName: "Thông hiểu",
+                title: "Có bao nhiêu chất là đồng đẳng của methane trong dãy: C₂H₆, C₂H₄, C₃H₈, C₄H₁₀, C₂H₂?",
+                solution: "Các chất cùng dãy đồng đẳng alkane với methane (CₙH₂ₙ₊₂) là: C₂H₆, C₃H₈, C₄H₁₀ (3 chất)."
+              },
+              {
+                id: "lr_vd8",
+                num: 8,
+                level: "level-vd",
+                levelName: "Vận dụng",
+                title: "Số liên kết cộng hóa trị sigma (σ) trong một phân tử methane (CH₄) và ethane (C₂H₆) lần lượt là bao nhiêu?",
+                solution: "- Trong CH₄ có 4 liên kết C-H => 4 liên kết σ.\n- Trong C₂H₆ có 1 liên kết C-C và 6 liên kết C-H => tổng cộng 7 liên kết σ."
+              },
+              {
+                id: "lr_vd9",
+                num: 9,
+                level: "level-vdc",
+                levelName: "Vận dụng cao",
+                title: "Cho 3 chất: ethane, ethanol và acetic acid. Sắp xếp theo chiều tăng dần nhiệt độ sôi và giải thích ngắn gọn.",
+                solution: "Thứ tự: Ethane < Ethanol < Acetic acid.\nGiải thích: Ethane là chất khí không phân cực; Ethanol có liên kết hydrogen liên phân tử; Acetic acid có liên kết hydrogen dạng nhị hợp (dimer) bền hơn nên nhiệt độ sôi cao nhất."
+              }
+            ]
           }
         ]
       }
     };
 
     /* ========================================================
-       STATE MANAGEMENT & LOCALSTORAGE
+       48 BÀI TẬP LUYỆN TẬP CHUẨN CẤU TRÚC CHO MỖI BÀI
        ======================================================== */
-    const STORAGE_KEY = "hoa11_chuong3_progress_data";
+    function generateExercisesForLesson(lessonKey) {
+      const isL1 = lessonKey === 'lesson1';
+      const isL2 = lessonKey === 'lesson2';
+      const isL3 = lessonKey === 'lesson3';
+      const isL4 = lessonKey === 'lesson4';
+
+      let mcq = [];
+      let tf = [];
+      let short = [];
+      let essay = [];
+
+      // 1. CÂU 1 ĐẾN 21: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN
+      const mcqBank = [
+        { q: "Hợp chất nào sau đây là hợp chất hữu cơ?", opts: ["CO₂", "CaCO₃", "CH₄", "KCN"], c: 2, exp: "CH₄ là hydrocarbon, thuộc hợp chất hữu cơ." },
+        { q: "Liên kết hóa học chủ yếu trong phân tử hợp chất hữu cơ là loại liên kết nào?", opts: ["Liên kết ion", "Liên kết cộng hóa trị", "Liên kết kim loại", "Liên kết phi kim"], c: 1, exp: "Hợp chất hữu cơ chủ yếu chứa liên kết cộng hóa trị." },
+        { q: "Nguyên tố nào sau đây nhất thiết phải có trong thành phần hợp chất hữu cơ?", opts: ["Carbon", "Hydrogen", "Oxygen", "Nitrogen"], c: 0, exp: "Mọi hợp chất hữu cơ đều phải chứa carbon." },
+        { q: "Nhóm chức nào sau đây đặc trưng cho alcohol?", opts: ["-CHO", "-COOH", "-OH", "-NH₂"], c: 2, exp: "Nhóm hydroxy (-OH) đặc trưng cho alcohol." },
+        { q: "Nhóm chức nào sau đây đặc trưng cho carboxylic acid?", opts: ["-OH", "-CHO", "-COOH", "-COO-"], c: 2, exp: "Nhóm carboxyl (-COOH) đặc trưng cho carboxylic acid." },
+        { q: "Đặc điểm chung về tính tan của đa số hợp chất hữu cơ là:", opts: ["Tan tốt trong nước, không tan trong dung môi hữu cơ", "Ít tan hoặc không tan trong nước, tan trong dung môi hữu cơ", "Tan vô hạn trong mọi dung môi", "Không tan trong bất kỳ dung môi nào"], c: 1, exp: "Đa số chất hữu cơ kém phân cực nên ít tan trong nước, tan tốt trong dung môi hữu cơ." },
+        { q: "Phương pháp nào dùng để tách các chất lỏng có nhiệt độ sôi khác nhau đáng kể?", opts: ["Chiết lỏng - lỏng", "Chưng cất", "Kết tinh", "Sắc kí"], c: 1, exp: "Chưng cất dựa vào sự khác nhau về nhiệt độ sôi." },
+        { q: "Dụng cụ dùng để tách hai chất lỏng không trộn lẫn vào nhau là:", opts: ["Ống nghiệm", "Phễu chiết", "Bình cầu chưng cất", "Cốc đong"], c: 1, exp: "Phễu chiết dùng trong phương pháp chiết lỏng - lỏng." },
+        { q: "Hoạt động ngâm rượu thuốc hay hãm trà là ứng dụng của phương pháp:", opts: ["Chưng cất", "Chiết lỏng - rắn", "Kết tinh lại", "Sắc kí cột"], c: 1, exp: "Hòa tan chất từ pha rắn vào pha lỏng là chiết lỏng - rắn." },
+        { q: "Phương pháp kết tinh dùng để tinh chế các chất ở trạng thái nào?", opts: ["Chất khí", "Chất rắn", "Chất lỏng", "Hỗn hợp khí"], c: 1, exp: "Kết tinh dùng để làm sạch và thu nhận các chất rắn." },
+        { q: "Đại lượng m/z của pic ion phân tử [M⁺] trong phổ khối lượng MS cho biết:", opts: ["Khối lượng của mẫu phân tích", "Phân tử khối của hợp chất", "Số lượng nguyên tử hydrogen", "Phần trăm khối lượng carbon"], c: 1, exp: "m/z của [M⁺] bằng phân tử khối M." },
+        { q: "Công thức đơn giản nhất cho biết thông tin gì?", opts: ["Số lượng nguyên tử thực tế", "Tỉ lệ số nguyên tử tối giản giữa các nguyên tố", "Cấu trúc không gian", "Vị trí nhóm chức"], c: 1, exp: "CTĐGN biểu diễn tỉ lệ nguyên tối giản giữa các nguyên tố." },
+        { q: "Hai chất C₂H₂ và C₆H₆ có cùng đặc điểm nào sau đây?", opts: ["Công thức phân tử", "Công thức đơn giản nhất", "Phân tử khối", "Tính chất hóa học"], c: 1, exp: "Cả hai đều có công thức đơn giản nhất là CH." },
+        { q: "Theo thuyết cấu tạo hóa học, nguyên tử carbon luôn có hóa trị mấy trong hợp chất hữu cơ?", opts: ["II", "III", "IV", "I"], c: 2, exp: "Carbon luôn có hóa trị IV." },
+        { q: "Hiện tượng các chất khác nhau nhưng có cùng công thức phân tử được gọi là:", opts: ["Hiện tượng đồng đẳng", "Hiện tượng đồng phân", "Hiện tượng dị thể", "Hiện tượng trùng hợp"], c: 1, exp: "Cùng CTPT nhưng khác CTCT là hiện tượng đồng phân." },
+        { q: "Cặp chất nào sau đây là đồng phân của nhau?", opts: ["CH₃-O-CH₃ và CH₃-CH₂-OH", "CH₄ và C₂H₆", "CH₃OH và C₂H₅OH", "CO₂ và SO₂"], c: 0, exp: "Cùng CTPT là C₂H₆O nhưng khác cấu tạo." },
+        { q: "Các chất hơn kém nhau một hay nhiều nhóm -CH₂- và có tính chất hóa học tương tự nhau gọi là:", opts: ["Chất đồng phân", "Chất đồng vị", "Chất đồng đẳng", "Chất đồng khối"], c: 2, exp: "Định nghĩa dãy đồng đẳng." },
+        { q: "Điều kiện để alkene có đồng phân hình học cis - trans là:", opts: ["Phân tử có mạch vòng", "Mỗi C nối đôi liên kết với 2 nhóm nguyên tử khác nhau", "Có từ 2 liên kết đôi trở lên", "Khối lượng phân tử lớn hơn 60"], c: 1, exp: "Dạng R₁R₂C=CR₃R₄ với R₁ ≠ R₂ và R₃ ≠ R₄." },
+        { q: "Chất nào sau đây có đồng phân hình học cis - trans?", opts: ["Ethene (CH₂=CH₂)", "Propene (CH₂=CH-CH₃)", "But-2-ene (CH₃-CH=CH-CH₃)", "But-1-ene (CH₂=CH-CH₂-CH₃)"], c: 2, exp: "But-2-ene có dạng đối xứng với mỗi C liên kết H và CH₃." },
+        { q: "Hydrocarbon butane (C₄H₁₀) có bao nhiêu đồng phân cấu tạo?", opts: ["1", "2", "3", "4"], c: 1, exp: "Gồm butane và 2-methylpropane (2 đồng phân)." },
+        { q: "Khi đốt cháy hoàn toàn hydrocarbon X thu được nCO₂ = nH₂O. Dãy đồng đẳng của X là:", opts: ["Alkane", "Alkene", "Alkyne", "Arene"], c: 1, exp: "Đốt cháy alkene CₙH₂ₙ cho nCO₂ = nH₂O." }
+      ];
+
+      for (let i = 0; i < 21; i++) {
+        const item = mcqBank[i];
+        let levelClass = i < 7 ? "level-nb" : (i < 16 ? "level-th" : "level-vd");
+        let levelName = i < 7 ? "Nhận biết" : (i < 16 ? "Thông hiểu" : "Vận dụng");
+        mcq.push({
+          id: `${lessonKey}_c${i+1}`,
+          num: i + 1,
+          type: "mcq",
+          levelClass,
+          levelName,
+          title: `Câu ${i + 1}: ${item.q}`,
+          options: item.opts,
+          correct: item.c,
+          explanation: item.exp
+        });
+      }
+
+      // 2. CÂU 22 ĐẾN 25: ĐÚNG / SAI (4 Ý MỖI CÂU)
+      const tfBank = [
+        {
+          num: 22,
+          levelClass: "level-th",
+          levelName: "Thông hiểu",
+          title: "Câu 22: Xem xét các phát biểu về khái niệm và đặc điểm của hợp chất hữu cơ:",
+          statements: [
+            { text: "Tất cả các hợp chất chứa nguyên tố carbon đều là hợp chất hữu cơ.", ans: false },
+            { text: "Liên kết hóa học trong phân tử hợp chất hữu cơ chủ yếu là liên kết cộng hóa trị.", ans: true },
+            { text: "Hợp chất hữu cơ thường có nhiệt độ nóng chảy thấp và dễ cháy hơn hợp chất vô cơ ion.", ans: true },
+            { text: "Phản ứng của các chất hữu cơ thường diễn ra nhanh, tức thì và chỉ cho một sản phẩm duy nhất.", ans: false }
+          ],
+          explanation: "Ý 1 sai vì CO, CO₂, muối carbonate... là vô cơ. Ý 4 sai vì phản ứng hữu cơ thường chậm và tạo hỗn hợp sản phẩm."
+        },
+        {
+          num: 23,
+          levelClass: "level-th",
+          levelName: "Thông hiểu",
+          title: "Câu 23: Về các phương pháp tách biệt và tinh chế hợp chất hữu cơ:",
+          statements: [
+            { text: "Phương pháp chưng cất dùng để tách các chất lỏng có nhiệt độ sôi khác nhau.", ans: true },
+            { text: "Phương pháp chiết lỏng - lỏng dùng phễu chiết để tách hỗn hợp nước và cồn ethanol.", ans: false },
+            { text: "Dung môi dùng trong kết tinh lại phải hòa tan tốt chất ở nhiệt độ cao và kém ở nhiệt độ thấp.", ans: true },
+            { text: "Trong sắc kí cột, chất bị hấp phụ mạnh hơn trên pha tĩnh sẽ di chuyển ra khỏi cột trước.", ans: false }
+          ],
+          explanation: "Ý 2 sai vì ethanol và nước tan vô hạn vào nhau không phân lớp nên không thể chiết. Ý 4 sai vì chất bị hấp phụ yếu hơn mới ra trước."
+        },
+        {
+          num: 24,
+          levelClass: "level-vd",
+          levelName: "Vận dụng",
+          title: "Câu 24: Về công thức phân tử và phổ khối lượng MS:",
+          statements: [
+            { text: "Pic ion phân tử [M⁺] trên phổ MS có giá trị m/z tương ứng với phân tử khối của chất.", ans: true },
+            { text: "Hai chất có cùng công thức phân tử thì luôn có cùng công thức đơn giản nhất.", ans: true },
+            { text: "Hai chất có cùng công thức đơn giản nhất thì chắc chắn có cùng phân tử khối.", ans: false },
+            { text: "Hợp chất có CTĐGN là CH₂O và M = 60 có công thức phân tử là C₂H₄O₂.", ans: true }
+          ],
+          explanation: "Ý 3 sai vì ví dụ CH₂O (M=30) và C₂H₄O₂ (M=60) có cùng CTĐGN nhưng khác phân tử khối."
+        },
+        {
+          num: 25,
+          levelClass: "level-vd",
+          levelName: "Vận dụng",
+          title: "Câu 25: Về thuyết cấu tạo hóa học và hiện tượng đồng phân:",
+          statements: [
+            { text: "Trong phân tử hợp chất hữu cơ, nguyên tử carbon luôn thể hiện hóa trị IV.", ans: true },
+            { text: "Các chất có cấu tạo hóa học khác nhau thì có tính chất hóa học hoàn toàn giống nhau.", ans: false },
+            { text: "But-2-ene (CH₃-CH=CH-CH₃) tồn tại ở 2 dạng đồng phân hình học là cis và trans.", ans: true },
+            { text: "Hydrocarbon pentane (C₅H₁₂) có tất cả 3 đồng phân cấu tạo.", ans: true }
+          ],
+          explanation: "Ý 2 sai vì cấu tạo khác nhau thì tính chất khác nhau."
+        }
+      ];
+
+      tfBank.forEach(item => {
+        tf.push({
+          id: `${lessonKey}_c${item.num}`,
+          num: item.num,
+          type: "tf",
+          levelClass: item.levelClass,
+          levelName: item.levelName,
+          title: item.title,
+          statements: item.statements,
+          explanation: item.explanation
+        });
+      });
+
+      // 3. CÂU 26 ĐẾN 31: TRẢ LỜI NGẮN (KẾT QUẢ LÀ CON SỐ)
+      const shortBank = [
+        { num: 26, title: "Câu 26: Cho các chất: C₂H₆, CO, CH₃Cl, NaHCO₃, C₂H₅OH, CaCO₃. Có bao nhiêu chất là dẫn xuất của hydrocarbon?", ans: "2", exp: "Các chất là dẫn xuất hydrocarbon: CH₃Cl, C₂H₅OH (2 chất)." },
+        { num: 27, title: "Câu 27: Phân tử khối của hợp chất X có pic ion phân tử [M⁺] ở m/z = 46 trong phổ MS là bao nhiêu?", ans: "46", exp: "Phân tử khối M = m/z = 46 amu." },
+        { num: 28, title: "Câu 28: Ứng với công thức phân tử C₄H₁₀ có bao nhiêu đồng phân cấu tạo?", ans: "2", exp: "Gồm butane và 2-methylpropane (2 đồng phân)." },
+        { num: 29, title: "Câu 29: Ứng với công thức phân tử C₅H₁₂ có bao nhiêu đồng phân cấu tạo?", ans: "3", exp: "Gồm pentane, 2-methylbutane, 2,2-dimethylpropane (3 đồng phân)." },
+        { num: 30, title: "Câu 30: Đốt cháy hoàn toàn 0,1 mol một hydrocarbon X thu được 0,3 mol CO₂ và 0,4 mol H₂O. Số nguyên tử Hydrogen trong một phân tử X là bao nhiêu?", ans: "8", exp: "Số H = 2 * nH₂O / nX = 2 * 0,4 / 0,1 = 8 (X là C₃H₈)." },
+        { num: 31, title: "Câu 31: Một hydrocarbon Y có công thức đơn giản nhất là CH₂ và phân tử khối M = 56. Phân tử Y có bao nhiêu nguyên tử Carbon?", ans: "4", exp: "M = 14n = 56 => n = 4. Số nguyên tử Carbon là 4 (C₄H₈)." }
+      ];
+
+      shortBank.forEach(item => {
+        short.push({
+          id: `${lessonKey}_c${item.num}`,
+          num: item.num,
+          type: "short",
+          levelClass: "level-vd",
+          levelName: "Vận dụng",
+          title: item.title,
+          correctText: item.ans,
+          explanation: item.exp
+        });
+      });
+
+      // 4. CÂU 32 ĐẾN 48: TỰ LUẬN (17 CÂU)
+      const essayTitles = [
+        "Nêu định nghĩa hợp chất hữu cơ và hóa học hữu cơ. Cho ví dụ 2 hợp chất hữu cơ và 2 hợp chất vô cơ chứa carbon.",
+        "Trình bày 4 đặc điểm chung về cấu tạo và tính chất vật lý của các hợp chất hữu cơ.",
+        "Tại sao trong tự nhiên số lượng hợp chất hữu cơ (hàng chục triệu chất) lại nhiều hơn rất nhiều so với hợp chất vô cơ?",
+        "Giải thích nguyên tắc và các bước tiến hành tách hỗn hợp dầu ăn và nước bằng phễu chiết.",
+        "Nêu nguyên tắc hoạt động của phương pháp chưng cất thường. Lấy ví dụ thực tế.",
+        "Trình bày phương pháp chưng cất lôi cuốn hơi nước và ứng dụng trong sản xuất tinh dầu bưởi, sả.",
+        "Trình bày các bước tinh chế một chất rắn bằng phương pháp kết tinh lại trong dung môi thích hợp.",
+        "Thế nào là pha tĩnh và pha động trong phương pháp sắc kí cột? Chất nào sẽ ra khỏi cột trước?",
+        "Phân biệt khái niệm Công thức đơn giản nhất và Công thức phân tử. Cho ví dụ minh họa.",
+        "Trình bày cách xác định phân tử khối của hợp chất hữu cơ dựa vào phổ khối lượng (MS).",
+        "Đốt cháy hoàn toàn 4,4 gam chất X chứa C, H, O thu được 8,8 gam CO₂ và 3,6 gam H₂O. Tìm công thức đơn giản nhất của X.",
+        "Phát biểu 3 luận điểm cơ bản của Thuyết cấu tạo hóa học do A.M. Butlerov đề xướng.",
+        "Thế nào là hiện tượng đồng phân? Phân biệt đồng phân cấu tạo và đồng phân hình học.",
+        "Nêu điều kiện cần và đủ để một hợp chất có đồng phân hình học (cis - trans). Lấy ví dụ chất có và không có.",
+        "Viết công thức cấu tạo thu gọn và công thức khung xương của but-1-ene và but-2-ene.",
+        "Thế nào là dãy đồng đẳng? Cho ví dụ về dãy đồng đẳng của methane và dãy đồng đẳng của ethylene.",
+        "Giải thích vì sao ethanol (C₂H₅OH) có nhiệt độ sôi (78,3°C) cao hơn nhiều so với dimethyl ether (CH₃-O-CH₃, Ts = -24°C) dù có cùng CTPT C₂H₆O."
+      ];
+
+      for (let i = 0; i < 17; i++) {
+        const cNum = 32 + i;
+        essay.push({
+          id: `${lessonKey}_c${cNum}`,
+          num: cNum,
+          type: "essay",
+          levelClass: i < 5 ? "level-th" : (i < 13 ? "level-vd" : "level-vdc"),
+          levelName: i < 5 ? "Thông hiểu" : (i < 13 ? "Vận dụng" : "Vận dụng cao"),
+          title: `Câu ${cNum}: ${essayTitles[i]}`,
+          explanation: `Hướng dẫn giải chi tiết cho Câu ${cNum}:\n- Nắm vững kiến thức trọng tâm SGK Hóa học 11 Chương 3.\n- Trình bày rõ ràng các luận điểm, phương trình hóa học và công thức toán học liên quan.`
+        });
+      }
+
+      return { mcq, tf, short, essay };
+    }
+
+    /* ========================================================
+       STATE & LOCALSTORAGE
+       ======================================================== */
+    const STORAGE_KEY = "hoa11_chuong3_full_progress";
 
     let appState = {
       currentLesson: "home",
-      answers: {},        // { qId: { choice: val, isCorrect: bool, firstTryCorrect: bool, viewedSol: bool, attempts: int, status: "correct"|"wrong"|"unanswered" } }
-      showAllSolutions: false,
-      zoomLevels: {}
+      answers: {},        // { qId: { choice, tfChoices, inputText, evalScore, status, firstTryCorrect, viewedSol, attempts } }
+      showAllSolutions: false
     };
 
     function loadState() {
@@ -1646,51 +1673,47 @@
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
           const parsed = JSON.parse(saved);
-          if (parsed && parsed.answers) {
-            appState.answers = parsed.answers;
-          }
+          if (parsed && parsed.answers) appState.answers = parsed.answers;
         }
       } catch (e) {
-        console.error("Error reading localStorage:", e);
+        console.error(e);
       }
     }
 
     function saveState() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-          answers: appState.answers
-        }));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers: appState.answers }));
       } catch (e) {
-        console.error("Error saving to localStorage:", e);
+        console.error(e);
       }
       updateNavbarProgress();
     }
 
     /* ========================================================
-       VIEW SWITCHING
+       NAVIGATION & VIEWS
        ======================================================== */
     function showView(viewName) {
-      const viewHome = document.getElementById("view-home");
-      const viewLesson = document.getElementById("view-lesson");
+      const vHome = document.getElementById("view-home");
+      const vLesson = document.getElementById("view-lesson");
       const topActions = document.getElementById("top-actions-bar");
       const topTitle = document.getElementById("top-title-text");
 
       if (viewName === "home") {
-        viewHome.style.display = "block";
-        viewLesson.style.display = "none";
+        vHome.style.display = "block";
+        vLesson.style.display = "none";
         topActions.style.display = "none";
         topTitle.textContent = "Hóa học 11 có tương tác";
         appState.currentLesson = "home";
         window.scrollTo(0, 0);
       } else {
-        viewHome.style.display = "none";
-        viewLesson.style.display = "block";
+        vHome.style.display = "none";
+        vLesson.style.display = "block";
         topActions.style.display = "flex";
       }
     }
 
     function openLesson(lessonKey) {
-      const lesson = LESSONS_DATA[lessonKey];
+      const lesson = LESSONS_DATABASE[lessonKey];
       if (!lesson) return;
 
       appState.currentLesson = lessonKey;
@@ -1698,325 +1721,469 @@
 
       document.getElementById("top-title-text").textContent = lesson.title.toUpperCase();
       document.getElementById("lesson-page-title").textContent = lesson.title;
-      
-      // Render theory
-      document.getElementById("lesson-theory-content").innerHTML = lesson.theoryHtml;
 
-      // Render questions
-      renderQuestions(lesson.questions);
+      renderTheory(lesson.theory);
+      renderMethods(lesson.methods);
+
+      const exercises = generateExercisesForLesson(lessonKey);
+      renderExercises(exercises);
 
       updateNavbarProgress();
       window.scrollTo(0, 0);
     }
 
     /* ========================================================
-       RENDER CÂU HỎI & TƯƠNG TÁC
+       RENDER THEORY (PHẦN 1)
        ======================================================== */
-    function renderQuestions(questions) {
-      const container = document.getElementById("lesson-questions-content");
+    function renderTheory(theoryList) {
+      const container = document.getElementById("lesson-theory-container");
+      let html = "";
+      theoryList.forEach(item => {
+        if (item.type === "tom_tat") {
+          html += `
+            <div class="box-tom-tat">
+              <div class="box-tom-tat-header">📖 Tóm tắt</div>
+              <div class="box-tom-tat-body">${item.content}</div>
+            </div>
+          `;
+        } else if (item.type === "nhan_xet") {
+          const icon = item.isWarning ? "⚠️" : "💡";
+          html += `
+            <div class="box-nhan-xet">
+              <div class="box-nhan-xet-header">${icon} ${item.title}</div>
+              <div class="box-nhan-xet-content">${item.content}</div>
+            </div>
+          `;
+        }
+      });
+      container.innerHTML = html;
+    }
+
+    /* ========================================================
+       RENDER METHODS & EXAMPLES (PHẦN 2: 9 VÍ DỤ)
+       ======================================================== */
+    function renderMethods(methodsList) {
+      const container = document.getElementById("lesson-methods-container");
       let html = "";
 
-      questions.forEach((q, idx) => {
-        const qState = appState.answers[q.id] || { status: "unanswered", attempts: 0, viewedSol: false };
-        let statusClass = "";
-        if (qState.status === "correct") statusClass = "status-correct";
-        else if (qState.status === "wrong") statusClass = "status-wrong";
-
-        let typeLabel = "Trắc nghiệm";
-        if (q.type === "tf") typeLabel = "Đúng/Sai";
-        else if (q.type === "short") typeLabel = "Trả lời ngắn";
-        else if (q.type === "essay") typeLabel = "Tự luận";
-
+      methodsList.forEach((m, mIdx) => {
         html += `
-          <div class="question-card ${statusClass}" id="card-${q.id}" data-category="${q.category}" data-type="${q.type}" data-qid="${q.id}">
-            <div class="q-meta">
-              <span><strong>${idx + 1}.</strong> ${q.category === 'vd' ? 'Ví dụ trọng tâm' : 'Bài tập'}</span>
-              <span class="q-type-badge">${typeLabel}</span>
+          <div class="dang-card">
+            <div class="dang-header">
+              <span class="dang-header-pill">Dạng ${mIdx + 1}</span>
+              <span>${m.name.replace(/^Dạng \d+:\s*/, '')}</span>
             </div>
-            
-            <div class="q-title">${q.title}</div>
-        `;
-
-        // Render input by type
-        if (q.type === "mcq") {
-          html += `<div class="options-grid">`;
-          q.options.forEach((opt, optIdx) => {
-            let choiceClass = "";
-            if (qState.choice === optIdx) {
-              choiceClass = "selected";
-              if (qState.status === "correct") choiceClass += " correct-choice";
-              else if (qState.status === "wrong") choiceClass += " wrong-choice";
-            } else if (qState.viewedSol && optIdx === q.correct) {
-              choiceClass += " correct-choice";
-            }
-            html += `
-              <div class="option-item ${choiceClass}" onclick="selectOption('${q.id}', ${optIdx})">
-                <div class="opt-circle">${String.fromCharCode(65 + optIdx)}</div>
-                <div class="opt-text">${opt}</div>
-              </div>
-            `;
-          });
-          html += `</div>`;
-        } 
-        else if (q.type === "tf") {
-          html += `
-            <table class="tf-table">
-              <thead>
-                <tr>
-                  <th>Nội dung phát biểu</th>
-                  <th style="width: 140px; text-align: center;">Lựa chọn</th>
-                </tr>
-              </thead>
-              <tbody>
-          `;
-          q.statements.forEach((stmt, sIdx) => {
-            const currentVal = qState.tfChoices ? qState.tfChoices[sIdx] : null;
-            const trueActive = currentVal === true ? 'active-true' : '';
-            const falseActive = currentVal === false ? 'active-false' : '';
-            html += `
-              <tr>
-                <td><strong>${String.fromCharCode(97 + sIdx)})</strong> ${stmt.text}</td>
-                <td>
-                  <div class="tf-btn-group">
-                    <button class="tf-btn ${trueActive}" onclick="selectTF('${q.id}', ${sIdx}, true)">Đúng</button>
-                    <button class="tf-btn ${falseActive}" onclick="selectTF('${q.id}', ${sIdx}, false)">Sai</button>
-                  </div>
-                </td>
-              </tr>
-            `;
-          });
-          html += `</tbody></table>`;
-        } 
-        else if (q.type === "short") {
-          const val = qState.inputText || "";
-          html += `
-            <div class="short-input-group">
-              <input type="text" id="input-${q.id}" placeholder="Nhập đáp án của em..." value="${val}" onchange="saveShortInput('${q.id}', this.value)">
-              <button class="btn-action btn-check" onclick="checkShortAnswer('${q.id}')">Kiểm tra</button>
-            </div>
-          `;
-        }
-        else if (q.type === "essay") {
-          html += `
-            <div class="essay-box">
-              <textarea style="width: 100%; min-height: 80px; padding: 8px; border: 1px solid #d2d0ce; border-radius: 4px; font-family: inherit;" 
-                placeholder="Em có thể tự ghi nháp câu trả lời vào đây..." id="essay-text-${q.id}" onchange="saveEssayDraft('${q.id}', this.value)">${qState.draftText || ''}</textarea>
-              <div style="margin-top: 10px; font-size: 13.5px; font-weight: 600;">Tự đánh giá kết quả của em sau khi đối chiếu lời giải:</div>
-              <div class="essay-evaluation-btns">
-                <button class="eval-btn correct ${qState.evalScore === 'correct' ? 'active' : ''}" onclick="rateEssay('${q.id}', 'correct')">✓ Đúng hoàn toàn</button>
-                <button class="eval-btn partial ${qState.evalScore === 'partial' ? 'active' : ''}" onclick="rateEssay('${q.id}', 'partial')">~ Đúng một phần</button>
-                <button class="eval-btn wrong ${qState.evalScore === 'wrong' ? 'active' : ''}" onclick="rateEssay('${q.id}', 'wrong')">✗ Chưa đúng</button>
-              </div>
-            </div>
-          `;
-        }
-
-        // Explanation & Action bar
-        const isExpShown = appState.showAllSolutions || qState.viewedSol;
-        html += `
-            <div class="explanation-box ${isExpShown ? 'show' : ''}" id="exp-${q.id}">
-              <strong>💡 Lời giải chi tiết:</strong><br>
-              <div style="margin-top: 5px; white-space: pre-line;">${q.explanation || q.correctText}</div>
-            </div>
-
-            <div class="q-action-bar">
-              <div>
-                ${q.type === 'mcq' ? `<button class="btn-action btn-check" onclick="checkMCQAnswer('${q.id}')">Kiểm tra đáp án</button>` : ''}
-                ${q.type === 'tf' ? `<button class="btn-action btn-check" onclick="checkTFAnswer('${q.id}')">Kiểm tra kết quả</button>` : ''}
-                <button class="btn-action btn-retry" onclick="resetQuestion('${q.id}')">🔄 Thử lại</button>
-              </div>
-              <button class="btn-action btn-toggle-exp" onclick="toggleExplanation('${q.id}')">
-                ${isExpShown ? '🙈 Ẩn giải thích' : '👁 Xem lời giải'}
-              </button>
-            </div>
-
+            <div class="dang-body">${m.content}</div>
           </div>
         `;
+
+        // Render các ví dụ của dạng này
+        m.examples.forEach(vd => {
+          const qState = appState.answers[vd.id] || { status: "unanswered" };
+          let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
+          const isExpShow = appState.showAllSolutions || qState.viewedSol;
+
+          html += `
+            <div class="item-card ${statusClass}" id="card-${vd.id}" data-category="vd" data-type="essay" data-qid="${vd.id}">
+              <div class="item-top-row">
+                <span class="badge-vd">Ví dụ ${vd.num}</span>
+                <span class="badge-level ${vd.level}">${vd.levelName}</span>
+              </div>
+              <div class="item-title">${vd.title}</div>
+
+              <!-- Lời giải & Nút -->
+              <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${vd.id}">
+                <strong>💡 Lời giải chi tiết:</strong><br>
+                <div style="margin-top: 5px; white-space: pre-line;">${vd.solution}</div>
+              </div>
+
+              <div class="item-bottom-actions">
+                <button class="btn-card-action btn-sol" onclick="toggleExplanation('${vd.id}', true)">
+                  ${isExpShow ? '🙈 Ẩn lời giải' : '👁 Xem lời giải'}
+                </button>
+                <button class="btn-card-action btn-retry-card" onclick="markExampleReviewed('${vd.id}')">
+                  📌 Ôn lại
+                </button>
+              </div>
+            </div>
+          `;
+        });
       });
 
       container.innerHTML = html;
     }
 
     /* ========================================================
-       XỬ LÝ TRẢ LỜI CÁC LOẠI CÂU HỎI
+       RENDER 48 CÂU LUYỆN TẬP
        ======================================================== */
-    function findQuestion(qId) {
-      for (const key in LESSONS_DATA) {
-        const found = LESSONS_DATA[key].questions.find(q => q.id === qId);
-        if (found) return found;
-      }
-      return null;
-    }
+    function renderExercises(ex) {
+      // 1. Trắc nghiệm (Câu 1 - 21)
+      const mcqBox = document.getElementById("exercise-mcq-container");
+      let mcqHtml = "";
+      ex.mcq.forEach(q => {
+        const qState = appState.answers[q.id] || { status: "unanswered" };
+        let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
+        const isExpShow = appState.showAllSolutions || qState.viewedSol;
 
-    function selectOption(qId, optIdx) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
-      }
-      appState.answers[qId].choice = optIdx;
-      // Auto check on select for friendly experience
-      checkMCQAnswer(qId);
-    }
+        mcqHtml += `
+          <div class="item-card ${statusClass}" id="card-${q.id}" data-category="bt" data-type="mcq" data-qid="${q.id}">
+            <div class="item-top-row">
+              <span class="badge-cau">Câu ${q.num}</span>
+              <span class="badge-type">Trắc nghiệm</span>
+              <span class="badge-level ${q.levelClass}">${q.levelName}</span>
+            </div>
+            <div class="item-title">${q.title}</div>
+            
+            <div class="options-container">
+        `;
+        q.options.forEach((opt, optIdx) => {
+          let optClass = "";
+          if (qState.choice === optIdx) {
+            optClass = "selected";
+            if (qState.status === "correct") optClass += " correct-choice";
+            else if (qState.status === "wrong") optClass += " wrong-choice";
+          } else if (qState.viewedSol && optIdx === q.correct) {
+            optClass += " correct-choice";
+          }
+          mcqHtml += `
+            <div class="option-row ${optClass}" onclick="handleMCQSelect('${q.id}', ${optIdx}, ${q.correct})">
+              <span class="opt-letter">${String.fromCharCode(65 + optIdx)}.</span>
+              <span>${opt}</span>
+            </div>
+          `;
+        });
+        mcqHtml += `
+            </div>
+            
+            <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${q.id}">
+              <strong>💡 Lời giải:</strong> ${q.explanation}
+            </div>
 
-    function checkMCQAnswer(qId) {
-      const q = findQuestion(qId);
-      const qState = appState.answers[qId];
-      if (!q || !qState || qState.choice === undefined) {
-        alert("Vui lòng chọn một đáp án trước!");
-        return;
-      }
-
-      qState.attempts = (qState.attempts || 0) + 1;
-      const isCorrect = (qState.choice === q.correct);
-      
-      qState.isCorrect = isCorrect;
-      qState.status = isCorrect ? "correct" : "wrong";
-      if (isCorrect && qState.attempts === 1 && !qState.viewedSol) {
-        qState.firstTryCorrect = true;
-      }
-
-      saveState();
-      // re-render single card or refresh
-      updateCardUI(qId);
-    }
-
-    function selectTF(qId, stmtIdx, boolVal) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false, tfChoices: {} };
-      }
-      if (!appState.answers[qId].tfChoices) {
-        appState.answers[qId].tfChoices = {};
-      }
-      appState.answers[qId].tfChoices[stmtIdx] = boolVal;
-      saveState();
-      updateCardUI(qId);
-    }
-
-    function checkTFAnswer(qId) {
-      const q = findQuestion(qId);
-      const qState = appState.answers[qId];
-      if (!q || !qState || !qState.tfChoices) {
-        alert("Em vui lòng chọn Đúng hoặc Sai cho các phát biểu!");
-        return;
-      }
-
-      let allAnswered = true;
-      let allCorrect = true;
-
-      q.statements.forEach((stmt, idx) => {
-        if (qState.tfChoices[idx] === undefined) allAnswered = false;
-        if (qState.tfChoices[idx] !== stmt.ans) allCorrect = false;
+            <div class="item-bottom-actions">
+              <button class="btn-card-action btn-sol" onclick="toggleExplanation('${q.id}')">
+                ${isExpShow ? '🙈 Ẩn lời giải' : '👁 Xem lời giải'}
+              </button>
+              <button class="btn-card-action btn-retry-card" onclick="resetQuestion('${q.id}')">
+                📌 Ôn lại
+              </button>
+            </div>
+          </div>
+        `;
       });
+      mcqBox.innerHTML = mcqHtml;
 
-      if (!allAnswered) {
-        alert("Em cần chọn đầy đủ Đúng/Sai cho tất cả các ý!");
-        return;
-      }
+      // 2. Đúng/Sai (Câu 22 - 25)
+      const tfBox = document.getElementById("exercise-tf-container");
+      let tfHtml = "";
+      ex.tf.forEach(q => {
+        const qState = appState.answers[q.id] || { status: "unanswered", tfChoices: {} };
+        let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
+        const isExpShow = appState.showAllSolutions || qState.viewedSol;
 
-      qState.attempts = (qState.attempts || 0) + 1;
-      qState.isCorrect = allCorrect;
-      qState.status = allCorrect ? "correct" : "wrong";
-      if (allCorrect && qState.attempts === 1 && !qState.viewedSol) {
-        qState.firstTryCorrect = true;
-      }
+        tfHtml += `
+          <div class="item-card ${statusClass}" id="card-${q.id}" data-category="bt" data-type="tf" data-qid="${q.id}">
+            <div class="item-top-row">
+              <span class="badge-cau">Câu ${q.num}</span>
+              <span class="badge-type">Đúng/Sai</span>
+              <span class="badge-level ${q.levelClass}">${q.levelName}</span>
+            </div>
+            <div class="item-title">${q.title}</div>
 
-      saveState();
-      updateCardUI(qId);
-      if (allCorrect) {
-        alert("🎉 Chính xác! Em đã nhận định đúng tất cả các ý.");
-      } else {
-        alert("Chưa chính xác toàn bộ. Em hãy xem lại những ý chưa đúng hoặc ấn Thử lại nhé!");
-      }
+            <table class="tf-table-box">
+              <tbody>
+        `;
+        q.statements.forEach((st, sIdx) => {
+          const currentVal = qState.tfChoices ? qState.tfChoices[sIdx] : null;
+          tfHtml += `
+            <tr>
+              <td><strong>${String.fromCharCode(97 + sIdx)})</strong> ${st.text}</td>
+              <td style="width: 140px;">
+                <div class="tf-actions">
+                  <button class="btn-tf ${currentVal === true ? 'active-true' : ''}" onclick="selectTFChoice('${q.id}', ${sIdx}, true)">Đúng</button>
+                  <button class="btn-tf ${currentVal === false ? 'active-false' : ''}" onclick="selectTFChoice('${q.id}', ${sIdx}, false)">Sai</button>
+                </div>
+              </td>
+            </tr>
+          `;
+        });
+        tfHtml += `
+              </tbody>
+            </table>
+
+            <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${q.id}">
+              <strong>💡 Lời giải chi tiết:</strong> ${q.explanation}
+            </div>
+
+            <div class="item-bottom-actions">
+              <button class="btn-card-action" style="background: #0078d4; color: white;" onclick="checkTF('${q.id}', ${JSON.stringify(q.statements).replace(/"/g, '&quot;')})">
+                Kiểm tra
+              </button>
+              <button class="btn-card-action btn-sol" onclick="toggleExplanation('${q.id}')">
+                ${isExpShow ? '🙈 Ẩn lời giải' : '👁 Xem lời giải'}
+              </button>
+              <button class="btn-card-action btn-retry-card" onclick="resetQuestion('${q.id}')">
+                📌 Ôn lại
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      tfBox.innerHTML = tfHtml;
+
+      // 3. Trả lời ngắn (Câu 26 - 31)
+      const shortBox = document.getElementById("exercise-short-container");
+      let shortHtml = "";
+      ex.short.forEach(q => {
+        const qState = appState.answers[q.id] || { status: "unanswered", inputText: "" };
+        let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
+        const isExpShow = appState.showAllSolutions || qState.viewedSol;
+
+        shortHtml += `
+          <div class="item-card ${statusClass}" id="card-${q.id}" data-category="bt" data-type="short" data-qid="${q.id}">
+            <div class="item-top-row">
+              <span class="badge-cau">Câu ${q.num}</span>
+              <span class="badge-type">Trả lời ngắn</span>
+              <span class="badge-level ${q.levelClass}">${q.levelName}</span>
+            </div>
+            <div class="item-title">${q.title}</div>
+
+            <div class="short-input-row">
+              <input type="text" id="input-${q.id}" placeholder="Nhập đáp án con số..." value="${qState.inputText || ''}" onchange="saveShortText('${q.id}', this.value)">
+              <button class="btn-submit-short" onclick="checkShortAnswer('${q.id}', '${q.correctText}')">Kiểm tra</button>
+            </div>
+
+            <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${q.id}">
+              <strong>💡 Lời giải & Kết quả:</strong> ${q.explanation}
+            </div>
+
+            <div class="item-bottom-actions">
+              <button class="btn-card-action btn-sol" onclick="toggleExplanation('${q.id}')">
+                ${isExpShow ? '🙈 Ẩn lời giải' : '👁 Xem lời giải'}
+              </button>
+              <button class="btn-card-action btn-retry-card" onclick="resetQuestion('${q.id}')">
+                📌 Ôn lại
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      shortBox.innerHTML = shortHtml;
+
+      // 4. Tự luận (Câu 32 - 48)
+      const essayBox = document.getElementById("exercise-essay-container");
+      let essayHtml = "";
+      ex.essay.forEach(q => {
+        const qState = appState.answers[q.id] || { status: "unanswered", evalScore: null };
+        let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
+        const isExpShow = appState.showAllSolutions || qState.viewedSol;
+
+        essayHtml += `
+          <div class="item-card ${statusClass}" id="card-${q.id}" data-category="bt" data-type="essay" data-qid="${q.id}">
+            <div class="item-top-row">
+              <span class="badge-cau">Câu ${q.num}</span>
+              <span class="badge-type">Tự luận</span>
+              <span class="badge-level ${q.levelClass}">${q.levelName}</span>
+            </div>
+            <div class="item-title">${q.title}</div>
+
+            <textarea class="essay-area" placeholder="Em có thể tự ghi tóm tắt lời giải hoặc hướng làm vào đây..." onchange="saveEssayText('${q.id}', this.value)">${qState.draftText || ''}</textarea>
+
+            <div class="essay-eval-group">
+              <span style="font-size: 13px; font-weight: 600; color: #475569;">Tự đánh giá sau khi đối chiếu:</span>
+              <button class="btn-eval ${qState.evalScore === 'correct' ? 'active-good' : ''}" onclick="rateEssayItem('${q.id}', 'correct')">✓ Đúng</button>
+              <button class="btn-eval ${qState.evalScore === 'partial' ? 'active-half' : ''}" onclick="rateEssayItem('${q.id}', 'partial')">~ Đúng một phần</button>
+              <button class="btn-eval ${qState.evalScore === 'wrong' ? 'active-bad' : ''}" onclick="rateEssayItem('${q.id}', 'wrong')">✗ Sai</button>
+            </div>
+
+            <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${q.id}">
+              <strong>💡 Hướng dẫn & Đáp án:</strong><br>${q.explanation}
+            </div>
+
+            <div class="item-bottom-actions">
+              <button class="btn-card-action btn-sol" onclick="toggleExplanation('${q.id}')">
+                ${isExpShow ? '🙈 Ẩn lời giải' : '👁 Xem lời giải'}
+              </button>
+              <button class="btn-card-action btn-retry-card" onclick="resetQuestion('${q.id}')">
+                📌 Ôn lại
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      essayBox.innerHTML = essayHtml;
     }
 
-    function saveShortInput(qId, val) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
-      }
-      appState.answers[qId].inputText = val;
-      saveState();
-    }
-
-    function checkShortAnswer(qId) {
-      const q = findQuestion(qId);
-      const qState = appState.answers[qId];
-      const inputElem = document.getElementById(`input-${qId}`);
-      const val = (inputElem ? inputElem.value : (qState ? qState.inputText : "")) || "";
-
-      if (!val.trim()) {
-        alert("Em vui lòng nhập đáp án!");
-        return;
-      }
-
+    /* ========================================================
+       QUESTION INTERACTION HANDLERS
+       ======================================================== */
+    function handleMCQSelect(qId, choiceIdx, correctIdx) {
       if (!appState.answers[qId]) {
         appState.answers[qId] = { attempts: 0, viewedSol: false };
       }
       const st = appState.answers[qId];
-      st.inputText = val;
+      st.choice = choiceIdx;
       st.attempts = (st.attempts || 0) + 1;
-
-      // So khớp đáp án không phân biệt hoa thường và khoảng trắng
-      const cleanUser = val.trim().toLowerCase().replace(/\s+/g, '');
-      const cleanTarget = q.correctText.toLowerCase().replace(/\s+/g, '');
-      const isCorrect = cleanUser === cleanTarget || cleanUser.includes(cleanTarget);
-
+      const isCorrect = (choiceIdx === correctIdx);
       st.isCorrect = isCorrect;
       st.status = isCorrect ? "correct" : "wrong";
       if (isCorrect && st.attempts === 1 && !st.viewedSol) {
         st.firstTryCorrect = true;
       }
-
       saveState();
-      updateCardUI(qId);
 
-      if (isCorrect) {
-        alert("🎉 Hoan hô! Đáp án rất chính xác.");
-      } else {
-        alert("Đáp án chưa đúng. Em hãy kiểm tra lại đề bài hoặc thử lại nhé!");
+      // Update UI card
+      const card = document.getElementById(`card-${qId}`);
+      if (card) {
+        card.classList.remove("status-correct", "status-wrong");
+        card.classList.add(isCorrect ? "status-correct" : "status-wrong");
+        const rows = card.querySelectorAll(".option-row");
+        rows.forEach((r, idx) => {
+          r.classList.remove("selected", "correct-choice", "wrong-choice");
+          if (idx === choiceIdx) {
+            r.classList.add("selected", isCorrect ? "correct-choice" : "wrong-choice");
+          }
+        });
       }
     }
 
-    function saveEssayDraft(qId, val) {
+    function selectTFChoice(qId, sIdx, val) {
       if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
+        appState.answers[qId] = { attempts: 0, viewedSol: false, tfChoices: {} };
       }
+      if (!appState.answers[qId].tfChoices) appState.answers[qId].tfChoices = {};
+      appState.answers[qId].tfChoices[sIdx] = val;
+      saveState();
+
+      const card = document.getElementById(`card-${qId}`);
+      if (card) {
+        const row = card.querySelectorAll("tbody tr")[sIdx];
+        if (row) {
+          const btns = row.querySelectorAll(".btn-tf");
+          btns[0].classList.toggle("active-true", val === true);
+          btns[1].classList.toggle("active-false", val === false);
+        }
+      }
+    }
+
+    function checkTF(qId, statements) {
+      const st = appState.answers[qId];
+      if (!st || !st.tfChoices) {
+        alert("Em vui lòng chọn Đúng hoặc Sai cho các phát biểu!");
+        return;
+      }
+      let allAnswered = true;
+      let allCorrect = true;
+      statements.forEach((item, idx) => {
+        if (st.tfChoices[idx] === undefined) allAnswered = false;
+        if (st.tfChoices[idx] !== item.ans) allCorrect = false;
+      });
+      if (!allAnswered) {
+        alert("Em cần chọn đầy đủ Đúng/Sai cho cả 4 ý a, b, c, d!");
+        return;
+      }
+      st.attempts = (st.attempts || 0) + 1;
+      st.isCorrect = allCorrect;
+      st.status = allCorrect ? "correct" : "wrong";
+      if (allCorrect && st.attempts === 1 && !st.viewedSol) st.firstTryCorrect = true;
+      saveState();
+
+      const card = document.getElementById(`card-${qId}`);
+      if (card) {
+        card.classList.remove("status-correct", "status-wrong");
+        card.classList.add(allCorrect ? "status-correct" : "status-wrong");
+      }
+      alert(allCorrect ? "🎉 Xuất sắc! Em đã nhận định đúng cả 4 ý." : "Chưa chính xác toàn bộ. Em hãy xem lại những ý chưa đúng hoặc ấn Ôn lại nhé!");
+    }
+
+    function saveShortText(qId, val) {
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
+      appState.answers[qId].inputText = val;
+      saveState();
+    }
+
+    function checkShortAnswer(qId, target) {
+      const input = document.getElementById(`input-${qId}`);
+      const val = (input ? input.value : "").trim();
+      if (!val) {
+        alert("Em hãy nhập kết quả con số!");
+        return;
+      }
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
+      const st = appState.answers[qId];
+      st.inputText = val;
+      st.attempts = (st.attempts || 0) + 1;
+
+      // Clean compare
+      const isCorrect = (val.replace(/\s+/g, '') === target.replace(/\s+/g, ''));
+      st.isCorrect = isCorrect;
+      st.status = isCorrect ? "correct" : "wrong";
+      if (isCorrect && st.attempts === 1 && !st.viewedSol) st.firstTryCorrect = true;
+      saveState();
+
+      const card = document.getElementById(`card-${qId}`);
+      if (card) {
+        card.classList.remove("status-correct", "status-wrong");
+        card.classList.add(isCorrect ? "status-correct" : "status-wrong");
+      }
+      alert(isCorrect ? "🎉 Chính xác!" : "Đáp án chưa đúng. Em hãy kiểm tra lại nhé!");
+    }
+
+    function saveEssayText(qId, val) {
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
       appState.answers[qId].draftText = val;
       saveState();
     }
 
-    function rateEssay(qId, rating) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
-      }
+    function rateEssayItem(qId, score) {
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
       const st = appState.answers[qId];
-      st.evalScore = rating;
-      st.status = rating === 'correct' ? 'correct' : (rating === 'partial' ? 'correct' : 'wrong');
-      st.isCorrect = (rating === 'correct');
+      st.evalScore = score;
       st.attempts = (st.attempts || 0) + 1;
+      st.status = score === 'correct' ? 'correct' : (score === 'partial' ? 'correct' : 'wrong');
+      st.isCorrect = (score === 'correct');
       saveState();
-      updateCardUI(qId);
+
+      const card = document.getElementById(`card-${qId}`);
+      if (card) {
+        card.classList.remove("status-correct", "status-wrong");
+        card.classList.add(st.status === 'correct' ? "status-correct" : "status-wrong");
+        const btns = card.querySelectorAll(".btn-eval");
+        btns.forEach(b => b.classList.remove("active-good", "active-half", "active-bad"));
+        if (score === 'correct') btns[0].classList.add("active-good");
+        if (score === 'partial') btns[1].classList.add("active-half");
+        if (score === 'wrong') btns[2].classList.add("active-bad");
+      }
+    }
+
+    function markExampleReviewed(qId) {
+      resetQuestion(qId);
     }
 
     function resetQuestion(qId) {
       if (appState.answers[qId]) {
         delete appState.answers[qId];
         saveState();
-        updateCardUI(qId);
+        const card = document.getElementById(`card-${qId}`);
+        if (card) {
+          card.classList.remove("status-correct", "status-wrong");
+          card.querySelectorAll(".option-row").forEach(r => r.classList.remove("selected", "correct-choice", "wrong-choice"));
+          card.querySelectorAll(".btn-tf").forEach(b => b.classList.remove("active-true", "active-false"));
+          const inp = card.querySelector("input");
+          if (inp) inp.value = "";
+          card.querySelectorAll(".btn-eval").forEach(b => b.classList.remove("active-good", "active-half", "active-bad"));
+        }
       }
     }
 
-    function toggleExplanation(qId) {
-      const expBox = document.getElementById(`exp-${qId}`);
-      if (!expBox) return;
-
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
-      }
-
-      if (expBox.classList.contains("show")) {
-        expBox.classList.remove("show");
+    function toggleExplanation(qId, isVd = false) {
+      const exp = document.getElementById(`exp-${qId}`);
+      if (!exp) return;
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
+      
+      if (exp.classList.contains("show")) {
+        exp.classList.remove("show");
       } else {
-        expBox.classList.add("show");
-        // Đánh dấu xem lời giải trước nếu chưa làm đúng
+        exp.classList.add("show");
         if (!appState.answers[qId].isCorrect) {
           appState.answers[qId].viewedSol = true;
         }
@@ -2028,271 +2195,154 @@
       appState.showAllSolutions = !appState.showAllSolutions;
       const btn = document.getElementById("btn-toggle-all-solutions");
       btn.textContent = appState.showAllSolutions ? "🙈 Ẩn tất cả lời giải" : "👁 Hiện tất cả lời giải";
-
-      const currentLesson = LESSONS_DATA[appState.currentLesson];
-      if (currentLesson) {
-        currentLesson.questions.forEach(q => {
-          const expBox = document.getElementById(`exp-${q.id}`);
-          if (expBox) {
-            if (appState.showAllSolutions) {
-              expBox.classList.add("show");
-              if (!appState.answers[q.id]) {
-                appState.answers[q.id] = { attempts: 0, viewedSol: true };
-              } else if (!appState.answers[q.id].isCorrect) {
-                appState.answers[q.id].viewedSol = true;
-              }
-            } else {
-              expBox.classList.remove("show");
-            }
-          }
-        });
-        saveState();
-      }
+      document.querySelectorAll(".solution-box").forEach(box => {
+        if (appState.showAllSolutions) box.classList.add("show");
+        else box.classList.remove("show");
+      });
     }
 
-    function updateCardUI(qId) {
-      const lesson = LESSONS_DATA[appState.currentLesson];
-      if (!lesson) return;
-      const q = lesson.questions.find(item => item.id === qId);
-      if (!q) return;
-
-      const card = document.getElementById(`card-${qId}`);
-      if (!card) return;
-
-      const qState = appState.answers[qId] || { status: "unanswered" };
-
-      // Update border status
-      card.classList.remove("status-correct", "status-wrong");
-      if (qState.status === "correct") card.classList.add("status-correct");
-      else if (qState.status === "wrong") card.classList.add("status-wrong");
-
-      // MCQ options update
-      if (q.type === "mcq") {
-        const optionItems = card.querySelectorAll(".option-item");
-        optionItems.forEach((item, idx) => {
-          item.classList.remove("selected", "correct-choice", "wrong-choice");
-          if (qState.choice === idx) {
-            item.classList.add("selected");
-            if (qState.status === "correct") item.classList.add("correct-choice");
-            else if (qState.status === "wrong") item.classList.add("wrong-choice");
-          } else if (qState.viewedSol && idx === q.correct) {
-            item.classList.add("correct-choice");
-          }
-        });
-      }
-
-      // TF update
-      if (q.type === "tf" && qState.tfChoices) {
-        const rows = card.querySelectorAll("tbody tr");
-        rows.forEach((row, idx) => {
-          const btns = row.querySelectorAll(".tf-btn");
-          btns[0].classList.toggle("active-true", qState.tfChoices[idx] === true);
-          btns[1].classList.toggle("active-false", qState.tfChoices[idx] === false);
-        });
-      }
-
-      // Essay eval buttons
-      if (q.type === "essay") {
-        const evalBtns = card.querySelectorAll(".eval-btn");
-        evalBtns.forEach(btn => btn.classList.remove("active"));
-        if (qState.evalScore === 'correct' && evalBtns[0]) evalBtns[0].classList.add("active");
-        if (qState.evalScore === 'partial' && evalBtns[1]) evalBtns[1].classList.add("active");
-        if (qState.evalScore === 'wrong' && evalBtns[2]) evalBtns[2].classList.add("active");
-      }
-    }
-
-    /* ========================================================
-       BỘ LỌC CÂU HỎI (Tất cả / Chưa làm / Đã làm đúng / Cần làm lại)
-       ======================================================== */
-    function filterQuestions(filterType) {
-      const cards = document.querySelectorAll(".question-card");
-      cards.forEach(card => {
+    function filterQuestions(val) {
+      document.querySelectorAll(".item-card").forEach(card => {
         const qId = card.getAttribute("data-qid");
-        const qState = appState.answers[qId] || { status: "unanswered" };
-
-        if (filterType === "all") {
-          card.style.display = "block";
-        } else if (filterType === "unanswered") {
-          card.style.display = (qState.status === "unanswered" || !qState.status) ? "block" : "none";
-        } else if (filterType === "correct") {
-          card.style.display = (qState.status === "correct") ? "block" : "none";
-        } else if (filterType === "wrong") {
-          card.style.display = (qState.status === "wrong") ? "block" : "none";
-        }
+        const st = appState.answers[qId] || { status: "unanswered" };
+        if (val === "all") card.style.display = "block";
+        else if (val === "unanswered") card.style.display = (st.status === "unanswered" || !st.status) ? "block" : "none";
+        else if (val === "correct") card.style.display = (st.status === "correct") ? "block" : "none";
+        else if (val === "wrong") card.style.display = (st.status === "wrong") ? "block" : "none";
       });
     }
 
     /* ========================================================
-       TÍNH TOÁN & MODAL TỔNG KẾT (Ảnh 3)
+       MODAL TỔNG KẾT (57 CÂU: 9 VÍ DỤ + 48 BÀI TẬP)
        ======================================================== */
-    function getAllQuestions() {
-      let list = [];
-      for (const key in LESSONS_DATA) {
-        list = list.concat(LESSONS_DATA[key].questions);
-      }
-      return list;
-    }
+    function calculateStatistics() {
+      // Mỗi bài có 57 câu: 9 ví dụ (tự luận) + 48 bài tập (21 mcq + 4 tf + 6 short + 17 essay)
+      // Tổng cộng: 21 mcq + 4 tf + 6 short + (9 vd + 17 bt = 26 essay) = 57 câu!
+      const total = 57;
+      let done = 0, correct = 0, firstTry = 0, retryCorrect = 0, viewedSol = 0, needRetry = 0;
 
-    function calculateStats() {
-      const allQ = getAllQuestions();
-      const total = allQ.length;
-      
-      let done = 0;
-      let correct = 0;
-      let firstTry = 0;
-      let retryCorrect = 0;
-      let viewedSol = 0;
-      let needRetry = 0; // sai
+      let vdDone = 0, vdCorrect = 0, vdNeed = 0;
+      let btDone = 0, btCorrect = 0, btNeed = 0;
 
-      // Theo dạng
-      let dangVdTotal = 0, dangVdDone = 0, dangVdCorrect = 0, dangVdNeed = 0;
-      let dangBtTotal = 0, dangBtDone = 0, dangBtCorrect = 0, dangBtNeed = 0;
+      let mcqDone = 0, mcqCorr = 0, mcqFirst = 0;
+      let tfDone = 0, tfCorr = 0, tfFirst = 0;
+      let shortDone = 0, shortCorr = 0, shortFirst = 0;
+      let essayDone = 0, essayCorr = 0, essayPart = 0, essayWrong = 0;
 
-      // Theo loại
-      let mcqTotal = 0, mcqDone = 0, mcqCorrect = 0, mcqFirst = 0;
-      let tfTotal = 0, tfDone = 0, tfCorrect = 0, tfFirst = 0;
-      let shortTotal = 0, shortDone = 0, shortCorrect = 0, shortFirst = 0;
-      let essayTotal = 0, essayDone = 0, essayCorrect = 0, essayPartial = 0, essayWrong = 0;
+      const currentCards = document.querySelectorAll(".item-card");
+      currentCards.forEach(card => {
+        const qId = card.getAttribute("data-qid");
+        const category = card.getAttribute("data-category"); // "vd" hoặc "bt"
+        const type = card.getAttribute("data-type");         // mcq, tf, short, essay
+        const st = appState.answers[qId];
 
-      allQ.forEach(q => {
-        const st = appState.answers[q.id];
-        const isDone = st && (st.status === "correct" || st.status === "wrong");
+        const isAnswered = st && (st.status === "correct" || st.status === "wrong");
         const isCorr = st && st.status === "correct";
-        const isWrong = st && st.status === "wrong";
+        const isWr = st && st.status === "wrong";
 
-        if (q.category === "vd") {
-          dangVdTotal++;
-          if (isDone) dangVdDone++;
-          if (isCorr) dangVdCorrect++;
-          if (isWrong) dangVdNeed++;
+        if (category === "vd") {
+          if (isAnswered) vdDone++;
+          if (isCorr) vdCorrect++;
+          if (isWr) vdNeed++;
         } else {
-          dangBtTotal++;
-          if (isDone) dangBtDone++;
-          if (isCorr) dangBtCorrect++;
-          if (isWrong) dangBtNeed++;
+          if (isAnswered) btDone++;
+          if (isCorr) btCorrect++;
+          if (isWr) btNeed++;
         }
 
-        if (q.type === "mcq") {
-          mcqTotal++;
-          if (isDone) mcqDone++;
-          if (isCorr) {
-            mcqCorrect++;
-            if (st.firstTryCorrect) mcqFirst++;
-          }
-        } else if (q.type === "tf") {
-          tfTotal++;
-          if (isDone) tfDone++;
-          if (isCorr) {
-            tfCorrect++;
-            if (st.firstTryCorrect) tfFirst++;
-          }
-        } else if (q.type === "short") {
-          shortTotal++;
-          if (isDone) shortDone++;
-          if (isCorr) {
-            shortCorrect++;
-            if (st.firstTryCorrect) shortFirst++;
-          }
-        } else if (q.type === "essay") {
-          essayTotal++;
+        if (type === "mcq") {
+          if (isAnswered) mcqDone++;
+          if (isCorr) { mcqCorr++; if (st.firstTryCorrect) mcqFirst++; }
+        } else if (type === "tf") {
+          if (isAnswered) tfDone++;
+          if (isCorr) { tfCorr++; if (st.firstTryCorrect) tfFirst++; }
+        } else if (type === "short") {
+          if (isAnswered) shortDone++;
+          if (isCorr) { shortCorr++; if (st.firstTryCorrect) shortFirst++; }
+        } else if (type === "essay") {
           if (st && st.evalScore) {
             essayDone++;
-            if (st.evalScore === 'correct') essayCorrect++;
-            else if (st.evalScore === 'partial') essayPartial++;
+            if (st.evalScore === 'correct') essayCorr++;
+            else if (st.evalScore === 'partial') essayPart++;
             else if (st.evalScore === 'wrong') essayWrong++;
           }
         }
 
-        if (isDone) {
+        if (isAnswered) {
           done++;
           if (isCorr) {
             correct++;
             if (st.firstTryCorrect) firstTry++;
             else retryCorrect++;
-          } else {
-            needRetry++;
-          }
+          } else needRetry++;
         }
 
-        if (st && st.viewedSol) {
-          viewedSol++;
-        }
+        if (st && st.viewedSol) viewedSol++;
       });
 
       return {
         total, done, correct, firstTry, retryCorrect, viewedSol, needRetry,
         unanswered: total - done,
         dang: {
-          vd: { total: dangVdTotal, done: dangVdDone, correct: dangVdCorrect, need: dangVdNeed },
-          bt: { total: dangBtTotal, done: dangBtDone, correct: dangBtCorrect, need: dangBtNeed }
+          vd: { done: vdDone, correct: vdCorrect, need: vdNeed },
+          bt: { done: btDone, correct: btCorrect, need: btNeed }
         },
         type: {
-          mcq: { total: mcqTotal, done: mcqDone, correct: mcqCorrect, first: mcqFirst },
-          tf: { total: tfTotal, done: tfDone, correct: tfCorrect, first: tfFirst },
-          short: { total: shortTotal, done: shortDone, correct: shortCorrect, first: shortFirst },
-          essay: { total: essayTotal, done: essayDone, correct: essayCorrect, partial: essayPartial, wrong: essayWrong }
+          mcq: { done: mcqDone, correct: mcqCorr, first: mcqFirst },
+          tf: { done: tfDone, correct: tfCorr, first: tfFirst },
+          short: { done: shortDone, correct: shortCorr, first: shortFirst },
+          essay: { done: essayDone, correct: essayCorr, partial: essayPart, wrong: essayWrong }
         }
       };
     }
 
     function updateNavbarProgress() {
-      const stats = calculateStats();
-      const progressText = document.getElementById("nav-progress-text");
-      const progressFill = document.getElementById("nav-progress-fill");
-
-      if (progressText) {
-        progressText.textContent = `Đã làm ${stats.done}/${stats.total} · đúng ${stats.correct}`;
-      }
-      if (progressFill) {
-        const pct = stats.total > 0 ? (stats.done / stats.total) * 100 : 0;
-        progressFill.style.width = pct + "%";
-      }
+      const s = calculateStatistics();
+      const pText = document.getElementById("nav-progress-text");
+      const pFill = document.getElementById("nav-progress-fill");
+      if (pText) pText.textContent = `Đã làm ${s.done}/57 · đúng ${s.correct}`;
+      if (pFill) pFill.style.width = ((s.done / 57) * 100) + "%";
     }
 
     function openSummaryModal() {
-      const stats = calculateStats();
-      
-      document.getElementById("modal-lead-text").textContent = 
-        `Em đã làm ${stats.done}/${stats.total} câu, đúng ${stats.correct}. Còn ${stats.unanswered} câu chưa làm.`;
+      const s = calculateStatistics();
+      document.getElementById("modal-lead-text").textContent = `Em đã làm ${s.done}/57 câu, đúng ${s.correct}. Còn ${s.unanswered} câu chưa làm.`;
 
-      document.getElementById("stat-done").textContent = `${stats.done}/${stats.total}`;
-      document.getElementById("stat-correct").textContent = stats.correct;
-      document.getElementById("stat-first-try").textContent = stats.firstTry;
-      document.getElementById("stat-retry").textContent = stats.retryCorrect;
-      document.getElementById("stat-viewed-sol").textContent = stats.viewedSol;
-      document.getElementById("stat-need-retry").textContent = stats.needRetry;
-      document.getElementById("stat-unanswered").textContent = stats.unanswered;
+      document.getElementById("stat-done").textContent = `${s.done}/57`;
+      document.getElementById("stat-correct").textContent = s.correct;
+      document.getElementById("stat-first-try").textContent = s.firstTry;
+      document.getElementById("stat-retry").textContent = s.retryCorrect;
+      document.getElementById("stat-viewed-sol").textContent = s.viewedSol;
+      document.getElementById("stat-need-retry").textContent = s.needRetry;
+      document.getElementById("stat-unanswered").textContent = s.unanswered;
 
-      // Table theo dạng
-      document.getElementById("stat-dang-vd-done").textContent = `${stats.dang.vd.done}/${stats.dang.vd.total}`;
-      document.getElementById("stat-dang-vd-correct").textContent = stats.dang.vd.correct;
-      document.getElementById("stat-dang-vd-need").textContent = stats.dang.vd.need;
+      document.getElementById("stat-dang-vd-done").textContent = `${s.dang.vd.done}/9`;
+      document.getElementById("stat-dang-vd-correct").textContent = s.dang.vd.correct;
+      document.getElementById("stat-dang-vd-need").textContent = s.dang.vd.need;
 
-      document.getElementById("stat-dang-bt-done").textContent = `${stats.dang.bt.done}/${stats.dang.bt.total}`;
-      document.getElementById("stat-dang-bt-correct").textContent = stats.dang.bt.correct;
-      document.getElementById("stat-dang-bt-need").textContent = stats.dang.bt.need;
+      document.getElementById("stat-dang-bt-done").textContent = `${s.dang.bt.done}/48`;
+      document.getElementById("stat-dang-bt-correct").textContent = s.dang.bt.correct;
+      document.getElementById("stat-dang-bt-need").textContent = s.dang.bt.need;
 
-      // Theo loại câu
-      document.getElementById("stat-mcq-done").textContent = `${stats.type.mcq.done}/${stats.type.mcq.total}`;
-      document.getElementById("stat-mcq-correct").textContent = stats.type.mcq.correct;
-      document.getElementById("stat-mcq-first").textContent = stats.type.mcq.first;
+      document.getElementById("stat-mcq-done").textContent = `${s.type.mcq.done}/21`;
+      document.getElementById("stat-mcq-correct").textContent = s.type.mcq.correct;
+      document.getElementById("stat-mcq-first").textContent = s.type.mcq.first;
 
-      document.getElementById("stat-tf-done").textContent = `${stats.type.tf.done}/${stats.type.tf.total}`;
-      document.getElementById("stat-tf-correct").textContent = stats.type.tf.correct;
-      document.getElementById("stat-tf-first").textContent = stats.type.tf.first;
+      document.getElementById("stat-tf-done").textContent = `${s.type.tf.done}/4`;
+      document.getElementById("stat-tf-correct").textContent = s.type.tf.correct;
+      document.getElementById("stat-tf-first").textContent = s.type.tf.first;
 
-      document.getElementById("stat-short-done").textContent = `${stats.type.short.done}/${stats.type.short.total}`;
-      document.getElementById("stat-short-correct").textContent = stats.type.short.correct;
-      document.getElementById("stat-short-first").textContent = stats.type.short.first;
+      document.getElementById("stat-short-done").textContent = `${s.type.short.done}/6`;
+      document.getElementById("stat-short-correct").textContent = s.type.short.correct;
+      document.getElementById("stat-short-first").textContent = s.type.short.first;
 
-      document.getElementById("stat-essay-done").textContent = `${stats.type.essay.done}/${stats.type.essay.total}`;
-      document.getElementById("stat-essay-correct").textContent = stats.type.essay.correct;
-      document.getElementById("stat-essay-partial").textContent = stats.type.essay.partial;
-      document.getElementById("stat-essay-wrong").textContent = stats.type.essay.wrong;
+      document.getElementById("stat-essay-done").textContent = `${s.type.essay.done}/26`;
+      document.getElementById("stat-essay-correct").textContent = s.type.essay.correct;
+      document.getElementById("stat-essay-partial").textContent = s.type.essay.partial;
+      document.getElementById("stat-essay-wrong").textContent = s.type.essay.wrong;
 
-      // Count buttons
-      document.getElementById("btn-count-wrong").textContent = stats.needRetry;
-      document.getElementById("btn-count-review").textContent = stats.needRetry + stats.viewedSol;
+      document.getElementById("btn-count-wrong").textContent = s.needRetry;
+      document.getElementById("btn-count-review").textContent = s.needRetry + s.viewedSol;
 
       document.getElementById("summary-modal").classList.add("active");
     }
@@ -2302,69 +2352,29 @@
     }
 
     function closeModalOnBackdrop(e) {
-      if (e.target.id === "summary-modal") {
-        closeSummaryModal();
-      }
+      if (e.target.id === "summary-modal") closeSummaryModal();
     }
 
     function retryWrongQuestions() {
       closeSummaryModal();
-      const filterSelect = document.getElementById("filter-questions-select");
-      if (filterSelect) {
-        filterSelect.value = "wrong";
-        filterQuestions("wrong");
-      }
+      const sel = document.getElementById("filter-questions-select");
+      if (sel) { sel.value = "wrong"; filterQuestions("wrong"); }
     }
 
     function reviewQuestions() {
       closeSummaryModal();
-      const filterSelect = document.getElementById("filter-questions-select");
-      if (filterSelect) {
-        filterSelect.value = "wrong";
-        filterQuestions("wrong");
-      }
+      const sel = document.getElementById("filter-questions-select");
+      if (sel) { sel.value = "wrong"; filterQuestions("wrong"); }
     }
 
     function resetAllProgress() {
-      if (confirm("Em có chắc chắn muốn xóa toàn bộ tiến độ và làm lại từ đầu không?")) {
+      if (confirm("Em có chắc chắn muốn xóa toàn bộ tiến độ làm bài không?")) {
         localStorage.removeItem(STORAGE_KEY);
         appState.answers = {};
         saveState();
-        if (appState.currentLesson !== "home") {
-          openLesson(appState.currentLesson);
-        }
+        if (appState.currentLesson !== "home") openLesson(appState.currentLesson);
         openSummaryModal();
       }
-    }
-
-    /* ========================================================
-       ZOOM DIAGRAM UTILITIES (+, -, ⟲)
-       ======================================================== */
-    function zoomDiagram(stageId, factor) {
-      const stage = document.getElementById(stageId);
-      if (!stage) return;
-      const svg = stage.querySelector("svg");
-      if (!svg) return;
-
-      if (!appState.zoomLevels[stageId]) appState.zoomLevels[stageId] = 1.0;
-      appState.zoomLevels[stageId] *= factor;
-      // Giới hạn zoom
-      if (appState.zoomLevels[stageId] < 0.6) appState.zoomLevels[stageId] = 0.6;
-      if (appState.zoomLevels[stageId] > 2.2) appState.zoomLevels[stageId] = 2.2;
-
-      svg.style.transform = `scale(${appState.zoomLevels[stageId]})`;
-      svg.style.transformOrigin = "center center";
-      svg.style.transition = "transform 0.2s ease";
-    }
-
-    function resetZoomDiagram(stageId) {
-      const stage = document.getElementById(stageId);
-      if (!stage) return;
-      const svg = stage.querySelector("svg");
-      if (!svg) return;
-
-      appState.zoomLevels[stageId] = 1.0;
-      svg.style.transform = "scale(1)";
     }
 
     /* Initialize */

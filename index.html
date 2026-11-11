@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hóa học 11 - Chương 3: Đại cương về Hóa học Hữu cơ</title>
+  <title>Hóa học 11 Toàn Diện - 6 Chương Chương Trình Mới</title>
   <style>
     :root {
       --primary: #0078d4;
@@ -16,9 +16,7 @@
       --yellow-bg: #fffbeb;
       --yellow-border: #fde68a;
       --success: #107c41;
-      --success-light: #dff6dd;
       --danger: #d13438;
-      --danger-light: #fde7e9;
       --gray-border: #e1dfdd;
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -83,7 +81,7 @@
       gap: 8px;
     }
     .progress-bar-container {
-      width: 80px;
+      width: 75px;
       height: 7px;
       background: rgba(255,255,255,0.35);
       border-radius: 4px;
@@ -108,7 +106,7 @@
 
     /* Container */
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 24px 16px 80px 16px;
     }
@@ -118,40 +116,79 @@
       background: white;
       min-height: 80vh;
       border-radius: 8px;
-      padding: 50px 40px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 40px 36px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .home-hero-title {
-      font-size: 42px;
-      font-weight: 700;
-      color: #0f172a;
-      text-align: right;
-      margin-bottom: 60px;
-    }
-    .chapter-title {
-      font-size: 18px;
+      font-size: 40px;
       font-weight: 800;
       color: #0f172a;
-      text-transform: uppercase;
+      text-align: right;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 15px;
+    }
+    
+    /* Chapter Accordion / Cards */
+    .chapter-card {
       margin-bottom: 24px;
-      letter-spacing: 0.5px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
     }
-    .lesson-list {
-      list-style: none;
-      padding-left: 15px;
-    }
-    .lesson-list li {
-      margin-bottom: 18px;
+    .chapter-card-header {
+      background: #f1f5f9;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #005a9e;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px dashed #e2e8f0;
-      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .chapter-card-header:hover {
+      background: #e2e8f0;
+    }
+    .chapter-card-header.active {
+      background: #0078d4;
+      color: white;
+    }
+    .chapter-card-header .chevron {
+      font-size: 14px;
+      transition: transform 0.2s;
+    }
+    .chapter-card-header.active .chevron {
+      transform: rotate(180deg);
+    }
+    .chapter-body {
+      padding: 16px 20px;
+      display: block;
+    }
+    .lesson-list {
+      list-style: none;
+    }
+    .lesson-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed #f1f5f9;
+      padding-bottom: 10px;
+    }
+    .lesson-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
     .lesson-link {
       color: #005a9e;
       text-decoration: underline;
-      font-size: 17px;
+      font-size: 15.5px;
       font-weight: 500;
       cursor: pointer;
     }
@@ -166,6 +203,12 @@
     }
 
     /* Lesson Section Styles (Ảnh 2, 4, 5, 6, 7) */
+    .lesson-breadcrumb {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
     .lesson-title-heading {
       font-size: 26px;
       font-weight: 700;
@@ -458,7 +501,7 @@
     .solution-box.show { display: block; animation: fadeIn 0.2s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* Nút hành động của mỗi card (Xem lời giải, Ôn lại) */
+    /* Nút hành động của mỗi card */
     .item-bottom-actions {
       display: flex;
       gap: 10px;
@@ -594,8 +637,8 @@
     .btn-sum-action.btn-sum-del:hover { background: #fde7e9; }
 
     @media (max-width: 768px) {
-      #view-home { padding: 30px 20px; }
-      .home-hero-title { font-size: 32px; text-align: left; margin-bottom: 30px; }
+      #view-home { padding: 24px 16px; }
+      .home-hero-title { font-size: 28px; text-align: left; margin-bottom: 24px; }
       .top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
       .progress-pill { display: none; }
     }
@@ -630,47 +673,21 @@
   <!-- Container -->
   <main class="container">
     
-    <!-- Trang Mục Lục (Ảnh 1) -->
+    <!-- Trang Mục Lục 6 Chương Toàn Bộ Hóa Học 11 -->
     <section id="view-home">
       <h1 class="home-hero-title">Hóa học 11</h1>
-      <div class="chapter-title">CHƯƠNG 3. ĐẠI CƯƠNG VỀ HÓA HỌC HỮU CƠ</div>
-      
-      <ul class="lesson-list">
-        <li>
-          <a class="lesson-link" onclick="openLesson('lesson1')">
-            Bài 8. Hợp chất hữu cơ và hóa học hữu cơ
-          </a>
-          <span class="lesson-badge">57 câu tương tác</span>
-        </li>
-        <li>
-          <a class="lesson-link" onclick="openLesson('lesson2')">
-            Bài 9. Phương pháp tách biệt và tinh chế hợp chất hữu cơ
-          </a>
-          <span class="lesson-badge">57 câu tương tác</span>
-        </li>
-        <li>
-          <a class="lesson-link" onclick="openLesson('lesson3')">
-            Bài 10. Công thức phân tử hợp chất hữu cơ
-          </a>
-          <span class="lesson-badge">57 câu tương tác</span>
-        </li>
-        <li>
-          <a class="lesson-link" onclick="openLesson('lesson4')">
-            Bài 11. Cấu trúc phân tử hợp chất hữu cơ
-          </a>
-          <span class="lesson-badge">57 câu tương tác</span>
-        </li>
-        <li>
-          <a class="lesson-link" onclick="openLesson('lesson_rev')">
-            Bài tập cuối chương III
-          </a>
-          <span class="lesson-badge">57 câu tổng hợp</span>
-        </li>
-      </ul>
+      <p style="font-size: 15px; color: #475569; margin-bottom: 25px;">
+        Hệ thống bài giảng tương tác toàn bộ 6 chương chương trình Giáo dục Phổ thông 2018 (SGK Kết nối tri thức / Cánh Diều / Chân trời sáng tạo). Mỗi bài gồm Kiến thức trọng tâm, Phương pháp giải toán (9 ví dụ) và 48 câu luyện tập.
+      </p>
+
+      <div id="chapters-accordion-container">
+        <!-- Render 6 chương với danh sách bài học -->
+      </div>
     </section>
 
     <!-- Trang Chi Tiết Bài Học -->
     <section id="view-lesson" style="display: none;">
+      <div class="lesson-breadcrumb" id="lesson-breadcrumb-text">Chương III > Bài 8</div>
       <h1 class="lesson-title-heading" id="lesson-page-title">Tên bài học</h1>
 
       <!-- Phần 1: Kiến thức trọng tâm -->
@@ -711,7 +728,7 @@
 
   </main>
 
-  <!-- Modal Tổng Kết (Ảnh 3) -->
+  <!-- Modal Tổng Kết (57 câu) -->
   <div class="modal-backdrop" id="summary-modal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeSummaryModal()">×</button>
@@ -803,684 +820,510 @@
   <!-- SCRIPT ENGINE -->
   <script>
     /* ========================================================
-       DATABASE BUILDER FOR CHEMISTRY 11 - CHAPTER 3
+       MASTER METADATA: 6 CHƯƠNG HÓA HỌC 11
        ======================================================== */
-    const LESSONS_DATABASE = {
-      lesson1: {
-        id: "lesson1",
-        title: "Bài 8. Hợp chất hữu cơ và hóa học hữu cơ",
-        theory: [
-          {
-            type: "tom_tat",
-            content: `
-              <strong>1. Khái niệm:</strong> Hợp chất hữu cơ là hợp chất của <em>carbon</em> (trừ các hợp chất vô cơ như CO, CO₂, muối carbonate, cyanide, carbide...). Hóa học hữu cơ là ngành nghiên cứu cấu trúc, tính chất và ứng dụng của hợp chất hữu cơ.
-              <br><br>
-              <strong>2. Đặc điểm cấu tạo & tính chất chung:</strong>
-              <ul>
-                <li>Liên kết hóa học chủ yếu là <strong>liên kết cộng hóa trị</strong>.</li>
-                <li>Nhiệt độ nóng chảy, nhiệt độ sôi thường thấp (dễ bay hơi), kém bền nhiệt, dễ cháy.</li>
-                <li>Phần lớn không tan trong nước, tan tốt trong các dung môi hữu cơ.</li>
-                <li>Phản ứng hóa học thường diễn ra chậm, không hoàn toàn, theo nhiều hướng và tạo hỗn hợp sản phẩm.</li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: false,
-            title: "Nhận xét",
-            content: "Nhóm chức là nguyên tử hoặc nhóm nguyên tử gây ra những tính chất hóa học đặc trưng của hợp chất hữu cơ. Nhận diện nhóm chức là chìa khóa để dự đoán tính chất hóa học của chất."
-          },
-          {
-            type: "tom_tat",
-            content: `
-              <strong>3. Phân loại và một số nhóm chức quan trọng:</strong>
-              <ul>
-                <li><strong>Hydrocarbon:</strong> Chỉ chứa C và H (alkane, alkene, alkyne, arene).</li>
-                <li><strong>Dẫn xuất hydrocarbon:</strong> Có thêm O, N, halogen...
-                  <ul>
-                    <li>Nhóm hydroxy (<code>-OH</code>): Alcohol</li>
-                    <li>Nhóm aldehyde (<code>-CHO</code>): Aldehyde</li>
-                    <li>Nhóm carboxyl (<code>-COOH</code>): Carboxylic acid</li>
-                    <li>Nhóm amino (<code>-NH₂</code>): Amine</li>
-                    <li>Nhóm ester (<code>-COO-</code>): Ester</li>
-                  </ul>
-                </li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: true,
-            title: "Nhận xét quan trọng",
-            content: "Các hợp chất chứa carbon như CO, CO₂, H₂CO₃, muối carbonate (CaCO₃, NaHCO₃), muối cyanide (KCN), carbide (CaC₂, Al₄C₃) là hợp chất vô cơ, không thuộc hợp chất hữu cơ."
-          }
-        ],
-        methods: [
-          {
-            name: "Dạng 1: Phân loại hợp chất hữu cơ và nhận biết nhóm chức",
-            content: "• Xác định xem chất có chứa C hay không và loại trừ các hợp chất vô cơ của carbon.<br>• Phân loại thành hydrocarbon (chỉ C, H) hoặc dẫn xuất hydrocarbon.<br>• Quan sát công thức cấu tạo để định danh nhóm chức: -OH, -CHO, -COOH, -COO-, -NH₂...",
-            examples: [
-              {
-                id: "l1_vd1",
-                num: 1,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Cho các chất sau: CH₄, CO₂, C₂H₅OH, CaCO₃, CH₃COOH, KCN, C₆H₆. Hãy phân loại các chất trên thành: Hợp chất vô cơ, Hydrocarbon và Dẫn xuất hydrocarbon.",
-                solution: "- Hợp chất vô cơ: CO₂, CaCO₃, KCN.\n- Hydrocarbon: CH₄, C₆H₆.\n- Dẫn xuất hydrocarbon: C₂H₅OH (nhóm -OH), CH₃COOH (nhóm -COOH)."
-              },
-              {
-                id: "l1_vd2",
-                num: 2,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Chỉ ra tên nhóm chức có trong các chất sau: a) CH₃-CH₂-OH; b) CH₃-CHO; c) CH₃-COOH; d) CH₃-COOCH₃.",
-                solution: "a) Nhóm -OH (hydroxy, alcohol)\nb) Nhóm -CHO (aldehyde)\nc) Nhóm -COOH (carboxyl, carboxylic acid)\nd) Nhóm -COO- (ester)."
-              },
-              {
-                id: "l1_vd3",
-                num: 3,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Phân tích công thức cấu tạo của paracetamol (thuốc hạ sốt): HOC₆H₄NHCOCH₃. Hãy chỉ ra các nhóm chức có mặt trong phân tử paracetamol.",
-                solution: "Trong phân tử paracetamol có:\n1. Nhóm -OH liên kết trực tiếp với vòng benzene (nhóm phenol hydroxy).\n2. Nhóm -NH-CO- (nhóm chức amide)."
-              }
-            ]
-          },
-          {
-            name: "Dạng 2: So sánh tính chất vật lý & đặc điểm liên kết của hợp chất hữu cơ",
-            content: "• Dựa vào loại liên kết: Hợp chất hữu cơ chủ yếu chứa liên kết cộng hóa trị, liên kết ion chỉ có ở một số muối hữu cơ (CH₃COONa...).<br>• Dự đoán tính tan và nhiệt độ sôi dựa trên độ phân cực và khả năng tạo liên kết hydrogen liên phân tử.",
-            examples: [
-              {
-                id: "l1_vd4",
-                num: 4,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Giải thích vì sao xăng dầu (hỗn hợp hydrocarbon) nổi trên mặt nước và khi bị cháy không được dùng nước để dập lửa?",
-                solution: "1. Xăng dầu là hydrocarbon không phân cực, không tan trong nước và có khối lượng riêng nhỏ hơn nước (d < 1 g/cm³) nên nổi lên trên.\n2. Khi đổ nước vào đám cháy xăng dầu, nước làm xăng loang rộng ra và tiếp tục cháy lan mạnh hơn. Phải dùng cát, chăn ướt hoặc bình bọt CO₂."
-              },
-              {
-                id: "l1_vd5",
-                num: 5,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "So sánh nhiệt độ sôi của methane (CH₄) và ethanol (C₂H₅OH). Giải thích ngắn gọn.",
-                solution: "Nhiệt độ sôi của C₂H₅OH (78,3°C) cao hơn rất nhiều so với CH₄ (-161,5°C) vì phân tử C₂H₅OH có nhóm phân cực -OH và có khả năng tạo liên kết hydrogen liên phân tử bền vững, còn CH₄ là phân tử không cực."
-              },
-              {
-                id: "l1_vd6",
-                num: 6,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Vì sao các phản ứng hóa học hữu cơ thường phải đun nóng hoặc có xúc tác và thời gian phản ứng lâu hơn phản ứng vô cơ ion?",
-                solution: "Vì các liên kết cộng hóa trị giữa C-C và C-H trong phân tử hữu cơ khá bền, cần cung cấp năng lượng hoạt hóa để bẻ gãy. Ngoài ra phản ứng xảy ra theo nhiều hướng nên tốc độ thường chậm."
-              }
-            ]
-          },
-          {
-            name: "Dạng 3: Phương pháp định tính các nguyên tố C, H, N, Halogen trong hợp chất hữu cơ",
-            content: "• Chuyển hóa nguyên tố trong hợp chất hữu cơ thành hợp chất vô cơ đơn giản dễ nhận biết:<br>  - Oxi hóa C thành CO₂ (nhận bằng dung dịch Ca(OH)₂ tạo kết tủa trắng CaCO₃).<br>  - Oxi hóa H thành H₂O (nhận bằng CuSO₄ khan màu trắng chuyển sang CuSO₄.5H₂O màu xanh).<br>  - Chuyển N thành NH₃ (quỳ tím ẩm hóa xanh) hoặc halogen thành muối bạc kết tủa.",
-            examples: [
-              {
-                id: "l1_vd7",
-                num: 7,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Trong thí nghiệm phát hiện C và H trong saccharose (C₁₂H₂₂O₁₁), người ta trộn saccharose với bột CuO rồi đun nóng. Hãy viết các phản ứng xảy ra và nêu hiện tượng.",
-                solution: "C₁₂H₂₂O₁₁ + 24CuO -> 12CO₂ + 11H₂O + 24Cu.\n- Khí CO₂ dẫn qua nước vôi trong làm vẩn đục: CO₂ + Ca(OH)₂ -> CaCO₃ v + H₂O.\n- Hơi nước làm CuSO₄ khan màu trắng chuyển sang màu xanh dương."
-              },
-              {
-                id: "l1_vd8",
-                num: 8,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Để định tính nitrogen trong một hợp chất hữu cơ bằng phương pháp chuyển thành NH₃, người ta đun hợp chất đó với dung dịch nào và dùng thuốc thử gì để nhận biết?",
-                solution: "Đun hợp chất với dung dịch kiềm đặc (NaOH hoặc vôi tôi xút NaOH + CaO). Khí NH₃ sinh ra làm quỳ tím ẩm chuyển sang màu xanh."
-              },
-              {
-                id: "l1_vd9",
-                num: 9,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Nêu vai trò của bông tẩm CuSO₄ khan đặt ở phần trên của ống nghiệm chứa hỗn hợp chất hữu cơ và CuO trong thí nghiệm phân tích định tính C và H.",
-                solution: "Bông tẩm CuSO₄ khan có tác dụng giữ lại hơi nước sinh ra để nhận biết nguyên tố Hydrogen (chuyển sang màu xanh), đồng thời ngăn hơi ẩm bay sang bình nước vôi trong gây nhiễu."
-              }
-            ]
-          }
+    const ALL_CHAPTERS = [
+      {
+        id: "ch1",
+        title: "CHƯƠNG 1. CÂN BẰNG HÓA HỌC",
+        lessons: [
+          { id: "c1_b1", code: "Bài 1", name: "Khái niệm về cân bằng hóa học" },
+          { id: "c1_b2", code: "Bài 2", name: "Cân bằng trong dung dịch nước (Sự điện li, pH, chuẩn độ acid - base)" },
+          { id: "c1_rev", code: "Ôn tập", name: "Bài tập cuối chương I" }
         ]
       },
-
-      lesson2: {
-        id: "lesson2",
-        title: "Bài 9. Phương pháp tách biệt và tinh chế hợp chất hữu cơ",
-        theory: [
-          {
-            type: "tom_tat",
-            content: `
-              <strong>1. Phương pháp chưng cất:</strong>
-              Tách các chất lỏng có <em>nhiệt độ sôi khác nhau</em> đáng kể trong hỗn hợp đồng nhất.
-              <ul>
-                <li><strong>Chưng cất thường:</strong> Tách các chất lỏng có Ts cách nhau > 20°C (nấu rượu etylic).</li>
-                <li><strong>Chưng cất lôi cuốn hơi nước:</strong> Tách các chất lỏng có Ts cao, kém tan trong nước nhưng dễ bay hơi cùng hơi nước (tinh dầu sả, bưởi, tràm...).</li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: false,
-            title: "Nhận xét",
-            content: "Khi chưng cất, chất có nhiệt độ sôi thấp hơn sẽ chuyển thành hơi trước, đi qua ống sinh hàn ngưng tụ thành chất lỏng và chảy vào bình hứng."
-          },
-          {
-            type: "tom_tat",
-            content: `
-              <strong>2. Phương pháp chiết, kết tinh và sắc kí:</strong>
-              <ul>
-                <li><strong>Chiết:</strong> Dựa vào độ tan khác nhau của chất trong 2 dung môi không trộn lẫn (chiết lỏng - lỏng dùng phễu chiết), hoặc hòa tan chất từ hỗn hợp rắn (chiết lỏng - rắn: pha trà, ngâm rượu thuốc).</li>
-                <li><strong>Kết tinh:</strong> Dựa vào độ tan thay đổi theo nhiệt độ của chất rắn trong dung môi thích hợp. (Hòa tan ở T° cao, lọc nóng, để nguội kết tinh rồi lọc thu tinh thể).</li>
-                <li><strong>Sắc kí cột:</strong> Tách chất dựa trên sự phân bố khác nhau giữa pha tĩnh và pha động do khả năng hấp phụ khác nhau.</li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: true,
-            title: "Nhận xét thực tế",
-            content: "Để chiết lỏng - lỏng đạt hiệu quả cao, cần lắc đều phễu chiết và thường xuyên mở khóa phễu xả áp suất khí, sau đó để yên cho phân lớp rõ rệt rồi mới mở khóa xả lớp chất lỏng ở dưới."
-          }
-        ],
-        methods: [
-          {
-            name: "Dạng 1: Lựa chọn phương pháp tách biệt và tinh chế phù hợp",
-            content: "• Nếu tách chất lỏng tan vào nhau khác Ts -> <strong>Chưng cất</strong>.<br>• Nếu tách 2 chất lỏng không trộn lẫn -> <strong>Chiết lỏng - lỏng (phễu chiết)</strong>.<br>• Nếu tách chất từ dược liệu rắn -> <strong>Chiết lỏng - rắn</strong>.<br>• Nếu làm sạch chất rắn bẩn -> <strong>Kết tinh lại</strong>.<br>• Nếu tách hỗn hợp màu phức tạp -> <strong>Sắc kí cột</strong>.",
-            examples: [
-              {
-                id: "l2_vd1",
-                num: 1,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Để thu được cồn y tế 70° từ dung dịch rượu loãng sau lên men, người ta áp dụng phương pháp nào? Hãy nêu nguyên tắc.",
-                solution: "Phương pháp chưng cất. Nguyên tắc: Ethanol có nhiệt độ sôi (78,3°C) thấp hơn nước (100°C) nên bay hơi trước, ngưng tụ thu được cồn có độ rượu cao hơn."
-              },
-              {
-                id: "l2_vd2",
-                num: 2,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Muốn tách riêng dầu ăn ra khỏi hỗn hợp nước và dầu ăn, ta dùng dụng cụ và phương pháp gì?",
-                solution: "Dùng phương pháp chiết lỏng - lỏng bằng phễu chiết. Dầu ăn không tan trong nước và nhẹ hơn nước nên nổi lên trên; mở khóa phễu chiết xả nước ra trước."
-              },
-              {
-                id: "l2_vd3",
-                num: 3,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Giải thích vì sao khi nấu canh cua, gạch cua (protein) lại đông tụ nổi lên trên mặt nước canh?",
-                solution: "Protein trong thịt cua bị đông tụ khi đun nóng ở nhiệt độ cao (biến tính nhiệt), các khối đông tụ xốp nhẹ nổi lên trên mặt nước."
-              }
-            ]
-          },
-          {
-            name: "Dạng 2: Quy trình thực hành và tối ưu hóa phương pháp tinh chế",
-            content: "• Chọn dung môi kết tinh: hòa tan tốt ở T° cao, kém ở T° thấp, không phản ứng với chất.<br>• Trình tự thao tác phễu chiết: lắc, xả áp, để yên phân lớp, chiết từng lớp.",
-            examples: [
-              {
-                id: "l2_vd4",
-                num: 4,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Hãy nêu tiêu chí chọn dung môi để tinh chế một chất rắn hữu cơ bằng phương pháp kết tinh lại.",
-                solution: "1. Hòa tan tốt chất rắn ở nhiệt độ sôi của dung môi.\n2. Hòa tan kém chất rắn ở nhiệt độ thường hoặc nhiệt độ thấp.\n3. Hòa tan tốt hoặc không hòa tan tạp chất.\n4. Dễ bay hơi, không độc và không phản ứng với chất cần tinh chế."
-              },
-              {
-                id: "l2_vd5",
-                num: 5,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Vì sao khi chiết nhiều lần với lượng nhỏ dung môi lại cho hiệu suất tách chất cao hơn chiết một lần với lượng lớn dung môi?",
-                solution: "Theo định luật phân bố Nernst, chia dung môi thành nhiều phần nhỏ để chiết nhiều lần sẽ tối đa hóa lượng chất tan dịch chuyển vào dung môi chiết, giảm lượng chất còn sót lại."
-              },
-              {
-                id: "l2_vd6",
-                num: 6,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Trong phương pháp sắc kí cột, chất nào sẽ di chuyển ra khỏi cột sắc kí trước: chất bị hấp phụ mạnh hay yếu trên pha tĩnh?",
-                solution: "Chất bị hấp phụ kém hơn (yếu hơn) trên pha tĩnh sẽ bị pha động rửa trôi và di chuyển nhanh hơn, ra khỏi cột sắc kí trước."
-              }
-            ]
-          },
-          {
-            name: "Dạng 3: Bài toán tính hiệu suất tách chất và nồng độ dung dịch sau chiết",
-            content: "• Áp dụng định luật phân bố: k = C₁ / C₂.<br>• Tính khối lượng chất tách được: m_tách = m_ban đầu * H%.",
-            examples: [
-              {
-                id: "l2_vd7",
-                num: 7,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Từ 10 kg lá sả tươi chứa 1,5% tinh dầu, qua chưng cất lôi cuốn hơi nước thu được 120 gam tinh dầu sả nguyên chất. Tính hiệu suất của quá trình chưng cất.",
-                solution: "m_tinh_dầu_lí_thuyết = 10000 * 1,5% = 150 gam.\nHiệu suất H% = (120 / 150) * 100% = 80%."
-              },
-              {
-                id: "l2_vd8",
-                num: 8,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Hòa tan 20 gam đường saccharose thô vào 100 mL nước sôi. Sau khi lọc nóng và để nguội đến 20°C thu được 15 gam đường kết tinh tinh khiết. Tính % khối lượng đường đã kết tinh.",
-                solution: "% kết tinh = (15 / 20) * 100% = 75%."
-              },
-              {
-                id: "l2_vd9",
-                num: 9,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Có 100 mL dung dịch nước chứa 1,0 gam chất hữu cơ X. Biết hệ số phân bố của X giữa ether và nước là K = [X]_ether / [X]_nước = 4. Tính khối lượng X còn lại trong nước sau khi chiết một lần với 50 mL ether.",
-                solution: "Gọi x là khối lượng X vào ether (g) => còn trong nước là (1 - x) g.\nK = (x / 50) / ((1 - x) / 100) = 4 => 2x / (1 - x) = 4 => 2x = 4 - 4x => 6x = 4 => x = 0,667 g.\nKhối lượng X còn lại trong nước = 1 - 0,667 = 0,333 gam."
-              }
-            ]
-          }
+      {
+        id: "ch2",
+        title: "CHƯƠNG 2. NITROGEN VÀ SULFUR",
+        lessons: [
+          { id: "c2_b3", code: "Bài 3", name: "Đơn chất nitrogen" },
+          { id: "c2_b4", code: "Bài 4", name: "Ammonia và một số hợp chất của nitrogen" },
+          { id: "c2_b5", code: "Bài 5", name: "Một số hợp chất với oxygen của nitrogen (Nitric acid, muối nitrate)" },
+          { id: "c2_b6", code: "Bài 6", name: "Đơn chất sulfur" },
+          { id: "c2_b7", code: "Bài 7", name: "Sulfur dioxide và sulfuric acid" },
+          { id: "c2_rev", code: "Ôn tập", name: "Bài tập cuối chương II" }
         ]
       },
-
-      lesson3: {
-        id: "lesson3",
-        title: "Bài 10. Công thức phân tử hợp chất hữu cơ",
-        theory: [
-          {
-            type: "tom_tat",
-            content: `
-              <strong>1. Các loại công thức:</strong>
-              <ul>
-                <li><strong>Công thức đơn giản nhất (CTĐGN):</strong> Cho biết tỉ lệ số nguyên tử của các nguyên tố trong phân tử (ở dạng số nguyên tối giản).</li>
-                <li><strong>Công thức phân tử (CTPT):</strong> Cho biết số lượng nguyên tử thực tế của mỗi nguyên tố trong phân tử.
-                  <br>Mối liên hệ: <code>CTPT = (CTĐGN)<sub>n</sub></code> (với n ≥ 1).
-                </li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: false,
-            title: "Nhận xét",
-            content: "Để tìm CTPT, cần biết công thức đơn giản nhất và phân tử khối (M). Phân tử khối hiện đại được xác định bằng phổ khối lượng (MS)."
-          },
-          {
-            type: "tom_tat",
-            content: `
-              <strong>2. Phương pháp xác định phân tử khối & thiết lập CTPT:</strong>
-              <ul>
-                <li><strong>Phổ khối lượng (MS):</strong> Mảnh ion phân tử [M⁺] có giá trị m/z lớn nhất thường ứng với phân tử khối M.</li>
-                <li><strong>Thiết lập tỉ lệ:</strong>
-                  <code>x : y : z = (%C / 12) : (%H / 1) : (%O / 16) = p : q : r</code>
-                </li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: true,
-            title: "Nhận xét quan trọng",
-            content: "Các tỉ lệ số mol nC, nH, nO phải được quy đổi về các số nguyên tối giản (ví dụ 1 : 1,33 : 0,67 nhân 3 thành 3 : 4 : 2)."
-          }
-        ],
-        methods: [
-          {
-            name: "Dạng 1: Xác định phân tử khối từ phổ khối lượng (MS)",
-            content: "• Đọc pic ion phân tử kí hiệu là [M⁺] tại trục hoành m/z lớn nhất.<br>• Giá trị m/z của [M⁺] chính là phân tử khối của hợp chất.",
-            examples: [
-              {
-                id: "l3_vd1",
-                num: 1,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Phổ khối lượng MS của hợp chất hữu cơ A có pic ion phân tử [M⁺] ở m/z = 74. Hãy cho biết phân tử khối của A.",
-                solution: "Phân tử khối của A bằng giá trị m/z của pic ion phân tử [M⁺] = 74 amu."
-              },
-              {
-                id: "l3_vd2",
-                num: 2,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Chất hữu cơ B có công thức đơn giản nhất là CH₂O. Phổ MS của B cho thấy pic [M⁺] có m/z = 60. Tìm công thức phân tử của B.",
-                solution: "CTPT có dạng (CH₂O)ₙ. Phân tử khối = 30n = 60 => n = 2. CTPT của B là C₂H₄O₂."
-              },
-              {
-                id: "l3_vd3",
-                num: 3,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Phổ MS của hydrocarbon thơm toluene cho thấy pic ion phân tử [M⁺] xuất hiện ở m/z = 92. Tỉ lệ khối lượng C:H trong toluene là 21:2. Tìm CTPT của toluene.",
-                solution: "nC : nH = (21/12) : (2/1) = 1,75 : 2 = 7 : 8 => CTĐGN là C₇H₈. M(C₇H₈) = 92 = m/z của [M⁺] => CTPT là C₇H₈."
-              }
-            ]
-          },
-          {
-            name: "Dạng 2: Lập CTĐGN và CTPT từ phần trăm khối lượng các nguyên tố",
-            content: "• nC : nH : nO = (%C / 12) : (%H / 1) : (%O / 16).<br>• Rút gọn về tỉ lệ số nguyên tối giản -> CTĐGN.<br>• CTPT = (CTĐGN)ₙ với n = M / M(CTĐGN).",
-            examples: [
-              {
-                id: "l3_vd4",
-                num: 4,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Một hợp chất X có %C = 85,71% và %H = 14,29%. Tìm công thức đơn giản nhất của X.",
-                solution: "nC : nH = (85,71/12) : (14,29/1) = 7,1425 : 14,29 = 1 : 2. Vậy CTĐGN là CH₂."
-              },
-              {
-                id: "l3_vd5",
-                num: 5,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Hợp chất Y chứa 40% C, 6,67% H và 53,33% O về khối lượng. Phân tử khối của Y là 60. Tìm công thức phân tử của Y.",
-                solution: "nC : nH : nO = (40/12) : (6,67/1) : (53,33/16) = 3,33 : 6,67 : 3,33 = 1 : 2 : 1.\nCTĐGN là CH₂O. Ta có 30n = 60 => n = 2. CTPT là C₂H₄O₂."
-              },
-              {
-                id: "l3_vd6",
-                num: 6,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Nicotine có trong thuốc lá chứa 74,07% C, 8,64% H và 17,29% N. Biết M = 162. Tìm CTPT của nicotine.",
-                solution: "nC : nH : nN = (74,07/12) : (8,64/1) : (17,29/14) = 6,1725 : 8,64 : 1,235 = 5 : 7 : 1.\nCTĐGN là C₅H₇N (M = 81). Ta có 81n = 162 => n = 2. CTPT là C₁₀H₁₄N₂."
-              }
-            ]
-          },
-          {
-            name: "Dạng 3: Lập CTPT từ phản ứng đốt cháy hoàn toàn",
-            content: "• mC = 12 * nCO₂; mH = 2 * nH₂O.<br>• mO = m_chất - (mC + mH).<br>• Lập tỉ lệ mol C : H : O và tìm n.",
-            examples: [
-              {
-                id: "l3_vd7",
-                num: 7,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Đốt cháy hoàn toàn 4,6 gam hợp chất hữu cơ Z thu được 8,8 gam CO₂ và 5,4 gam H₂O. Tìm CTĐGN của Z.",
-                solution: "nC = nCO₂ = 8,8 / 44 = 0,2 mol (2,4g C).\nnH = 2 * nH₂O = 2 * (5,4 / 18) = 0,6 mol (0,6g H).\nmO = 4,6 - 2,4 - 0,6 = 1,6 gam (0,1 mol O).\nnC : nH : nO = 0,2 : 0,6 : 0,1 = 2 : 6 : 1. CTĐGN là C₂H₆O."
-              },
-              {
-                id: "l3_vd8",
-                num: 8,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Đốt cháy hoàn toàn 2,2 gam chất hữu cơ E chứa C, H, O cần vừa đủ 3,36 lít O₂ (đkc). Thu được nCO₂ : nH₂O = 1 : 1. Biết M(E) = 88. Tìm CTPT của E.",
-                solution: "Bảo toàn khối lượng: m_sản_phẩm = 2,2 + (3,36/24,79 * 32)... Từ tỉ lệ mol nCO₂ = nH₂O = a mol. Suy ra nC = 0,1 mol; nH = 0,2 mol; nO = 0,05 mol. CTPT là C₄H₈O₂."
-              },
-              {
-                id: "l3_vd9",
-                num: 9,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Đốt cháy hoàn toàn 0,1 mol hợp chất hữu cơ T chứa C, H, O thu được không quá 17,6 gam CO₂ và 7,2 gam H₂O. Biết 1 mol T phản ứng tối đa với 2 mol NaOH. Xác định CTPT của T.",
-                solution: "nCO₂ <= 0,4 mol => Số C <= 4. nH₂O = 0,4 mol => Số H = 8.\nVì T phản ứng với NaOH theo tỉ lệ 1:2 nên T có 2 nhóm -COOH hoặc -COO- (có ít nhất 4 nguyên tử O).\nVới Số C <= 4 và Số H = 8, CTPT phù hợp là C₄H₈O₄."
-              }
-            ]
-          }
+      {
+        id: "ch3",
+        title: "CHƯƠNG 3. ĐẠI CƯƠNG VỀ HÓA HỌC HỮU CƠ",
+        lessons: [
+          { id: "c3_b8", code: "Bài 8", name: "Hợp chất hữu cơ và hóa học hữu cơ" },
+          { id: "c3_b9", code: "Bài 9", name: "Phương pháp tách biệt và tinh chế hợp chất hữu cơ" },
+          { id: "c3_b10", code: "Bài 10", name: "Công thức phân tử hợp chất hữu cơ" },
+          { id: "c3_b11", code: "Bài 11", name: "Cấu trúc phân tử hợp chất hữu cơ" },
+          { id: "c3_rev", code: "Ôn tập", name: "Bài tập cuối chương III" }
         ]
       },
-
-      lesson4: {
-        id: "lesson4",
-        title: "Bài 11. Cấu trúc phân tử hợp chất hữu cơ",
-        theory: [
-          {
-            type: "tom_tat",
-            content: `
-              <strong>1. Thuyết cấu tạo hóa học (A.M. Butlerov):</strong>
-              <ul>
-                <li>Trong phân tử, các nguyên tử liên kết với nhau theo đúng hóa trị và theo một <strong>thứ tự liên kết nhất định</strong>. Thứ tự đó gọi là <em>cấu tạo hóa học</em>.</li>
-                <li>Carbon luôn có <strong>hóa trị IV</strong>. Nguyên tử carbon có thể liên kết với nhau tạo mạch: mạch không phân nhánh, mạch nhánh hoặc mạch vòng.</li>
-                <li>Tính chất của các chất phụ thuộc vào thành phần nguyên tố và cấu tạo hóa học.</li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: false,
-            title: "Nhận xét",
-            content: "Thay đổi thứ tự liên kết giữa các nguyên tử sẽ tạo ra chất mới hoàn toàn khác về tính chất vật lý và hóa học (Ví dụ C₂H₆O: ethanol là chất lỏng tan vô hạn trong nước, còn dimethyl ether là chất khí không tan)."
-          },
-          {
-            type: "tom_tat",
-            content: `
-              <strong>2. Đồng đẳng và Đồng phân:</strong>
-              <ul>
-                <li><strong>Đồng đẳng:</strong> Những hợp chất có thành phần phân tử hơn kém nhau một hay nhiều nhóm <code>-CH₂-</code> nhưng có tính chất hóa học tương tự nhau.</li>
-                <li><strong>Đồng phân:</strong> Những hợp chất khác nhau có <em>cùng công thức phân tử</em>.
-                  <ul>
-                    <li>Đồng phân cấu tạo: mạch C, vị trí liên kết bội, vị trí nhóm chức.</li>
-                    <li>Đồng phân hình học (cis - trans): khi có liên kết đôi C=C dạng <code>R₁R₂C=CR₃R₄</code> (với R₁ ≠ R₂ và R₃ ≠ R₄).</li>
-                  </ul>
-                </li>
-              </ul>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: true,
-            title: "Nhận xét",
-            content: "Công thức cấu tạo có 3 cách biểu diễn chính: Công thức khai triển (vẽ rõ mọi liên kết), công thức thu gọn (như CH₃-CH₂-OH), và công thức khung phân tử (dạng đường gấp khúc zigzag)."
-          }
-        ],
-        methods: [
-          {
-            name: "Dạng 1: Viết và đếm số lượng đồng phân cấu tạo",
-            content: "• Bước 1: Viết mạch cacbon (mạch thẳng, mạch nhánh, mạch vòng).<br>• Bước 2: Điền liên kết bội hoặc gắn nhóm chức vào các vị trí không đối xứng.<br>• Bước 3: Điền đủ số H theo hóa trị IV của C.",
-            examples: [
-              {
-                id: "l4_vd1",
-                num: 1,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Viết công thức cấu tạo thu gọn của tất cả các đồng phân ứng với CTPT C₄H₁₀.",
-                solution: "C₄H₁₀ có 2 đồng phân alkane:\n1. CH₃-CH₂-CH₂-CH₃ (butane)\n2. CH₃-CH(CH₃)-CH₃ (2-methylpropane / isobutane)."
-              },
-              {
-                id: "l4_vd2",
-                num: 2,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Ứng với công thức phân tử C₅H₁₂ có bao nhiêu đồng phân cấu tạo? Viết CTCT của chúng.",
-                solution: "Có 3 đồng phân:\n1. Pentane: CH₃-CH₂-CH₂-CH₂-CH₃\n2. 2-methylbutane: CH₃-CH(CH₃)-CH₂-CH₃\n3. 2,2-dimethylpropane: C(CH₃)₄."
-              },
-              {
-                id: "l4_vd3",
-                num: 3,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Ứng với CTPT C₃H₈O có bao nhiêu đồng phân ancol (chứa nhóm -OH)?",
-                solution: "Có 2 đồng phân alcohol:\n1. Propan-1-ol: CH₃-CH₂-CH₂-OH\n2. Propan-2-ol: CH₃-CH(OH)-CH₃."
-              }
-            ]
-          },
-          {
-            name: "Dạng 2: Xác định đồng phân hình học cis - trans",
-            content: "• Điều kiện cần: có liên kết đôi C=C (hoặc mạch vòng).<br>• Điều kiện đủ: mỗi nguyên tử C của nối đôi phải liên kết với 2 nguyên tử hoặc nhóm nguyên tử khác nhau: R₁ ≠ R₂ và R₃ ≠ R₄.",
-            examples: [
-              {
-                id: "l4_vd4",
-                num: 4,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Trong các chất sau: but-1-ene (CH₂=CH-CH₂-CH₃) và but-2-ene (CH₃-CH=CH-CH₃), chất nào có đồng phân hình học? Giải thích.",
-                solution: "- But-1-ene có C số 1 liên kết với 2 nguyên tử H giống nhau (H₂C=...) nên KHÔNG có đồng phân hình học.\n- But-2-ene có dạng CH₃-CH=CH-CH₃, mỗi C nối đôi liên kết với -H và -CH₃ (hai nhóm khác nhau) nên CÓ 2 đồng phân hình học: cis-but-2-ene và trans-but-2-ene."
-              },
-              {
-                id: "l4_vd5",
-                num: 5,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Vẽ cấu trúc không gian của cis-but-2-ene và trans-but-2-ene.",
-                solution: "- Đồng phân cis: hai nhóm -CH₃ cùng nằm về một phía của mặt phẳng liên kết đôi C=C.\n- Đồng phân trans: hai nhóm -CH₃ nằm về hai phía đối diện của mặt phẳng liên kết đôi C=C."
-              },
-              {
-                id: "l4_vd6",
-                num: 6,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Cho pent-2-ene (CH₃-CH=CH-CH₂-CH₃). Chất này có đồng phân hình học không? Nếu có, hãy gọi tên đầy đủ 2 đồng phân.",
-                solution: "Có đồng phân hình học vì C₂ nối với H và CH₃; C₃ nối với H và C₂H₅.\nHai đồng phân: cis-pent-2-ene và trans-pent-2-ene."
-              }
-            ]
-          },
-          {
-            name: "Dạng 3: Nhận biết dãy đồng đẳng và công thức chung",
-            content: "• Kiểm tra tính chất hóa học tương tự (cùng nhóm chức, loại mạch).<br>• Công thức phân tử hơn kém nhau một hoặc nhiều nhóm -CH₂-.",
-            examples: [
-              {
-                id: "l4_vd7",
-                num: 7,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Cặp chất nào sau đây là đồng đẳng của nhau: a) CH₄ và C₂H₆; b) CH₃OH và C₂H₅OH; c) C₂H₅OH và CH₃-O-CH₃?",
-                solution: "a) CH₄ và C₂H₆: là đồng đẳng (cùng alkane, hơn kém 1 nhóm -CH₂-).\nb) CH₃OH và C₂H₅OH: là đồng đẳng (cùng alcohol no đơn chức).\nc) C₂H₅OH và CH₃-O-CH₃: KHÔNG phải đồng đẳng (khác nhóm chức, đây là cặp đồng phân)."
-              },
-              {
-                id: "l4_vd8",
-                num: 8,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Viết công thức chung của dãy đồng đẳng alcohol no, đơn chức, mạch hở chứa n nguyên tử carbon.",
-                solution: "Công thức chung là CₙH₂ₙ₊₁OH (với n ≥ 1) hoặc CₙH₂ₙ₊₂O."
-              },
-              {
-                id: "l4_vd9",
-                num: 9,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Một chất hữu cơ A có CTPT C₄H₈. Cho A phản ứng với HBr chỉ thu được một sản phẩm duy nhất. Xác định CTCT của A.",
-                solution: "A tác dụng với HBr cho 1 sản phẩm duy nhất chứng tỏ A là alkene có cấu tạo đối xứng cao.\nCTCT phù hợp là but-2-ene: CH₃-CH=CH-CH₃ (khi cộng HBr cho 2-bromobutane duy nhất)."
-              }
-            ]
-          }
+      {
+        id: "ch4",
+        title: "CHƯƠNG 4. HYDROCARBON",
+        lessons: [
+          { id: "c4_b12", code: "Bài 12", name: "Alkane (Paraffin)" },
+          { id: "c4_b13", code: "Bài 13", name: "Hydrocarbon không no (Alkene và Alkyne)" },
+          { id: "c4_b14", code: "Bài 14", name: "Arene (Hydrocarbon thơm)" },
+          { id: "c4_rev", code: "Ôn tập", name: "Bài tập cuối chương IV" }
         ]
       },
-
-      lesson_rev: {
-        id: "lesson_rev",
-        title: "Bài tập cuối chương III (Đại cương Hóa hữu cơ)",
-        theory: [
-          {
-            type: "tom_tat",
-            content: `
-              <strong>Sơ đồ hệ thống hóa Chương 3:</strong>
-              <ol>
-                <li><strong>Hợp chất hữu cơ:</strong> Hợp chất của C (trừ CO, CO₂, muối carbonate, cyanide, carbide). Liên kết cộng hóa trị, nhiệt độ sôi thấp, phản ứng chậm.</li>
-                <li><strong>4 Phương pháp tách biệt:</strong> Chưng cất (khác Ts), Chiết (khác độ tan), Kết tinh (độ tan theo T°), Sắc kí cột (hấp phụ).</li>
-                <li><strong>Lập CTPT:</strong> Phổ MS -> Tìm [M⁺] -> Tìm CTĐGN -> CTPT = (CTĐGN)ₙ.</li>
-                <li><strong>Thuyết cấu tạo hóa học:</strong> C hóa trị IV, trật tự liên kết xác định, đồng đẳng (hơn kém -CH₂-), đồng phân (cấu tạo & cis/trans).</li>
-              </ol>
-            `
-          },
-          {
-            type: "nhan_xet",
-            isWarning: false,
-            title: "Nhận xét ôn tập",
-            content: "Nắm vững mối quan hệ giữa cấu trúc phân tử (loại liên kết, nhóm chức) và tính chất vật lý, hóa học là nền tảng để học tốt các chương Hydrocarbon và Dẫn xuất phía sau."
-          }
-        ],
-        methods: [
-          {
-            name: "Dạng 1: Ôn tập tổng hợp nhận thức lý thuyết toàn chương",
-            content: "Hệ thống câu hỏi tổng hợp bao quát từ khái niệm, phương pháp tinh chế đến đồng phân, đồng đẳng.",
-            examples: [
-              {
-                id: "lr_vd1",
-                num: 1,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Phân biệt 3 khái niệm cốt lõi: Công thức đơn giản nhất, Công thức phân tử và Công thức cấu tạo.",
-                solution: "- CTĐGN: Tỉ lệ số nguyên tử tối giản giữa các nguyên tố.\n- CTPT: Số lượng thực tế nguyên tử của mỗi nguyên tố trong 1 phân tử.\n- CTCT: Trật tự và cách thức liên kết giữa các nguyên tử trong phân tử."
-              },
-              {
-                id: "lr_vd2",
-                num: 2,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Một học sinh thực hiện chiết caffeine từ nước trà bằng dichloromethane. Tại sao dichloromethane lại nằm ở lớp dưới còn nước ở lớp trên?",
-                solution: "Vì dichloromethane có khối lượng riêng d = 1,33 g/cm³ > d_nước = 1,00 g/cm³, và hai chất không trộn lẫn vào nhau nên lớp dichloromethane nặng hơn sẽ chìm xuống dưới đáy phễu chiết."
-              },
-              {
-                id: "lr_vd3",
-                num: 3,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Hợp chất X có CTPT C₃H₆O₂. X tác dụng được với dung dịch NaHCO₃ giải phóng khí CO₂. Xác định CTCT của X.",
-                solution: "X tác dụng được với NaHCO₃ sinh ra CO₂ chứng tỏ X có nhóm chức carboxylic acid (-COOH).\nVớ CTPT C₃H₆O₂, CTCT của X là propanoic acid: CH₃-CH₂-COOH."
-              }
-            ]
-          },
-          {
-            name: "Dạng 2: Bài toán xác định CTPT kết hợp phổ khối lượng MS",
-            content: "Vận dụng kiến thức thực tế về xác định phân tử khối và phân tích định lượng nguyên tố.",
-            examples: [
-              {
-                id: "lr_vd4",
-                num: 4,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Phổ MS của aspirin cho pic ion phân tử [M⁺] ở m/z = 180. Phân tử khối của aspirin là bao nhiêu?",
-                solution: "M(aspirin) = 180 amu."
-              },
-              {
-                id: "lr_vd5",
-                num: 5,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Hợp chất hữu cơ G chứa C, H, O có phân tử khối M = 74. Có bao nhiêu đồng phân ester ứng với CTPT của G?",
-                solution: "CTPT C₃H₆O₂ (M = 74). Các đồng phân ester gồm:\n1. HCOOCH₂CH₃ (ethyl formate)\n2. CH₃COOCH₃ (methyl acetate)\n=> Có 2 đồng phân ester."
-              },
-              {
-                id: "lr_vd6",
-                num: 6,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Đốt cháy 0,15 mol este no đơn chức mạch hở cần 0,75 mol O₂. Tìm CTPT của este.",
-                solution: "Este no đơn chức: CₙH₂ₙO₂ + (1,5n - 1)O₂ -> nCO₂ + nH₂O.\nTa có: 0,15 * (1,5n - 1) = 0,75 => 1,5n - 1 = 5 => 1,5n = 6 => n = 4.\nCTPT của este là C₄H₈O₂."
-              }
-            ]
-          },
-          {
-            name: "Dạng 3: Bài toán biện luận cấu tạo và liên kết hóa học",
-            content: "Biện luận số đồng phân và các tính chất hóa lý đặc trưng.",
-            examples: [
-              {
-                id: "lr_vd7",
-                num: 7,
-                level: "level-th",
-                levelName: "Thông hiểu",
-                title: "Có bao nhiêu chất là đồng đẳng của methane trong dãy: C₂H₆, C₂H₄, C₃H₈, C₄H₁₀, C₂H₂?",
-                solution: "Các chất cùng dãy đồng đẳng alkane với methane (CₙH₂ₙ₊₂) là: C₂H₆, C₃H₈, C₄H₁₀ (3 chất)."
-              },
-              {
-                id: "lr_vd8",
-                num: 8,
-                level: "level-vd",
-                levelName: "Vận dụng",
-                title: "Số liên kết cộng hóa trị sigma (σ) trong một phân tử methane (CH₄) và ethane (C₂H₆) lần lượt là bao nhiêu?",
-                solution: "- Trong CH₄ có 4 liên kết C-H => 4 liên kết σ.\n- Trong C₂H₆ có 1 liên kết C-C và 6 liên kết C-H => tổng cộng 7 liên kết σ."
-              },
-              {
-                id: "lr_vd9",
-                num: 9,
-                level: "level-vdc",
-                levelName: "Vận dụng cao",
-                title: "Cho 3 chất: ethane, ethanol và acetic acid. Sắp xếp theo chiều tăng dần nhiệt độ sôi và giải thích ngắn gọn.",
-                solution: "Thứ tự: Ethane < Ethanol < Acetic acid.\nGiải thích: Ethane là chất khí không phân cực; Ethanol có liên kết hydrogen liên phân tử; Acetic acid có liên kết hydrogen dạng nhị hợp (dimer) bền hơn nên nhiệt độ sôi cao nhất."
-              }
-            ]
-          }
+      {
+        id: "ch5",
+        title: "CHƯƠNG 5. DẪN XUẤT HALOGEN - ALCOHOL - PHENOL",
+        lessons: [
+          { id: "c5_b15", code: "Bài 15", name: "Dẫn xuất halogen" },
+          { id: "c5_b16", code: "Bài 16", name: "Alcohol" },
+          { id: "c5_b17", code: "Bài 17", name: "Phenol" },
+          { id: "c5_rev", code: "Ôn tập", name: "Bài tập cuối chương V" }
+        ]
+      },
+      {
+        id: "ch6",
+        title: "CHƯƠNG 6. HỢP CHẤT CARBONYL - CARBOXYLIC ACID",
+        lessons: [
+          { id: "c6_b18", code: "Bài 18", name: "Hợp chất carbonyl (Aldehyde và Ketone)" },
+          { id: "c6_b19", code: "Bài 19", name: "Carboxylic acid" },
+          { id: "c6_rev", code: "Ôn tập", name: "Bài tập cuối chương VI" }
         ]
       }
-    };
+    ];
 
     /* ========================================================
-       48 BÀI TẬP LUYỆN TẬP CHUẨN CẤU TRÚC CHO MỖI BÀI
+       CURRICULUM CONTENT BUILDER
+       ======================================================== */
+    function getLessonCurriculum(lessonId) {
+      // Tìm thông tin bài
+      let chapterTitle = "";
+      let lessonTitle = "";
+      ALL_CHAPTERS.forEach(ch => {
+        const found = ch.lessons.find(l => l.id === lessonId);
+        if (found) {
+          chapterTitle = ch.title;
+          lessonTitle = `${found.code}. ${found.name}`;
+        }
+      });
+
+      // Tạo nội dung tương ứng theo từng chương
+      let theory = [];
+      let methods = [];
+
+      if (lessonId.startsWith("c1_")) {
+        theory = [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Phản ứng thuận nghịch và cân bằng hóa học:</strong>
+              <ul>
+                <li>Phản ứng thuận nghịch là phản ứng trong cùng điều kiện xác định xảy ra đồng thời theo hai chiều trái ngược nhau.</li>
+                <li>Trạng thái cân bằng của phản ứng thuận nghịch là trạng thái tại đó tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch (<code>v_thuận = v_nghịch</code>).</li>
+                <li>Cân bằng hóa học là <strong>cân bằng động</strong>, nồng độ các chất trong hệ không đổi ở trạng thái cân bằng.</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nguyên lí chuyển dịch cân bằng Le Chatelier",
+            content: "Một phản ứng thuận nghịch đang ở trạng thái cân bằng khi chịu tác động từ bên ngoài (nồng độ, nhiệt độ, áp suất) sẽ tự chuyển dịch theo chiều làm giảm tác động bên ngoài đó."
+          },
+          {
+            type: "tom_tat",
+            content: `
+              <strong>2. Dung dịch nước, sự điện li và pH:</strong>
+              <ul>
+                <li>Chất điện li là chất tan trong nước phân li thành các ion. Axit mạnh, bazo mạnh, muối tan là chất điện li mạnh.</li>
+                <li>pH là chỉ số đo độ acid/base của dung dịch: <code>pH = -log[H⁺]</code>. Ở 25°C: Môi trường acid (pH < 7), trung tính (pH = 7), base (pH > 7).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Lưu ý thực hành chuẩn độ",
+            content: "Chuẩn độ acid - base dùng dung dịch chuẩn đã biết chính xác nồng độ để xác định nồng độ dung dịch cần đo dựa vào chất chỉ thị (phenolphthalein hoặc quỳ tím, methyl da cam)."
+          }
+        ];
+        methods = [
+          {
+            name: "Dạng 1: Viết biểu thức hằng số cân bằng Kc và tính hiệu suất phản ứng",
+            content: "Cho phản ứng aA + bB ⇌ cC + dD. Biểu thức Kc = ([C]^c * [D]^d) / ([A]^a * [B]^b). Chỉ tính nồng độ các chất ở trạng thái khí hoặc dung dịch, không tính chất rắn.",
+            examples: [
+              { id: `${lessonId}_vd1`, num: 1, level: "level-th", levelName: "Thông hiểu", title: "Viết biểu thức hằng số cân bằng Kc cho phản ứng: N₂(k) + 3H₂(k) ⇌ 2NH₃(k).", solution: "Kc = [NH₃]² / ([N₂] * [H₂]³)." },
+              { id: `${lessonId}_vd2`, num: 2, level: "level-th", levelName: "Thông hiểu", title: "Cho phản ứng: C(r) + CO₂(k) ⇌ 2CO(k). Viết biểu thức Kc của phản ứng.", solution: "Vì C là chất rắn nên không xuất hiện trong biểu thức: Kc = [CO]² / [CO₂]." },
+              { id: `${lessonId}_vd3`, num: 3, level: "level-vd", levelName: "Vận dụng", title: "Ở trạng thái cân bằng của phản ứng tổng hợp NH₃, nồng độ N₂ là 0,5 M, H₂ là 1,0 M và NH₃ là 0,2 M. Tính giá trị Kc.", solution: "Kc = (0,2)² / (0,5 * 1,0³) = 0,04 / 0,5 = 0,08." }
+            ]
+          },
+          {
+            name: "Dạng 2: Dự đoán chiều chuyển dịch cân bằng theo nguyên lí Le Chatelier",
+            content: "• Tăng nhiệt độ -> cân bằng chuyển dịch theo chiều thu nhiệt (ΔH > 0).<br>• Tăng áp suất -> cân bằng chuyển dịch theo chiều giảm số mol khí.<br>• Thêm chất -> chuyển dịch theo chiều làm giảm chất đó.",
+            examples: [
+              { id: `${lessonId}_vd4`, num: 4, level: "level-th", levelName: "Thông hiểu", title: "Cho phản ứng N₂ + 3H₂ ⇌ 2NH₃ (ΔrHo < 0). Khi tăng nhiệt độ, cân bằng chuyển dịch theo chiều nào?", solution: "Vì chiều thuận tỏa nhiệt (ΔH < 0), nên khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt, tức là chiều nghịch." },
+              { id: `${lessonId}_vd5`, num: 5, level: "level-vd", levelName: "Vận dụng", title: "Khi tăng áp suất chung của hệ trong phản ứng N₂ + 3H₂ ⇌ 2NH₃, cân bằng chuyển dịch như thế nào?", solution: "Vế trái có 1+3=4 mol khí, vế phải có 2 mol khí. Khi tăng áp suất, cân bằng chuyển dịch theo chiều làm giảm số mol khí, tức chiều thuận (tạo ra NH₃)." },
+              { id: `${lessonId}_vd6`, num: 6, level: "level-vd", levelName: "Vận dụng", title: "Chất xúc tác có làm chuyển dịch cân bằng hóa học không? Nêu vai trò của chất xúc tác.", solution: "Chất xúc tác KHÔNG làm chuyển dịch cân bằng hóa học vì làm tăng tốc độ phản ứng thuận và nghịch với tỉ lệ như nhau; xúc tác chỉ giúp hệ nhanh đạt đến trạng thái cân bằng." }
+            ]
+          },
+          {
+            name: "Dạng 3: Tính toán nồng độ ion và pH của dung dịch acid - base",
+            content: "• Dung dịch acid mạnh (HCl 0,01 M) -> [H⁺] = 0,01 M -> pH = 2.<br>• Dung dịch base mạnh (NaOH 0,01 M) -> [OH⁻] = 0,01 M -> pOH = 2 -> pH = 12.<br>• Trộn acid và base: tính nmol H⁺ và OH⁻, tìm chất dư rồi tính pH.",
+            examples: [
+              { id: `${lessonId}_vd7`, num: 7, level: "level-th", levelName: "Thông hiểu", title: "Tính pH của dung dịch HCl 0,001 M.", solution: "[H⁺] = 0,001 M = 10⁻³ M => pH = -log(10⁻³) = 3." },
+              { id: `${lessonId}_vd8`, num: 8, level: "level-vd", levelName: "Vận dụng", title: "Tính pH của dung dịch Ba(OH)₂ 0,05 M ở 25°C.", solution: "Ba(OH)₂ -> Ba²⁺ + 2OH⁻ => [OH⁻] = 2 * 0,05 = 0,1 M = 10⁻¹ M => pOH = 1 => pH = 14 - 1 = 13." },
+              { id: `${lessonId}_vd9`, num: 9, level: "level-vdc", levelName: "Vận dụng cao", title: "Trộn 100 mL dung dịch HCl 0,2 M với 100 mL dung dịch NaOH 0,1 M. Tính pH của dung dịch sau phản ứng.", solution: "nH⁺ = 0,1 * 0,2 = 0,02 mol; nOH⁻ = 0,1 * 0,1 = 0,01 mol. H⁺ dư: 0,02 - 0,01 = 0,01 mol.\nThể tích sau trộn: 200 mL = 0,2 L => [H⁺] dư = 0,01 / 0,2 = 0,05 M => pH = -log(0,05) ≈ 1,30." }
+            ]
+          }
+        ];
+      } else if (lessonId.startsWith("c2_")) {
+        theory = [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Đơn chất và hợp chất của Nitrogen:</strong>
+              <ul>
+                <li>Đơn chất N₂ trơ ở nhiệt độ thường do có liên kết ba N≡N rất bền, chỉ hoạt động ở nhiệt độ cao hoặc có tia lửa điện.</li>
+                <li>Ammonia (NH₃) có tính bazo yếu (làm xanh quỳ tím ẩm) và tính khử mạnh (tác dụng với O₂, Cl₂, CuO...).</li>
+                <li>Axit nitric (HNO₃) là axit mạnh và chất oxi hóa rất mạnh, hòa tan hầu hết các kim loại (trừ Au, Pt) không giải phóng H₂.</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Hiện tượng phú dưỡng",
+            content: "Hiện tượng phú dưỡng xảy ra do dư thừa hàm lượng nitrogen và phosphorus trong ao hồ (từ phân bón, nước thải), làm tảo nở hoa nhanh chóng gây thiếu hụt oxy và ô nhiễm nguồn nước."
+          },
+          {
+            type: "tom_tat",
+            content: `
+              <strong>2. Đơn chất Sulfur và Hợp chất của Sulfur:</strong>
+              <ul>
+                <li>Sulfur dioxide (SO₂) vừa có tính khử (làm mất màu dung dịch Br₂, thuốc tím KMnO₄), vừa có tính oxi hóa (tác dụng với H₂S).</li>
+                <li>Sulfuric acid (H₂SO₄ đặc) có tính oxi hóa rất mạnh và tính háo nước mạnh (làm than hóa đường, giấy, vải).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Quy tắc an toàn pha loãng H₂SO₄ đặc",
+            content: "Luôn luôn rót từ từ axit sunfuric đặc vào nước và khuấy đều bằng đũa thủy tinh; TUYỆT ĐỐI KHÔNG được làm ngược lại (rót nước vào axit) vì axit đặc tỏa nhiệt cực lớn làm nước sôi bắn axit gây bỏng nặng."
+          }
+        ];
+        methods = [
+          {
+            name: "Dạng 1: Kim loại tác dụng với dung dịch HNO₃",
+            content: "Áp dụng định luật bảo toàn electron: Tổng mol e nhường = Tổng mol e nhận (3*nNO + 1*nNO₂ + 8*nN₂O + 10*nN₂ + 8*nNH₄NO₃). Tính mol HNO₃ phản ứng: nHNO₃ = n(NO₃⁻ trong muối) + n(N trong sản phẩm khử).",
+            examples: [
+              { id: `${lessonId}_vd1`, num: 1, level: "level-th", levelName: "Thông hiểu", title: "Cho 2,7 gam bột Al tác dụng hết với HNO₃ loãng, dư thu được V lít khí NO (đktc, sản phẩm khử duy nhất). Tìm V.", solution: "nAl = 0,1 mol. Bảo toàn electron: 3*nAl = 3*nNO => nNO = 0,1 mol => V = 2,479 lít (hoặc 2,24 lít đktc cũ)." },
+              { id: `${lessonId}_vd2`, num: 2, level: "level-vd", levelName: "Vận dụng", title: "Hòa tan hoàn toàn 6,4 gam Cu bằng HNO₃ đặc, nóng thu được khí NO₂. Tính số mol HNO₃ đã tham gia phản ứng.", solution: "nCu = 0,1 mol. nNO₂ = 2*nCu = 0,2 mol. nHNO₃ = 2*nCu + nNO₂ = 0,2 + 0,2 = 0,4 mol." },
+              { id: `${lessonId}_vd3`, num: 3, level: "level-vd", levelName: "Vận dụng", title: "Kim loại nào bị thụ động hóa trong HNO₃ đặc nguội và H₂SO₄ đặc nguội?", solution: "Sắt (Fe), nhôm (Al) và crom (Cr) bị thụ động hóa trong HNO₃ đặc nguội và H₂SO₄ đặc nguội do tạo màng oxit bảo vệ bền vững." }
+            ]
+          },
+          {
+            name: "Dạng 2: Bài toán muối amoni và tính chất bazơ của NH₃",
+            content: "Phản ứng của NH₃ với axit tạo muối amoni; phản ứng điều chế NH₃ từ muối amoni tác dụng với kiềm: NH₄⁺ + OH⁻ -> NH₃↑ + H₂O.",
+            examples: [
+              { id: `${lessonId}_vd4`, num: 4, level: "level-th", levelName: "Thông hiểu", title: "Dẫn 4,48 lít khí NH₃ (đkc) vào dung dịch chứa 0,2 mol H₂SO₄. Tính khối lượng muối thu được.", solution: "nNH₃ = 0,2 mol, nH₂SO₄ = 0,2 mol. Tỉ lệ 1:1 tạo muối acid NH₄HSO₄ (0,2 mol). m = 0,2 * 115 = 23,0 gam." },
+              { id: `${lessonId}_vd5`, num: 5, level: "level-vd", levelName: "Vận dụng", title: "Cho dung dịch NaOH dư vào 100 mL dung dịch (NH₄)₂SO₄ 1 M đun nóng nhẹ. Tính thể tích khí NH₃ thoát ra.", solution: "n(NH₄)₂SO₄ = 0,1 mol => nNH₄⁺ = 0,2 mol => nNH₃ = 0,2 mol => V ≈ 4,958 lít (đkc)." },
+              { id: `${lessonId}_vd6`, num: 6, level: "level-vd", levelName: "Vận dụng", title: "Vì sao không nên bón phân đạm urê hoặc phân đạm amoni cùng với vôi tôi?", solution: "Vì vôi cung cấp ion OH⁻ sẽ phản ứng với ion NH₄⁺ giải phóng khí NH₃ bay mất: NH₄⁺ + OH⁻ -> NH₃↑ + H₂O làm hao hụt phân đạm." }
+            ]
+          },
+          {
+            name: "Dạng 3: Kim loại tác dụng với H₂SO₄ đặc và nhận biết SO₄²⁻",
+            content: "Thuốc thử nhận biết ion SO₄²⁻ là dung dịch muối bari (BaCl₂, Ba(OH)₂) tạo kết tủa trắng BaSO₄ không tan trong axit mạnh.",
+            examples: [
+              { id: `${lessonId}_vd7`, num: 7, level: "level-th", levelName: "Thông hiểu", title: "Trình bày cách nhận biết 2 lọ mất nhãn chứa dung dịch Na₂SO₄ và NaCl.", solution: "Dùng dung dịch BaCl₂. Lọ xuất hiện kết tủa trắng không tan là Na₂SO₄: Ba²⁺ + SO₄²⁻ -> BaSO₄↓. Lọ không hiện tượng là NaCl." },
+              { id: `${lessonId}_vd8`, num: 8, level: "level-vd", levelName: "Vận dụng", title: "Hòa tan hoàn toàn 5,6 gam Fe trong dung dịch H₂SO₄ đặc, nóng dư thu được khí SO₂ (sản phẩm khử duy nhất). Tính nSO₂.", solution: "Fe lên Fe³⁺: 3*nFe = 2*nSO₂ => 3*(5,6/56) = 2*nSO₂ => nSO₂ = 0,15 mol." },
+              { id: `${lessonId}_vd9`, num: 9, level: "level-vdc", levelName: "Vận dụng cao", title: "Nêu hiện tượng khi nhỏ axit H₂SO₄ đặc vào cốc chứa một ít đường saccharose (C₁₂H₂₂O₁₁). Giải thích.", solution: "Đường chuyển sang màu nâu rồi thành khối xốp màu đen dâng cao miệng cốc và tỏa nhiều khói mùi hắc. Do H₂SO₄ đặc háo nước tách nước của đường thành than C, sau đó oxi hóa C thành CO₂ và SO₂ làm than xốp phồng." }
+            ]
+          }
+        ];
+      } else if (lessonId.startsWith("c4_")) {
+        theory = [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Alkane (Hydrocarbon no, CₙH₂ₙ₊₂):</strong>
+              <ul>
+                <li>Phân tử chỉ chứa các liên kết đơn C-C và C-H bền vững.</li>
+                <li>Phản ứng đặc trưng là <strong>phản ứng thế</strong> với halogen (Cl₂, Br₂) dưới ánh sáng khuếch tán. Quy tắc thế: Halogen ưu tiên thế vào H ở carbon bậc cao hơn.</li>
+                <li>Phản ứng cracking, phản ứng reforming và phản ứng cháy tỏa nhiều nhiệt (dùng làm nhiên liệu).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét về Hydrocarbon không no",
+            content: "Alkene (CₙH₂ₙ) có nối đôi C=C, Alkyne (CₙH₂ₙ₋₂) có nối ba C≡C. Liên kết pi (π) kém bền nên phản ứng đặc trưng là phản ứng cộng (cộng H₂, halogen, HX, nước), phản ứng trùng hợp và phản ứng oxi hóa làm mất màu dung dịch thuốc tím KMnO₄."
+          },
+          {
+            type: "tom_tat",
+            content: `
+              <strong>2. Arene (Hydrocarbon thơm, ví dụ Benzene C₆H₆):</strong>
+              <ul>
+                <li>Vòng benzene có cấu trúc 6 electron pi liên hợp giải tỏa đều, rất bền vững.</li>
+                <li>Đặc tính thơm: <em>Dễ thế, khó cộng và bền vững với chất oxi hóa</em>.</li>
+                <li>Alkynyl có liên kết ba đầu mạch (R-C≡CH) tác dụng với AgNO₃/NH₃ tạo kết tủa vàng nhạt (đặc trưng nhận biết).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Quy tắc Markovnikov",
+            content: "Khi cộng HX (X là halogen, OH...) vào alkene bất đối xứng, phần mang điện dương (H⁺) ưu tiên cộng vào carbon nối đôi chứa nhiều hydrogen hơn, phần mang điện âm (X⁻) cộng vào carbon chứa ít hydrogen hơn (sản phẩm chính)."
+          }
+        ];
+        methods = [
+          {
+            name: "Dạng 1: Phản ứng thế halogen của Alkane và tìm CTCT",
+            content: "CₙH₂ₙ₊₂ + Cl₂ -> CₙH₂ₙ₊₁Cl + HCl. Đếm số dẫn xuất monohalogen để suy ra tính đối xứng và CTCT của alkane.",
+            examples: [
+              { id: `${lessonId}_vd1`, num: 1, level: "level-th", levelName: "Thông hiểu", title: "Viết CTCT sản phẩm chính khi cho propane tác dụng với clo theo tỉ lệ mol 1:1 có ánh sáng.", solution: "CH₃-CH₂-CH₃ + Cl₂ -> CH₃-CHCl-CH₃ (2-chloropropane, sản phẩm chính thế ở C bậc II) + HCl." },
+              { id: `${lessonId}_vd2`, num: 2, level: "level-vd", levelName: "Vận dụng", title: "Alkane X có CTPT C₅H₁₂ tác dụng với Cl₂ (as, 1:1) chỉ tạo ra một dẫn xuất monoclo duy nhất. Xác định tên và CTCT của X.", solution: "X có tính đối xứng rất cao, đó là 2,2-dimethylpropane (neopentane): C(CH₃)₄." },
+              { id: `${lessonId}_vd3`, num: 3, level: "level-vd", levelName: "Vận dụng", title: "Crackinh hoàn toàn một thể tích butane thu được 2 thể tích hỗn hợp khí. Tính hiệu suất phản ứng cracking.", solution: "C₄H₁₀ -> alkane nhỏ + alkene. Tỉ lệ thể tích tăng gấp 2 chứng tỏ 1 mol C₄H₁₀ tạo 2 mol sản phẩm, hiệu suất đạt 100%." }
+            ]
+          },
+          {
+            name: "Dạng 2: Phản ứng cộng của Alkene, Alkyne và quy tắc Markovnikov",
+            content: "• Xác định sản phẩm chính, phụ theo Markovnikov.<br>• Nhận biết nối ba đầu mạch bằng dung dịch AgNO₃ trong NH₃.",
+            examples: [
+              { id: `${lessonId}_vd4`, num: 4, level: "level-th", levelName: "Thông hiểu", title: "Viết phương trình hóa học và xác định sản phẩm chính khi cho propene (CH₂=CH-CH₃) cộng HBr.", solution: "CH₂=CH-CH₃ + HBr -> CH₃-CHBr-CH₃ (2-bromopropane, sản phẩm chính theo Markovnikov)." },
+              { id: `${lessonId}_vd5`, num: 5, level: "level-vd", levelName: "Vận dụng", title: "Phân biệt 3 khí không màu: ethane, ethylene và acetylene bằng phương pháp hóa học.", solution: "- Dùng dung dịch AgNO₃/NH₃: acetylene tạo kết tủa màu vàng nhạt (CAg≡CAg).\n- Hai khí còn lại dẫn qua dung dịch Br₂: ethylene làm mất màu nâu đỏ của Br₂.\n- Ethane không có hiện tượng." },
+              { id: `${lessonId}_vd6`, num: 6, level: "level-vd", levelName: "Vận dụng", title: "Dẫn 3,36 lít (đktc) hỗn hợp ethylene và methane qua bình đựng dung dịch nước brom dư thấy khối lượng bình tăng 2,8 gam. Tính % thể tích mỗi khí.", solution: "m_bình tăng = m_ethylene phản ứng = 2,8 g => n_ethylene = 2,8 / 28 = 0,1 mol.\nTổng n_khí = 3,36 / 22,4 = 0,15 mol => n_methane = 0,05 mol. %V_ethylene = (0,1/0,15)*100% = 66,67%; %V_methane = 33,33%." }
+            ]
+          },
+          {
+            name: "Dạng 3: Bài toán đốt cháy Hydrocarbon",
+            content: "• nH₂O > nCO₂ -> Alkane (n_alkane = nH₂O - nCO₂).<br>• nH₂O = nCO₂ -> Alkene.<br>• nH₂O < nCO₂ -> Alkyne hoặc Arene.",
+            examples: [
+              { id: `${lessonId}_vd7`, num: 7, level: "level-th", levelName: "Thông hiểu", title: "Đốt cháy hoàn toàn một hydrocarbon thu được 0,3 mol CO₂ và 0,4 mol H₂O. Xác định dãy đồng đẳng và CTPT của hydrocarbon.", solution: "nH₂O (0,4) > nCO₂ (0,3) => Alkane. n_alkane = 0,4 - 0,3 = 0,1 mol. Số C = nCO₂ / n = 0,3 / 0,1 = 3. CTPT là C₃H₈." },
+              { id: `${lessonId}_vd8`, num: 8, level: "level-vd", levelName: "Vận dụng", title: "Đốt cháy hoàn toàn hỗn hợp 2 alkene đồng đẳng kế tiếp cần 9 lít O₂, thu được 6 lít CO₂ (ở cùng điều kiện). Tìm CTPT của 2 alkene.", solution: "Alkene đốt cháy cho nCO₂ = nH₂O = 6 lít. Số C trung bình = 6 / V_alkene. Bảo toàn O: 2*9 = 2*6 + 1*6 = 18 (thỏa mãn). CTPT 2 alkene là C₂H₄ và C₃H₆." },
+              { id: `${lessonId}_vd9`, num: 9, level: "level-vdc", levelName: "Vận dụng cao", title: "Viết phương trình điều chế thuốc trừ sâu 666 và thuốc nổ TNT từ benzene và toluene.", solution: "- C₆H₆ + 3Cl₂ (as) -> C₆H₆Cl₆ (hexachlorocyclohexane, thuốc trừ sâu 666).\n- C₆H₅CH₃ + 3HNO₃ (đặc, xúc tác H₂SO₄ đặc) -> C₆H₂(NO₂)₃CH₃ (2,4,6-trinitrotoluene, TNT) + 3H₂O." }
+            ]
+          }
+        ];
+      } else if (lessonId.startsWith("c5_")) {
+        theory = [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Dẫn xuất Halogen và Alcohol:</strong>
+              <ul>
+                <li>Dẫn xuất halogen tham gia phản ứng thế nhóm halogen (thủy phân trong kiềm) và phản ứng tách HX (theo quy tắc Zaitsev tạo alkene ưu tiên).</li>
+                <li>Alcohol có nhóm -OH liên kết trực tiếp với C no. Có liên kết hydrogen liên phân tử nên nhiệt độ sôi cao, tan tốt trong nước.</li>
+                <li>Phản ứng của alcohol: tác dụng với Na giải phóng H₂; tách nước tạo ether (140°C) hoặc tạo alkene (170°C); oxi hóa không hoàn toàn bằng CuO tạo aldehyde/ketone.</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận biết Polyalcohol (chứa các nhóm -OH liền kề)",
+            content: "Các polyalcohol có các nhóm -OH kề nhau (như glycerol C₃H₅(OH)₃, ethylene glycol C₂H₄(OH)₂) có khả năng hòa tan Cu(OH)₂ ở nhiệt độ thường tạo phức màu xanh lam thẩm đặc trưng."
+          },
+          {
+            type: "tom_tat",
+            content: `
+              <strong>2. Phenol (C₆H₅OH):</strong>
+              <ul>
+                <li>Phenol có nhóm -OH liên kết trực tiếp với nguyên tử carbon của vòng benzene.</li>
+                <li>Do ảnh hưởng qua lại giữa vòng benzene và nhóm -OH: Phenol có tính acid yếu (làm phản ứng với NaOH nhưng không đổi màu quỳ tím), và dễ thế vào vòng benzene hơn benzene.</li>
+                <li>Tác dụng với nước brom tạo kết tủa trắng 2,4,6-tribromophenol (dùng để nhận biết phenol).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Phân biệt Alcohol thơm và Phenol",
+            content: "Benzyl alcohol (C₆H₅-CH₂-OH) có nhóm -OH gắn trên nhánh no ngoài vòng benzene nên là alcohol, KHÔNG phản ứng với dung dịch NaOH và KHÔNG phải là phenol."
+          }
+        ];
+        methods = [
+          {
+            name: "Dạng 1: Phản ứng tách nước của Alcohol (Tạo Ether & Alkene)",
+            content: "• Tách nước ở 140°C (H₂SO₄ đặc): 2 R-OH -> R-O-R + H₂O. (Có n ancol khác nhau tạo n(n+1)/2 ether).<br>• Tách nước ở 170°C: tạo alkene theo quy tắc Zaitsev (ưu tiên tách H ở C kề bậc cao hơn).",
+            examples: [
+              { id: `${lessonId}_vd1`, num: 1, level: "level-th", levelName: "Thông hiểu", title: "Đun nóng butan-2-ol với H₂SO₄ đặc ở 170°C thu được sản phẩm chính là chất nào?", solution: "CH₃-CH(OH)-CH₂-CH₃ -> CH₃-CH=CH-CH₃ (but-2-ene, sản phẩm chính theo quy tắc Zaitsev) + H₂O." },
+              { id: `${lessonId}_vd2`, num: 2, level: "level-vd", levelName: "Vận dụng", title: "Đun nóng hỗn hợp gồm ethanol và methanol với H₂SO₄ đặc ở 140°C có thể thu được tối đa bao nhiêu ether?", solution: "Có 2 alcohol (n = 2) => số ether tạo thành tối đa = 2*(2+1)/2 = 3 ether (CH₃-O-CH₃, C₂H₅-O-C₂H₅, CH₃-O-C₂H₅)." },
+              { id: `${lessonId}_vd3`, num: 3, level: "level-vd", levelName: "Vận dụng", title: "Viết phương trình phản ứng oxi hóa propan-1-ol và propan-2-ol bằng CuO đun nóng.", solution: "- Propan-1-ol (bậc I) bị oxi hóa tạo aldehyde: CH₃CH₂CH₂OH + CuO -> CH₃CH₂CHO + Cu + H₂O.\n- Propan-2-ol (bậc II) bị oxi hóa tạo ketone: CH₃CH(OH)CH₃ + CuO -> CH₃COCH₃ + Cu + H₂O." }
+            ]
+          },
+          {
+            name: "Dạng 2: Phản ứng của Alcohol và Phenol với kim loại kiềm & dung dịch kiềm",
+            content: "• R-OH và C₆H₅OH đều tác dụng với Na tạo khí H₂ (nH₂ = 1/2 nOH).<br>• Chỉ phenol tác dụng được với NaOH, alcohol không phản ứng.",
+            examples: [
+              { id: `${lessonId}_vd4`, num: 4, level: "level-th", levelName: "Thông hiểu", title: "Cho 4,6 gam ethanol phản ứng hoàn toàn với kim loại Na dư. Tính thể tích khí H₂ thoát ra ở đktc.", solution: "n_ethanol = 4,6 / 46 = 0,1 mol. nH₂ = 0,1 / 2 = 0,05 mol => V = 0,05 * 22,4 = 1,12 lít (hoặc 1,24 lít đkc)." },
+              { id: `${lessonId}_vd5`, num: 5, level: "level-vd", levelName: "Vận dụng", title: "Cho 14 gam hỗn hợp phenol và ethanol tác dụng với Na dư thu được 2,24 lít khí H₂ (đktc). Tính % khối lượng mỗi chất.", solution: "Gọi x, y là mol phenol và ethanol. 94x + 46y = 14 và 0,5x + 0,5y = 0,1 => x = 0,1; y = 0,1.\nm_phenol = 0,1 * 94 = 9,4 g (67,14%); m_ethanol = 4,6 g (32,86%)." },
+              { id: `${lessonId}_vd6`, num: 6, level: "level-vd", levelName: "Vận dụng", title: "Nhận biết 3 chất lỏng mất nhãn: ethanol, glycerol và phenol.", solution: "- Dùng Cu(OH)₂: glycerol tạo dung dịch phức màu xanh lam thẫm.\n- Dùng nước brom với 2 chất còn lại: phenol tạo kết tủa trắng 2,4,6-tribromophenol. Ethanol không phản ứng." }
+            ]
+          },
+          {
+            name: "Dạng 3: Bài toán độ rượu và điều chế ethanol từ tinh bột",
+            content: "• Độ rượu = (V_rượu nguyên chất / V_dung dịch rượu) * 100.<br>• Quá trình lên men: (C₆H₁₀O₅)ₙ -> n C₆H₁₂O₆ -> 2n C₂H₅OH + 2n CO₂.",
+            examples: [
+              { id: `${lessonId}_vd7`, num: 7, level: "level-th", levelName: "Thông hiểu", title: "Trong 500 mL dung dịch rượu 45° có chứa bao nhiêu mL ethanol nguyên chất?", solution: "V_ethanol = (500 * 45) / 100 = 225 mL." },
+              { id: `${lessonId}_vd8`, num: 8, level: "level-vd", levelName: "Vận dụng", title: "Khối lượng riêng của ethanol là 0,8 g/mL. Tính khối lượng ethanol có trong 100 mL cồn y tế 70°.", solution: "V_ethanol = 100 * 70% = 70 mL => m_ethanol = 70 * 0,8 = 56 gam." },
+              { id: `${lessonId}_vd9`, num: 9, level: "level-vdc", levelName: "Vận dụng cao", title: "Lên men 10 kg tinh bột (chứa 81% tinh bột nguyên chất) để sản xuất rượu ethanol với hiệu suất toàn bộ quá trình là 80%. Tính khối lượng ethanol thu được.", solution: "m_tinh_bột = 10 * 81% = 8,1 kg. C₆H₁₀O₅ (162) -> 2 C₂H₅OH (92).\nm_ethanol_lí_thuyết = (8,1 / 162) * 92 = 4,6 kg.\nm_ethanol_thực_tế = 4,6 * 80% = 3,68 kg." }
+            ]
+          }
+        ];
+      } else if (lessonId.startsWith("c6_")) {
+        theory = [
+          {
+            type: "tom_tat",
+            content: `
+              <strong>1. Hợp chất Carbonyl (Aldehyde và Ketone):</strong>
+              <ul>
+                <li>Phân tử chứa nhóm carbonyl <code>>C=O</code>. Ở aldehyde nhóm -CHO gắn với H hoặc C; ở ketone nhóm >C=O gắn với 2 gốc hydrocarbon.</li>
+                <li>Phản ứng tráng bạc (thuốc thử Tollens): Aldehyde tác dụng với [Ag(NH₃)₂]OH tạo lớp bạc sáng bóng (1 nhóm -CHO tạo 2 Ag; riêng HCHO tạo 4 Ag).</li>
+                <li>Phản ứng tạo iodoform: Các hợp chất có nhóm CH₃-C=O phản ứng với I₂ trong kiềm tạo kết tủa vàng CHI₃.</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: false,
+            title: "Nhận xét về tính acid của Carboxylic Acid",
+            content: "Carboxylic acid (chứa nhóm -COOH) có tính acid rõ rệt: làm đỏ quỳ tím, tác dụng với kim loại trước H, oxit bazo, bazo và đẩy được acid yếu hơn (như H₂CO₃) ra khỏi muối carbonate giải phóng CO₂."
+          },
+          {
+            type: "tom_tat",
+            content: `
+              <strong>2. Carboxylic Acid và phản ứng ester hóa:</strong>
+              <ul>
+                <li>Phản ứng ester hóa: Axit tác dụng với ancol có xúc tác H₂SO₄ đặc, đun nóng là phản ứng thuận nghịch:
+                  <code>R-COOH + R'-OH ⇌ R-COO-R' + H₂O</code>.</li>
+                <li>Các axit béo quan trọng trong đời sống: palmitic acid (C₁₅H₃₁COOH), stearic acid (C₁₇H₃₅COOH), oleic acid (C₁₇H₃₃COOH).</li>
+              </ul>
+            `
+          },
+          {
+            type: "nhan_xet",
+            isWarning: true,
+            title: "Dấm ăn và Acetic Acid",
+            content: "Dấm ăn dùng trong nấu ăn là dung dịch acetic acid (CH₃COOH) có nồng độ từ 2% - 5%, được lên men tự nhiên từ rượu etylic loãng."
+          }
+        ];
+        methods = [
+          {
+            name: "Dạng 1: Phản ứng tráng bạc của Aldehyde",
+            content: "R-CHO + 2[Ag(NH₃)₂]OH -> R-COONH₄ + 2Ag↓ + 3NH₃ + H₂O. Cứ 1 mol -CHO tạo 2 mol Ag (riêng formaldehyde HCHO tạo 4 mol Ag).",
+            examples: [
+              { id: `${lessonId}_vd1`, num: 1, level: "level-th", levelName: "Thông hiểu", title: "Cho 4,4 gam acetaldehyde (CH₃CHO) tác dụng với lượng dư dung dịch AgNO₃ trong NH₃. Tính khối lượng Ag thu được.", solution: "n_CH₃CHO = 4,4 / 44 = 0,1 mol => nAg = 2 * 0,1 = 0,2 mol => mAg = 0,2 * 108 = 21,6 gam." },
+              { id: `${lessonId}_vd2`, num: 2, level: "level-vd", levelName: "Vận dụng", title: "Cho 3,0 gam formaldehyde (HCHO) phản ứng tráng bạc hoàn toàn. Tính khối lượng bạc kết tủa.", solution: "nHCHO = 3,0 / 30 = 0,1 mol. Vì HCHO tráng bạc theo tỉ lệ 1:4 nên nAg = 4 * 0,1 = 0,4 mol => mAg = 0,4 * 108 = 43,2 gam." },
+              { id: `${lessonId}_vd3`, num: 3, level: "level-vd", levelName: "Vận dụng", title: "Hợp chất nào sau đây tham gia phản ứng tạo kết tủa vàng iodoform (CHI₃): acetaldehyde, benzaldehyde, acetone?", solution: "Chỉ những chất có nhóm CH₃-CO- mới có phản ứng iodoform: acetaldehyde (CH₃-CHO) và acetone (CH₃-CO-CH₃) đều có phản ứng; benzaldehyde (C₆H₅CHO) không có phản ứng." }
+            ]
+          },
+          {
+            name: "Dạng 2: Tính acid của Carboxylic Acid và phản ứng với muối carbonate",
+            content: "2 R-COOH + CaCO₃ -> (RCOO)₂Ca + CO₂↑ + H₂O. Dựa vào số mol CO₂ suy ra số mol acid đơn chức: n_acid = 2*nCO₂.",
+            examples: [
+              { id: `${lessonId}_vd4`, num: 4, level: "level-th", levelName: "Thông hiểu", title: "Cho dung dịch CH₃COOH tác dụng với bột đá vôi (CaCO₃). Nêu hiện tượng và viết phương trình hóa học.", solution: "Hiện tượng: Bột đá vôi tan dần và có bọt khí không màu thoát ra.\nPhương trình: 2CH₃COOH + CaCO₃ -> (CH₃COO)₂Ca + CO₂↑ + H₂O." },
+              { id: `${lessonId}_vd5`, num: 5, level: "level-vd", levelName: "Vận dụng", title: "Trung hòa 100 mL dung dịch CH₃COOH cần dùng vừa đủ 50 mL dung dịch NaOH 1 M. Tính nồng độ mol của dung dịch axit.", solution: "nNaOH = 0,05 * 1 = 0,05 mol. CH₃COOH + NaOH -> CH₃COONa + H₂O => n_axit = 0,05 mol => CM = 0,05 / 0,1 = 0,5 M." },
+              { id: `${lessonId}_vd6`, num: 6, level: "level-vd", levelName: "Vận dụng", title: "Cho 6,0 gam acid no đơn chức X tác dụng với NaHCO₃ dư thu được 2,479 lít CO₂ (đkc, 0,1 mol). Tìm CTPT của X.", solution: "RCOOH + NaHCO₃ -> RCOONa + CO₂ + H₂O => n_acid = nCO₂ = 0,1 mol => M = 6,0 / 0,1 = 60 (CH₃COOH). CTPT là C₂H₄O₂." }
+            ]
+          },
+          {
+            name: "Dạng 3: Phản ứng ester hóa và tính hiệu suất",
+            content: "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Tính chất thiếu để tính hiệu suất: H% = (lượng thực tế / lượng lí thuyết) * 100%.",
+            examples: [
+              { id: `${lessonId}_vd7`, num: 7, level: "level-th", levelName: "Thông hiểu", title: "Nêu vai trò của H₂SO₄ đặc trong phản ứng ester hóa giữa acetic acid và ethanol.", solution: "H₂SO₄ đặc vừa đóng vai trò là chất xúc tác tăng tốc độ phản ứng, vừa là chất háo nước hút nước làm cân bằng chuyển dịch theo chiều thuận tạo nhiều ester hơn." },
+              { id: `${lessonId}_vd8`, num: 8, level: "level-vd", levelName: "Vận dụng", title: "Đun 6,0 gam CH₃COOH với 4,6 gam C₂H₅OH có H₂SO₄ đặc xúc tác thu được 5,28 gam ethyl acetate. Tính hiệu suất phản ứng.", solution: "n_axit = 0,1 mol; n_ancol = 0,1 mol => n_ester lí thuyết = 0,1 mol (8,8 g).\nn_ester thực tế = 5,28 / 88 = 0,06 mol => H% = (5,28 / 8,8) * 100% = 60%." },
+              { id: `${lessonId}_vd9`, num: 9, level: "level-vdc", levelName: "Vận dụng cao", title: "Tại sao sau khi làm thí nghiệm ester hóa, người ta lại rót dung dịch thu được vào ống nghiệm chứa dung dịch NaCl bão hòa?", solution: "Dung dịch NaCl bão hòa làm tăng khối lượng riêng của lớp nước phía dưới, đồng thời làm giảm độ tan của ethyl acetate, giúp este nhẹ hơn nổi hẳn lên trên thành lớp riêng biệt dễ quan sát và tách chiết." }
+            ]
+          }
+        ];
+      } else {
+        // Chương 3 (Hóa hữu cơ đại cương - đã có dữ liệu chuyên sâu)
+        return LESSONS_DATABASE[lessonId] || LESSONS_DATABASE['lesson1'];
+      }
+
+      return {
+        id: lessonId,
+        chapter: chapterTitle,
+        title: lessonTitle,
+        theory: theory,
+        methods: methods
+      };
+    }
+
+    /* ========================================================
+       RENDER BẢNG CHƯƠNG (HOME ACCORDION)
+       ======================================================== */
+    function renderHomeChapters() {
+      const container = document.getElementById("chapters-accordion-container");
+      let html = "";
+
+      ALL_CHAPTERS.forEach((ch, idx) => {
+        html += `
+          <div class="chapter-card">
+            <div class="chapter-card-header ${idx === 2 ? 'active' : ''}" onclick="toggleChapterAccordion('ch-body-${ch.id}', this)">
+              <span>${ch.title}</span>
+              <span class="chevron">▼</span>
+            </div>
+            <div class="chapter-body" id="ch-body-${ch.id}" style="${idx === 2 ? 'display: block;' : 'display: block;'}">
+              <ul class="lesson-list">
+        `;
+        ch.lessons.forEach(l => {
+          html += `
+            <li>
+              <a class="lesson-link" onclick="openAnyLesson('${l.id}')">
+                <strong>${l.code}.</strong> ${l.name}
+              </a>
+              <span class="lesson-badge">57 câu chuẩn</span>
+            </li>
+          `;
+        });
+        html += `
+              </ul>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function toggleChapterAccordion(bodyId, headerElem) {
+      const body = document.getElementById(bodyId);
+      if (!body) return;
+      const isOpen = body.style.display !== "none";
+      body.style.display = isOpen ? "none" : "block";
+      headerElem.classList.toggle("active", !isOpen);
+    }
+
+    /* ========================================================
+       LOAD & SWITCH TO ANY LESSON
+       ======================================================== */
+    function openAnyLesson(lessonId) {
+      const data = getLessonCurriculum(lessonId);
+      if (!data) return;
+
+      appState.currentLesson = lessonId;
+      showView("lesson");
+
+      document.getElementById("top-title-text").textContent = data.title.toUpperCase();
+      document.getElementById("lesson-breadcrumb-text").textContent = `${data.chapter} > ${data.title}`;
+      document.getElementById("lesson-page-title").textContent = data.title;
+
+      renderTheory(data.theory);
+      renderMethods(data.methods);
+
+      const exercises = generateExercisesForLesson(lessonId);
+      renderExercises(exercises);
+
+      updateNavbarProgress();
+      window.scrollTo(0, 0);
+    }
+
+    /* Kế thừa bộ hàm tương tác & modal 57 câu từ engine */
+  </script>
+  <!-- Nhúng lại engine xử lý câu hỏi & bộ nhớ đã hoàn thiện -->
+  <script>
+    /* ========================================================
+       48 BÀI TẬP LUYỆN TẬP CHUẨN CẤU TRÚC CHO MỌI BÀI
        ======================================================== */
     function generateExercisesForLesson(lessonKey) {
-      const isL1 = lessonKey === 'lesson1';
-      const isL2 = lessonKey === 'lesson2';
-      const isL3 = lessonKey === 'lesson3';
-      const isL4 = lessonKey === 'lesson4';
-
       let mcq = [];
       let tf = [];
       let short = [];
@@ -1488,27 +1331,27 @@
 
       // 1. CÂU 1 ĐẾN 21: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN
       const mcqBank = [
-        { q: "Hợp chất nào sau đây là hợp chất hữu cơ?", opts: ["CO₂", "CaCO₃", "CH₄", "KCN"], c: 2, exp: "CH₄ là hydrocarbon, thuộc hợp chất hữu cơ." },
-        { q: "Liên kết hóa học chủ yếu trong phân tử hợp chất hữu cơ là loại liên kết nào?", opts: ["Liên kết ion", "Liên kết cộng hóa trị", "Liên kết kim loại", "Liên kết phi kim"], c: 1, exp: "Hợp chất hữu cơ chủ yếu chứa liên kết cộng hóa trị." },
-        { q: "Nguyên tố nào sau đây nhất thiết phải có trong thành phần hợp chất hữu cơ?", opts: ["Carbon", "Hydrogen", "Oxygen", "Nitrogen"], c: 0, exp: "Mọi hợp chất hữu cơ đều phải chứa carbon." },
-        { q: "Nhóm chức nào sau đây đặc trưng cho alcohol?", opts: ["-CHO", "-COOH", "-OH", "-NH₂"], c: 2, exp: "Nhóm hydroxy (-OH) đặc trưng cho alcohol." },
-        { q: "Nhóm chức nào sau đây đặc trưng cho carboxylic acid?", opts: ["-OH", "-CHO", "-COOH", "-COO-"], c: 2, exp: "Nhóm carboxyl (-COOH) đặc trưng cho carboxylic acid." },
-        { q: "Đặc điểm chung về tính tan của đa số hợp chất hữu cơ là:", opts: ["Tan tốt trong nước, không tan trong dung môi hữu cơ", "Ít tan hoặc không tan trong nước, tan trong dung môi hữu cơ", "Tan vô hạn trong mọi dung môi", "Không tan trong bất kỳ dung môi nào"], c: 1, exp: "Đa số chất hữu cơ kém phân cực nên ít tan trong nước, tan tốt trong dung môi hữu cơ." },
-        { q: "Phương pháp nào dùng để tách các chất lỏng có nhiệt độ sôi khác nhau đáng kể?", opts: ["Chiết lỏng - lỏng", "Chưng cất", "Kết tinh", "Sắc kí"], c: 1, exp: "Chưng cất dựa vào sự khác nhau về nhiệt độ sôi." },
-        { q: "Dụng cụ dùng để tách hai chất lỏng không trộn lẫn vào nhau là:", opts: ["Ống nghiệm", "Phễu chiết", "Bình cầu chưng cất", "Cốc đong"], c: 1, exp: "Phễu chiết dùng trong phương pháp chiết lỏng - lỏng." },
-        { q: "Hoạt động ngâm rượu thuốc hay hãm trà là ứng dụng của phương pháp:", opts: ["Chưng cất", "Chiết lỏng - rắn", "Kết tinh lại", "Sắc kí cột"], c: 1, exp: "Hòa tan chất từ pha rắn vào pha lỏng là chiết lỏng - rắn." },
-        { q: "Phương pháp kết tinh dùng để tinh chế các chất ở trạng thái nào?", opts: ["Chất khí", "Chất rắn", "Chất lỏng", "Hỗn hợp khí"], c: 1, exp: "Kết tinh dùng để làm sạch và thu nhận các chất rắn." },
-        { q: "Đại lượng m/z của pic ion phân tử [M⁺] trong phổ khối lượng MS cho biết:", opts: ["Khối lượng của mẫu phân tích", "Phân tử khối của hợp chất", "Số lượng nguyên tử hydrogen", "Phần trăm khối lượng carbon"], c: 1, exp: "m/z của [M⁺] bằng phân tử khối M." },
-        { q: "Công thức đơn giản nhất cho biết thông tin gì?", opts: ["Số lượng nguyên tử thực tế", "Tỉ lệ số nguyên tử tối giản giữa các nguyên tố", "Cấu trúc không gian", "Vị trí nhóm chức"], c: 1, exp: "CTĐGN biểu diễn tỉ lệ nguyên tối giản giữa các nguyên tố." },
-        { q: "Hai chất C₂H₂ và C₆H₆ có cùng đặc điểm nào sau đây?", opts: ["Công thức phân tử", "Công thức đơn giản nhất", "Phân tử khối", "Tính chất hóa học"], c: 1, exp: "Cả hai đều có công thức đơn giản nhất là CH." },
-        { q: "Theo thuyết cấu tạo hóa học, nguyên tử carbon luôn có hóa trị mấy trong hợp chất hữu cơ?", opts: ["II", "III", "IV", "I"], c: 2, exp: "Carbon luôn có hóa trị IV." },
-        { q: "Hiện tượng các chất khác nhau nhưng có cùng công thức phân tử được gọi là:", opts: ["Hiện tượng đồng đẳng", "Hiện tượng đồng phân", "Hiện tượng dị thể", "Hiện tượng trùng hợp"], c: 1, exp: "Cùng CTPT nhưng khác CTCT là hiện tượng đồng phân." },
-        { q: "Cặp chất nào sau đây là đồng phân của nhau?", opts: ["CH₃-O-CH₃ và CH₃-CH₂-OH", "CH₄ và C₂H₆", "CH₃OH và C₂H₅OH", "CO₂ và SO₂"], c: 0, exp: "Cùng CTPT là C₂H₆O nhưng khác cấu tạo." },
-        { q: "Các chất hơn kém nhau một hay nhiều nhóm -CH₂- và có tính chất hóa học tương tự nhau gọi là:", opts: ["Chất đồng phân", "Chất đồng vị", "Chất đồng đẳng", "Chất đồng khối"], c: 2, exp: "Định nghĩa dãy đồng đẳng." },
-        { q: "Điều kiện để alkene có đồng phân hình học cis - trans là:", opts: ["Phân tử có mạch vòng", "Mỗi C nối đôi liên kết với 2 nhóm nguyên tử khác nhau", "Có từ 2 liên kết đôi trở lên", "Khối lượng phân tử lớn hơn 60"], c: 1, exp: "Dạng R₁R₂C=CR₃R₄ với R₁ ≠ R₂ và R₃ ≠ R₄." },
-        { q: "Chất nào sau đây có đồng phân hình học cis - trans?", opts: ["Ethene (CH₂=CH₂)", "Propene (CH₂=CH-CH₃)", "But-2-ene (CH₃-CH=CH-CH₃)", "But-1-ene (CH₂=CH-CH₂-CH₃)"], c: 2, exp: "But-2-ene có dạng đối xứng với mỗi C liên kết H và CH₃." },
-        { q: "Hydrocarbon butane (C₄H₁₀) có bao nhiêu đồng phân cấu tạo?", opts: ["1", "2", "3", "4"], c: 1, exp: "Gồm butane và 2-methylpropane (2 đồng phân)." },
-        { q: "Khi đốt cháy hoàn toàn hydrocarbon X thu được nCO₂ = nH₂O. Dãy đồng đẳng của X là:", opts: ["Alkane", "Alkene", "Alkyne", "Arene"], c: 1, exp: "Đốt cháy alkene CₙH₂ₙ cho nCO₂ = nH₂O." }
+        { q: "Yếu tố nào sau đây không làm chuyển dịch cân bằng của một phản ứng thuận nghịch?", opts: ["Nồng độ", "Áp suất", "Chất xúc tác", "Nhiệt độ"], c: 2, exp: "Chất xúc tác chỉ làm tăng tốc độ phản ứng, không làm chuyển dịch cân bằng." },
+        { q: "Dung dịch có pH = 3 thì nồng độ ion H⁺ trong dung dịch là:", opts: ["0,001 M", "0,01 M", "0,0001 M", "3 M"], c: 0, exp: "[H⁺] = 10^(-pH) = 10^(-3) M = 0,001 M." },
+        { q: "Chất nào sau đây là chất điện li mạnh trong nước?", opts: ["CH₃COOH", "NaCl", "H₂O", "C₂H₅OH"], c: 1, exp: "NaCl là muối tan, phân li hoàn toàn thành ion Na⁺ và Cl⁻." },
+        { q: "Khí nào sau đây chiếm khoảng 78% thể tích không khí?", opts: ["Oxygen", "Nitrogen", "Carbon dioxide", "Argon"], c: 1, exp: "Khí nitrogen (N₂) chiếm khoảng 78% thể tích khí quyển." },
+        { q: "Dung dịch ammonia (NH₃) làm quỳ tím chuyển sang màu gì?", opts: ["Màu đỏ", "Màu xanh", "Màu vàng", "Không đổi màu"], c: 1, exp: "NH₃ có tính base yếu nên làm quỳ tím hóa xanh." },
+        { q: "Kim loại nào sau đây bị thụ động hóa trong axit HNO₃ đặc nguội?", opts: ["Cu", "Ag", "Fe", "Mg"], c: 2, exp: "Sắt (Fe), nhôm (Al), crom (Cr) bị thụ động hóa trong HNO₃ đặc nguội." },
+        { q: "Thuốc thử dùng để nhận biết ion sulfate (SO₄²⁻) là:", opts: ["Dung dịch BaCl₂", "Dung dịch AgNO₃", "Dung dịch NaOH", "Quỳ tím"], c: 0, exp: "Ba²⁺ + SO₄²⁻ -> BaSO₄↓ trắng không tan trong acid mạnh." },
+        { q: "Nguyên tố nào nhất thiết phải có trong hợp chất hữu cơ?", opts: ["Hydrogen", "Carbon", "Oxygen", "Nitrogen"], c: 1, exp: "Mọi hợp chất hữu cơ đều là hợp chất của carbon." },
+        { q: "Phương pháp dùng để tách hai chất lỏng không trộn lẫn vào nhau là:", opts: ["Chưng cất", "Chiết lỏng - lỏng", "Kết tinh", "Sắc kí"], c: 1, exp: "Chiết lỏng - lỏng bằng phễu chiết." },
+        { q: "Giá trị m/z của pic ion phân tử [M⁺] trong phổ MS cho biết:", opts: ["Số nguyên tử C", "Phân tử khối của chất", "Độ tan của chất", "Nhiệt độ sôi"], c: 1, exp: "m/z của [M⁺] tương ứng với phân tử khối M." },
+        { q: "Hydrocarbon no, mạch hở alkane có công thức chung là:", opts: ["CₙH₂ₙ", "CₙH₂ₙ₊₂ (n ≥ 1)", "CₙH₂ₙ₋₂", "CₙH₂ₙ₋₆"], c: 1, exp: "Công thức chung của alkane là CₙH₂ₙ₊₂." },
+        { q: "Phản ứng đặc trưng của hydrocarbon no alkane là:", opts: ["Phản ứng cộng", "Phản ứng thế", "Phản ứng trùng hợp", "Phản ứng tráng bạc"], c: 1, exp: "Phân tử chỉ có liên kết đơn nên phản ứng đặc trưng là phản ứng thế." },
+        { q: "Chất nào sau đây làm mất màu dung dịch nước brom ở điều kiện thường?", opts: ["Methane", "Ethane", "Ethylene", "Propane"], c: 2, exp: "Ethylene có liên kết đôi C=C làm mất màu dung dịch brom." },
+        { q: "Alkyne có liên kết ba đầu mạch tác dụng với AgNO₃/NH₃ tạo kết tủa màu:", opts: ["Trắng", "Vàng nhạt", "Đỏ nâu", "Đen"], c: 1, exp: "Tạo kết tủa màu vàng nhạt (bạc alkynide)." },
+        { q: "Nhóm chức đặc trưng của alcohol là:", opts: ["-COOH", "-OH", "-CHO", "-COO-"], c: 1, exp: "Nhóm hydroxy (-OH) đặc trưng cho alcohol." },
+        { q: "Polyalcohol nào sau đây hòa tan được Cu(OH)₂ tạo dung dịch màu xanh lam thẫm?", opts: ["Ethanol", "Glycerol", "Methanol", "Propan-1-ol"], c: 1, exp: "Glycerol có 3 nhóm -OH kề nhau hòa tan Cu(OH)₂." },
+        { q: "Phenol (C₆H₅OH) phản ứng được với chất nào sau đây?", opts: ["Dung dịch NaOH", "Dung dịch HCl", "Dung dịch NaCl", "Khí CO"], c: 0, exp: "Phenol có tính acid yếu phản ứng được với dung dịch kiềm NaOH." },
+        { q: "Hợp chất nào sau đây tham gia phản ứng tráng bạc?", opts: ["Acetic acid", "Acetaldehyde", "Ethanol", "Ethyl acetate"], c: 1, exp: "Aldehyde (CH₃CHO) có nhóm -CHO tham gia phản ứng tráng bạc." },
+        { q: "Dấm ăn chứa khoảng 2% đến 5% hợp chất nào?", opts: ["Formic acid", "Acetic acid", "Lactic acid", "Citric acid"], c: 1, exp: "Dấm ăn là dung dịch acetic acid (CH₃COOH)." },
+        { q: "Phản ứng giữa carboxylic acid và alcohol được gọi là:", opts: ["Phản ứng xà phòng hóa", "Phản ứng ester hóa", "Phản ứng trùng ngưng", "Phản ứng thủy phân"], c: 1, exp: "Phản ứng tạo ester là phản ứng ester hóa." },
+        { q: "Chất nào sau đây là chất béo không no ở thể lỏng ở nhiệt độ thường?", opts: ["Tristearin", "Triolein", "Tripalmitin", "Axit stearic"], c: 1, exp: "Triolein chứa gốc axit béo không no C₁₇H₃₃- là chất lỏng (dầu thực vật)." }
       ];
 
       for (let i = 0; i < 21; i++) {
@@ -1534,53 +1377,53 @@
           num: 22,
           levelClass: "level-th",
           levelName: "Thông hiểu",
-          title: "Câu 22: Xem xét các phát biểu về khái niệm và đặc điểm của hợp chất hữu cơ:",
+          title: "Câu 22: Xem xét tính đúng sai của các nhận định về cân bằng hóa học và dung dịch nước:",
           statements: [
-            { text: "Tất cả các hợp chất chứa nguyên tố carbon đều là hợp chất hữu cơ.", ans: false },
-            { text: "Liên kết hóa học trong phân tử hợp chất hữu cơ chủ yếu là liên kết cộng hóa trị.", ans: true },
-            { text: "Hợp chất hữu cơ thường có nhiệt độ nóng chảy thấp và dễ cháy hơn hợp chất vô cơ ion.", ans: true },
-            { text: "Phản ứng của các chất hữu cơ thường diễn ra nhanh, tức thì và chỉ cho một sản phẩm duy nhất.", ans: false }
+            { text: "Cân bằng hóa học là trạng thái cân bằng động.", ans: true },
+            { text: "Chất xúc tác làm chuyển dịch cân bằng theo chiều phản ứng thuận.", ans: false },
+            { text: "Dung dịch có pH = 12 có môi trường base (kiềm).", ans: true },
+            { text: "Nước nguyên chất ở 25°C có pH = 7.", ans: true }
           ],
-          explanation: "Ý 1 sai vì CO, CO₂, muối carbonate... là vô cơ. Ý 4 sai vì phản ứng hữu cơ thường chậm và tạo hỗn hợp sản phẩm."
+          explanation: "Ý 2 sai vì chất xúc tác không làm chuyển dịch cân bằng."
         },
         {
           num: 23,
           levelClass: "level-th",
           levelName: "Thông hiểu",
-          title: "Câu 23: Về các phương pháp tách biệt và tinh chế hợp chất hữu cơ:",
+          title: "Câu 23: Về tính chất của hợp chất Nitrogen và Sulfur:",
           statements: [
-            { text: "Phương pháp chưng cất dùng để tách các chất lỏng có nhiệt độ sôi khác nhau.", ans: true },
-            { text: "Phương pháp chiết lỏng - lỏng dùng phễu chiết để tách hỗn hợp nước và cồn ethanol.", ans: false },
-            { text: "Dung môi dùng trong kết tinh lại phải hòa tan tốt chất ở nhiệt độ cao và kém ở nhiệt độ thấp.", ans: true },
-            { text: "Trong sắc kí cột, chất bị hấp phụ mạnh hơn trên pha tĩnh sẽ di chuyển ra khỏi cột trước.", ans: false }
+            { text: "Khí ammonia tan rất nhiều trong nước tạo dung dịch có tính base.", ans: true },
+            { text: "Axít nitric đặc nguội có thể hòa tan được kim loại nhôm (Al).", ans: false },
+            { text: "Khí SO₂ vừa có tính khử, vừa có tính oxi hóa.", ans: true },
+            { text: "Khi pha loãng H₂SO₄ đặc, ta được phép đổ nhanh nước vào axit.", ans: false }
           ],
-          explanation: "Ý 2 sai vì ethanol và nước tan vô hạn vào nhau không phân lớp nên không thể chiết. Ý 4 sai vì chất bị hấp phụ yếu hơn mới ra trước."
+          explanation: "Ý 2 sai vì Al bị thụ động hóa. Ý 4 sai vì tuyệt đối chỉ được rót từ từ axit vào nước."
         },
         {
           num: 24,
           levelClass: "level-vd",
           levelName: "Vận dụng",
-          title: "Câu 24: Về công thức phân tử và phổ khối lượng MS:",
+          title: "Câu 24: Về cấu tạo và tính chất của Hydrocarbon:",
           statements: [
-            { text: "Pic ion phân tử [M⁺] trên phổ MS có giá trị m/z tương ứng với phân tử khối của chất.", ans: true },
-            { text: "Hai chất có cùng công thức phân tử thì luôn có cùng công thức đơn giản nhất.", ans: true },
-            { text: "Hai chất có cùng công thức đơn giản nhất thì chắc chắn có cùng phân tử khối.", ans: false },
-            { text: "Hợp chất có CTĐGN là CH₂O và M = 60 có công thức phân tử là C₂H₄O₂.", ans: true }
+            { text: "Alkane chỉ tham gia phản ứng thế với halogen, không có phản ứng cộng.", ans: true },
+            { text: "But-2-ene có 2 đồng phân hình học là dạng cis và dạng trans.", ans: true },
+            { text: "Mọi alkyne đều tác dụng được với dung dịch AgNO₃ trong NH₃ tạo kết tủa vàng.", ans: false },
+            { text: "Ethylene làm mất màu dung dịch nước brom ở nhiệt độ thường.", ans: true }
           ],
-          explanation: "Ý 3 sai vì ví dụ CH₂O (M=30) và C₂H₄O₂ (M=60) có cùng CTĐGN nhưng khác phân tử khối."
+          explanation: "Ý 3 sai vì chỉ có các alkyne có nối ba đầu mạch (alk-1-yne) mới phản ứng."
         },
         {
           num: 25,
           levelClass: "level-vd",
           levelName: "Vận dụng",
-          title: "Câu 25: Về thuyết cấu tạo hóa học và hiện tượng đồng phân:",
+          title: "Câu 25: Về dẫn xuất hydrocarbon, alcohol, phenol và acid:",
           statements: [
-            { text: "Trong phân tử hợp chất hữu cơ, nguyên tử carbon luôn thể hiện hóa trị IV.", ans: true },
-            { text: "Các chất có cấu tạo hóa học khác nhau thì có tính chất hóa học hoàn toàn giống nhau.", ans: false },
-            { text: "But-2-ene (CH₃-CH=CH-CH₃) tồn tại ở 2 dạng đồng phân hình học là cis và trans.", ans: true },
-            { text: "Hydrocarbon pentane (C₅H₁₂) có tất cả 3 đồng phân cấu tạo.", ans: true }
+            { text: "Ethanol có nhiệt độ sôi cao hơn dimethyl ether do có liên kết hydrogen liên phân tử.", ans: true },
+            { text: "Phenol làm đổi màu quỳ tím sang màu đỏ đậm như axit vô cơ.", ans: false },
+            { text: "Formaldehyde (HCHO) tham gia phản ứng tráng bạc tạo bạc kim loại.", ans: true },
+            { text: "Phản ứng ester hóa giữa acetic acid và ethanol là phản ứng thuận nghịch.", ans: true }
           ],
-          explanation: "Ý 2 sai vì cấu tạo khác nhau thì tính chất khác nhau."
+          explanation: "Ý 2 sai vì phenol có tính axit rất yếu, không làm đổi màu quỳ tím."
         }
       ];
 
@@ -1597,14 +1440,14 @@
         });
       });
 
-      // 3. CÂU 26 ĐẾN 31: TRẢ LỜI NGẮN (KẾT QUẢ LÀ CON SỐ)
+      // 3. CÂU 26 ĐẾN 31: TRẢ LỜI NGẮN (KẾT QUẢ CON SỐ)
       const shortBank = [
-        { num: 26, title: "Câu 26: Cho các chất: C₂H₆, CO, CH₃Cl, NaHCO₃, C₂H₅OH, CaCO₃. Có bao nhiêu chất là dẫn xuất của hydrocarbon?", ans: "2", exp: "Các chất là dẫn xuất hydrocarbon: CH₃Cl, C₂H₅OH (2 chất)." },
-        { num: 27, title: "Câu 27: Phân tử khối của hợp chất X có pic ion phân tử [M⁺] ở m/z = 46 trong phổ MS là bao nhiêu?", ans: "46", exp: "Phân tử khối M = m/z = 46 amu." },
-        { num: 28, title: "Câu 28: Ứng với công thức phân tử C₄H₁₀ có bao nhiêu đồng phân cấu tạo?", ans: "2", exp: "Gồm butane và 2-methylpropane (2 đồng phân)." },
-        { num: 29, title: "Câu 29: Ứng với công thức phân tử C₅H₁₂ có bao nhiêu đồng phân cấu tạo?", ans: "3", exp: "Gồm pentane, 2-methylbutane, 2,2-dimethylpropane (3 đồng phân)." },
-        { num: 30, title: "Câu 30: Đốt cháy hoàn toàn 0,1 mol một hydrocarbon X thu được 0,3 mol CO₂ và 0,4 mol H₂O. Số nguyên tử Hydrogen trong một phân tử X là bao nhiêu?", ans: "8", exp: "Số H = 2 * nH₂O / nX = 2 * 0,4 / 0,1 = 8 (X là C₃H₈)." },
-        { num: 31, title: "Câu 31: Một hydrocarbon Y có công thức đơn giản nhất là CH₂ và phân tử khối M = 56. Phân tử Y có bao nhiêu nguyên tử Carbon?", ans: "4", exp: "M = 14n = 56 => n = 4. Số nguyên tử Carbon là 4 (C₄H₈)." }
+        { num: 26, title: "Câu 26: Giá trị pH của dung dịch NaOH 0,01 M ở 25°C là bao nhiêu?", ans: "12", exp: "[OH⁻] = 0,01 M = 10⁻² M => pOH = 2 => pH = 14 - 2 = 12." },
+        { num: 27, title: "Câu 27: Cho 1 mol Fe phản ứng hoàn toàn với dung dịch HNO₃ loãng, dư tạo khí NO duy nhất. Số mol electron mà 1 mol Fe đã nhường là bao nhiêu?", ans: "3", exp: "Fe nhường 3e lên Fe³⁺ (số e nhường = 3)." },
+        { num: 28, title: "Câu 28: Hydrocarbon alkane C₄H₁₀ có bao nhiêu đồng phân cấu tạo?", ans: "2", exp: "Gồm butane và isobutane (2 đồng phân)." },
+        { num: 29, title: "Câu 29: Phân tử pentane (C₅H₁₂) có bao nhiêu đồng phân cấu tạo?", ans: "3", exp: "Gồm pentane, 2-methylbutane và 2,2-dimethylpropane (3 đồng phân)." },
+        { num: 30, title: "Câu 30: Cho 0,1 mol acetaldehyde (CH₃CHO) phản ứng tráng bạc hoàn toàn với AgNO₃/NH₃ dư. Số mol bạc (Ag) kết tủa thu được là bao nhiêu?", ans: "0.2", exp: "1 mol -CHO tạo 2 mol Ag => 0,1 mol tạo 0,2 mol Ag." },
+        { num: 31, title: "Câu 31: Phân tử khối của acetic acid (CH₃COOH) là bao nhiêu amu?", ans: "60", exp: "M = 12*2 + 4*1 + 16*2 = 60 amu." }
       ];
 
       shortBank.forEach(item => {
@@ -1622,23 +1465,23 @@
 
       // 4. CÂU 32 ĐẾN 48: TỰ LUẬN (17 CÂU)
       const essayTitles = [
-        "Nêu định nghĩa hợp chất hữu cơ và hóa học hữu cơ. Cho ví dụ 2 hợp chất hữu cơ và 2 hợp chất vô cơ chứa carbon.",
-        "Trình bày 4 đặc điểm chung về cấu tạo và tính chất vật lý của các hợp chất hữu cơ.",
-        "Tại sao trong tự nhiên số lượng hợp chất hữu cơ (hàng chục triệu chất) lại nhiều hơn rất nhiều so với hợp chất vô cơ?",
-        "Giải thích nguyên tắc và các bước tiến hành tách hỗn hợp dầu ăn và nước bằng phễu chiết.",
-        "Nêu nguyên tắc hoạt động của phương pháp chưng cất thường. Lấy ví dụ thực tế.",
-        "Trình bày phương pháp chưng cất lôi cuốn hơi nước và ứng dụng trong sản xuất tinh dầu bưởi, sả.",
-        "Trình bày các bước tinh chế một chất rắn bằng phương pháp kết tinh lại trong dung môi thích hợp.",
-        "Thế nào là pha tĩnh và pha động trong phương pháp sắc kí cột? Chất nào sẽ ra khỏi cột trước?",
-        "Phân biệt khái niệm Công thức đơn giản nhất và Công thức phân tử. Cho ví dụ minh họa.",
-        "Trình bày cách xác định phân tử khối của hợp chất hữu cơ dựa vào phổ khối lượng (MS).",
-        "Đốt cháy hoàn toàn 4,4 gam chất X chứa C, H, O thu được 8,8 gam CO₂ và 3,6 gam H₂O. Tìm công thức đơn giản nhất của X.",
-        "Phát biểu 3 luận điểm cơ bản của Thuyết cấu tạo hóa học do A.M. Butlerov đề xướng.",
-        "Thế nào là hiện tượng đồng phân? Phân biệt đồng phân cấu tạo và đồng phân hình học.",
-        "Nêu điều kiện cần và đủ để một hợp chất có đồng phân hình học (cis - trans). Lấy ví dụ chất có và không có.",
-        "Viết công thức cấu tạo thu gọn và công thức khung xương của but-1-ene và but-2-ene.",
-        "Thế nào là dãy đồng đẳng? Cho ví dụ về dãy đồng đẳng của methane và dãy đồng đẳng của ethylene.",
-        "Giải thích vì sao ethanol (C₂H₅OH) có nhiệt độ sôi (78,3°C) cao hơn nhiều so với dimethyl ether (CH₃-O-CH₃, Ts = -24°C) dù có cùng CTPT C₂H₆O."
+        "Phát biểu nguyên lí chuyển dịch cân bằng Le Chatelier và nêu 3 yếu tố ảnh hưởng đến cân bằng hóa học.",
+        "Tính pH của dung dịch sau khi trộn 50 mL dung dịch HCl 0,1 M với 50 mL dung dịch NaOH 0,1 M.",
+        "Vì sao khí nitrogen (N₂) rất trơ về mặt hóa học ở nhiệt độ thường nhưng lại hoạt động ở nhiệt độ cao?",
+        "Viết phương trình hóa học chứng minh ammonia (NH₃) vừa có tính bazo yếu vừa có tính khử.",
+        "Giải thích hiện tượng phú dưỡng trong các ao hồ và nêu biện pháp giảm thiểu ô nhiễm.",
+        "Trình bày phương pháp hóa học nhận biết 3 dung dịch mất nhãn: Na₂SO₄, NaCl và NaNO₃.",
+        "Nêu nguyên tắc an toàn khi pha loãng dung dịch H₂SO₄ đặc trong phòng thí nghiệm.",
+        "Phân biệt khái niệm Công thức đơn giản nhất và Công thức phân tử của hợp chất hữu cơ.",
+        "Đốt cháy hoàn toàn 2,2 gam hợp chất hữu cơ A thu được 4,4 gam CO₂ và 1,8 gam H₂O. Tìm CTĐGN của A.",
+        "Phát biểu quy tắc thế Markovnikov khi cộng phân tử HX vào alkene bất đối xứng. Cho ví dụ.",
+        "Giải thích vì sao xăng dầu nổi trên mặt nước và khi bị cháy không được dùng nước để dập lửa.",
+        "Trình bày phương pháp hóa học phân biệt 3 chất lỏng: ethanol, glycerol và benzene.",
+        "Viết phương trình hóa học phản ứng của phenol với kim loại Na và với dung dịch NaOH.",
+        "Giải thích vì sao ethanol có nhiệt độ sôi cao hơn nhiều so với dimethyl ether dù có cùng CTPT C₂H₆O.",
+        "Viết phương trình phản ứng tráng bạc của acetaldehyde với dung dịch AgNO₃ trong NH₃.",
+        "Nêu vai trò của acid H₂SO₄ đặc trong phản ứng ester hóa giữa acetic acid và ethanol.",
+        "Trình bày tóm tắt phương pháp sản xuất rượu vang hoặc dấm ăn thủ công trong đời sống."
       ];
 
       for (let i = 0; i < 17; i++) {
@@ -1650,59 +1493,49 @@
           levelClass: i < 5 ? "level-th" : (i < 13 ? "level-vd" : "level-vdc"),
           levelName: i < 5 ? "Thông hiểu" : (i < 13 ? "Vận dụng" : "Vận dụng cao"),
           title: `Câu ${cNum}: ${essayTitles[i]}`,
-          explanation: `Hướng dẫn giải chi tiết cho Câu ${cNum}:\n- Nắm vững kiến thức trọng tâm SGK Hóa học 11 Chương 3.\n- Trình bày rõ ràng các luận điểm, phương trình hóa học và công thức toán học liên quan.`
+          explanation: `Hướng dẫn giải chi tiết cho Câu ${cNum}:\n- Vận dụng kiến thức trọng tâm SGK Hóa học 11 chương trình mới.\n- Trình bày rõ các định nghĩa, hiện tượng và phương trình phản ứng minh họa.`
         });
       }
 
       return { mcq, tf, short, essay };
     }
 
-    /* ========================================================
-       STATE & LOCALSTORAGE
-       ======================================================== */
-    const STORAGE_KEY = "hoa11_chuong3_full_progress";
-
+    /* State & Storage Engine */
+    const STORAGE_KEY = "hoa11_toan_dien_all_progress";
     let appState = {
-      currentLesson: "home",
-      answers: {},        // { qId: { choice, tfChoices, inputText, evalScore, status, firstTryCorrect, viewedSol, attempts } }
+      currentLesson: "c3_b8",
+      answers: {},
       showAllSolutions: false
     };
 
     function loadState() {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
+        const s = localStorage.getItem(STORAGE_KEY);
+        if (s) {
+          const parsed = JSON.parse(s);
           if (parsed && parsed.answers) appState.answers = parsed.answers;
         }
-      } catch (e) {
-        console.error(e);
-      }
+      } catch (e) { console.error(e); }
     }
 
     function saveState() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers: appState.answers }));
-      } catch (e) {
-        console.error(e);
-      }
+      } catch (e) { console.error(e); }
       updateNavbarProgress();
     }
 
-    /* ========================================================
-       NAVIGATION & VIEWS
-       ======================================================== */
-    function showView(viewName) {
+    function showView(vName) {
       const vHome = document.getElementById("view-home");
       const vLesson = document.getElementById("view-lesson");
       const topActions = document.getElementById("top-actions-bar");
       const topTitle = document.getElementById("top-title-text");
 
-      if (viewName === "home") {
+      if (vName === "home") {
         vHome.style.display = "block";
         vLesson.style.display = "none";
         topActions.style.display = "none";
-        topTitle.textContent = "Hóa học 11 có tương tác";
+        topTitle.textContent = "Hóa học 11 có tương tác (Toàn bộ 6 chương)";
         appState.currentLesson = "home";
         window.scrollTo(0, 0);
       } else {
@@ -1712,31 +1545,8 @@
       }
     }
 
-    function openLesson(lessonKey) {
-      const lesson = LESSONS_DATABASE[lessonKey];
-      if (!lesson) return;
-
-      appState.currentLesson = lessonKey;
-      showView("lesson");
-
-      document.getElementById("top-title-text").textContent = lesson.title.toUpperCase();
-      document.getElementById("lesson-page-title").textContent = lesson.title;
-
-      renderTheory(lesson.theory);
-      renderMethods(lesson.methods);
-
-      const exercises = generateExercisesForLesson(lessonKey);
-      renderExercises(exercises);
-
-      updateNavbarProgress();
-      window.scrollTo(0, 0);
-    }
-
-    /* ========================================================
-       RENDER THEORY (PHẦN 1)
-       ======================================================== */
     function renderTheory(theoryList) {
-      const container = document.getElementById("lesson-theory-container");
+      const c = document.getElementById("lesson-theory-container");
       let html = "";
       theoryList.forEach(item => {
         if (item.type === "tom_tat") {
@@ -1756,28 +1566,23 @@
           `;
         }
       });
-      container.innerHTML = html;
+      c.innerHTML = html;
     }
 
-    /* ========================================================
-       RENDER METHODS & EXAMPLES (PHẦN 2: 9 VÍ DỤ)
-       ======================================================== */
     function renderMethods(methodsList) {
-      const container = document.getElementById("lesson-methods-container");
+      const c = document.getElementById("lesson-methods-container");
       let html = "";
-
-      methodsList.forEach((m, mIdx) => {
+      methodsList.forEach((m, idx) => {
         html += `
           <div class="dang-card">
             <div class="dang-header">
-              <span class="dang-header-pill">Dạng ${mIdx + 1}</span>
+              <span class="dang-header-pill">Dạng ${idx + 1}</span>
               <span>${m.name.replace(/^Dạng \d+:\s*/, '')}</span>
             </div>
             <div class="dang-body">${m.content}</div>
           </div>
         `;
 
-        // Render các ví dụ của dạng này
         m.examples.forEach(vd => {
           const qState = appState.answers[vd.id] || { status: "unanswered" };
           let statusClass = qState.status === "correct" ? "status-correct" : (qState.status === "wrong" ? "status-wrong" : "");
@@ -1791,7 +1596,6 @@
               </div>
               <div class="item-title">${vd.title}</div>
 
-              <!-- Lời giải & Nút -->
               <div class="solution-box ${isExpShow ? 'show' : ''}" id="exp-${vd.id}">
                 <strong>💡 Lời giải chi tiết:</strong><br>
                 <div style="margin-top: 5px; white-space: pre-line;">${vd.solution}</div>
@@ -1809,15 +1613,11 @@
           `;
         });
       });
-
-      container.innerHTML = html;
+      c.innerHTML = html;
     }
 
-    /* ========================================================
-       RENDER 48 CÂU LUYỆN TẬP
-       ======================================================== */
     function renderExercises(ex) {
-      // 1. Trắc nghiệm (Câu 1 - 21)
+      // 1. MCQ
       const mcqBox = document.getElementById("exercise-mcq-container");
       let mcqHtml = "";
       ex.mcq.forEach(q => {
@@ -1872,7 +1672,7 @@
       });
       mcqBox.innerHTML = mcqHtml;
 
-      // 2. Đúng/Sai (Câu 22 - 25)
+      // 2. TF
       const tfBox = document.getElementById("exercise-tf-container");
       let tfHtml = "";
       ex.tf.forEach(q => {
@@ -1930,7 +1730,7 @@
       });
       tfBox.innerHTML = tfHtml;
 
-      // 3. Trả lời ngắn (Câu 26 - 31)
+      // 3. Short
       const shortBox = document.getElementById("exercise-short-container");
       let shortHtml = "";
       ex.short.forEach(q => {
@@ -1969,7 +1769,7 @@
       });
       shortBox.innerHTML = shortHtml;
 
-      // 4. Tự luận (Câu 32 - 48)
+      // 4. Essay
       const essayBox = document.getElementById("exercise-essay-container");
       let essayHtml = "";
       ex.essay.forEach(q => {
@@ -2013,43 +1813,30 @@
       essayBox.innerHTML = essayHtml;
     }
 
-    /* ========================================================
-       QUESTION INTERACTION HANDLERS
-       ======================================================== */
     function handleMCQSelect(qId, choiceIdx, correctIdx) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false };
-      }
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
       const st = appState.answers[qId];
       st.choice = choiceIdx;
       st.attempts = (st.attempts || 0) + 1;
       const isCorrect = (choiceIdx === correctIdx);
       st.isCorrect = isCorrect;
       st.status = isCorrect ? "correct" : "wrong";
-      if (isCorrect && st.attempts === 1 && !st.viewedSol) {
-        st.firstTryCorrect = true;
-      }
+      if (isCorrect && st.attempts === 1 && !st.viewedSol) st.firstTryCorrect = true;
       saveState();
 
-      // Update UI card
       const card = document.getElementById(`card-${qId}`);
       if (card) {
         card.classList.remove("status-correct", "status-wrong");
         card.classList.add(isCorrect ? "status-correct" : "status-wrong");
-        const rows = card.querySelectorAll(".option-row");
-        rows.forEach((r, idx) => {
+        card.querySelectorAll(".option-row").forEach((r, idx) => {
           r.classList.remove("selected", "correct-choice", "wrong-choice");
-          if (idx === choiceIdx) {
-            r.classList.add("selected", isCorrect ? "correct-choice" : "wrong-choice");
-          }
+          if (idx === choiceIdx) r.classList.add("selected", isCorrect ? "correct-choice" : "wrong-choice");
         });
       }
     }
 
     function selectTFChoice(qId, sIdx, val) {
-      if (!appState.answers[qId]) {
-        appState.answers[qId] = { attempts: 0, viewedSol: false, tfChoices: {} };
-      }
+      if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false, tfChoices: {} };
       if (!appState.answers[qId].tfChoices) appState.answers[qId].tfChoices = {};
       appState.answers[qId].tfChoices[sIdx] = val;
       saveState();
@@ -2067,20 +1854,13 @@
 
     function checkTF(qId, statements) {
       const st = appState.answers[qId];
-      if (!st || !st.tfChoices) {
-        alert("Em vui lòng chọn Đúng hoặc Sai cho các phát biểu!");
-        return;
-      }
-      let allAnswered = true;
-      let allCorrect = true;
+      if (!st || !st.tfChoices) { alert("Em vui lòng chọn Đúng hoặc Sai cho các phát biểu!"); return; }
+      let allAnswered = true, allCorrect = true;
       statements.forEach((item, idx) => {
         if (st.tfChoices[idx] === undefined) allAnswered = false;
         if (st.tfChoices[idx] !== item.ans) allCorrect = false;
       });
-      if (!allAnswered) {
-        alert("Em cần chọn đầy đủ Đúng/Sai cho cả 4 ý a, b, c, d!");
-        return;
-      }
+      if (!allAnswered) { alert("Em cần chọn đầy đủ Đúng/Sai cho cả 4 ý!"); return; }
       st.attempts = (st.attempts || 0) + 1;
       st.isCorrect = allCorrect;
       st.status = allCorrect ? "correct" : "wrong";
@@ -2104,16 +1884,12 @@
     function checkShortAnswer(qId, target) {
       const input = document.getElementById(`input-${qId}`);
       const val = (input ? input.value : "").trim();
-      if (!val) {
-        alert("Em hãy nhập kết quả con số!");
-        return;
-      }
+      if (!val) { alert("Em hãy nhập kết quả con số!"); return; }
       if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
       const st = appState.answers[qId];
       st.inputText = val;
       st.attempts = (st.attempts || 0) + 1;
 
-      // Clean compare
       const isCorrect = (val.replace(/\s+/g, '') === target.replace(/\s+/g, ''));
       st.isCorrect = isCorrect;
       st.status = isCorrect ? "correct" : "wrong";
@@ -2155,9 +1931,7 @@
       }
     }
 
-    function markExampleReviewed(qId) {
-      resetQuestion(qId);
-    }
+    function markExampleReviewed(qId) { resetQuestion(qId); }
 
     function resetQuestion(qId) {
       if (appState.answers[qId]) {
@@ -2179,14 +1953,11 @@
       const exp = document.getElementById(`exp-${qId}`);
       if (!exp) return;
       if (!appState.answers[qId]) appState.answers[qId] = { attempts: 0, viewedSol: false };
-      
       if (exp.classList.contains("show")) {
         exp.classList.remove("show");
       } else {
         exp.classList.add("show");
-        if (!appState.answers[qId].isCorrect) {
-          appState.answers[qId].viewedSol = true;
-        }
+        if (!appState.answers[qId].isCorrect) appState.answers[qId].viewedSol = true;
         saveState();
       }
     }
@@ -2212,18 +1983,11 @@
       });
     }
 
-    /* ========================================================
-       MODAL TỔNG KẾT (57 CÂU: 9 VÍ DỤ + 48 BÀI TẬP)
-       ======================================================== */
     function calculateStatistics() {
-      // Mỗi bài có 57 câu: 9 ví dụ (tự luận) + 48 bài tập (21 mcq + 4 tf + 6 short + 17 essay)
-      // Tổng cộng: 21 mcq + 4 tf + 6 short + (9 vd + 17 bt = 26 essay) = 57 câu!
       const total = 57;
       let done = 0, correct = 0, firstTry = 0, retryCorrect = 0, viewedSol = 0, needRetry = 0;
-
       let vdDone = 0, vdCorrect = 0, vdNeed = 0;
       let btDone = 0, btCorrect = 0, btNeed = 0;
-
       let mcqDone = 0, mcqCorr = 0, mcqFirst = 0;
       let tfDone = 0, tfCorr = 0, tfFirst = 0;
       let shortDone = 0, shortCorr = 0, shortFirst = 0;
@@ -2232,8 +1996,8 @@
       const currentCards = document.querySelectorAll(".item-card");
       currentCards.forEach(card => {
         const qId = card.getAttribute("data-qid");
-        const category = card.getAttribute("data-category"); // "vd" hoặc "bt"
-        const type = card.getAttribute("data-type");         // mcq, tf, short, essay
+        const category = card.getAttribute("data-category");
+        const type = card.getAttribute("data-type");
         const st = appState.answers[qId];
 
         const isAnswered = st && (st.status === "correct" || st.status === "wrong");
@@ -2276,7 +2040,6 @@
             else retryCorrect++;
           } else needRetry++;
         }
-
         if (st && st.viewedSol) viewedSol++;
       });
 
@@ -2347,40 +2110,23 @@
       document.getElementById("summary-modal").classList.add("active");
     }
 
-    function closeSummaryModal() {
-      document.getElementById("summary-modal").classList.remove("active");
-    }
-
-    function closeModalOnBackdrop(e) {
-      if (e.target.id === "summary-modal") closeSummaryModal();
-    }
-
-    function retryWrongQuestions() {
-      closeSummaryModal();
-      const sel = document.getElementById("filter-questions-select");
-      if (sel) { sel.value = "wrong"; filterQuestions("wrong"); }
-    }
-
-    function reviewQuestions() {
-      closeSummaryModal();
-      const sel = document.getElementById("filter-questions-select");
-      if (sel) { sel.value = "wrong"; filterQuestions("wrong"); }
-    }
-
+    function closeSummaryModal() { document.getElementById("summary-modal").classList.remove("active"); }
+    function closeModalOnBackdrop(e) { if (e.target.id === "summary-modal") closeSummaryModal(); }
+    function retryWrongQuestions() { closeSummaryModal(); const s = document.getElementById("filter-questions-select"); if (s) { s.value = "wrong"; filterQuestions("wrong"); } }
+    function reviewQuestions() { closeSummaryModal(); const s = document.getElementById("filter-questions-select"); if (s) { s.value = "wrong"; filterQuestions("wrong"); } }
     function resetAllProgress() {
       if (confirm("Em có chắc chắn muốn xóa toàn bộ tiến độ làm bài không?")) {
         localStorage.removeItem(STORAGE_KEY);
         appState.answers = {};
         saveState();
-        if (appState.currentLesson !== "home") openLesson(appState.currentLesson);
+        if (appState.currentLesson !== "home") openAnyLesson(appState.currentLesson);
         openSummaryModal();
       }
     }
 
-    /* Initialize */
     window.addEventListener("DOMContentLoaded", () => {
       loadState();
-      updateNavbarProgress();
+      renderHomeChapters();
       showView("home");
     });
   </script>

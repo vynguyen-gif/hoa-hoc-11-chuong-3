@@ -27,6 +27,7 @@ from rich_essay_solutions import (
     get_c3_rev_rich_essay,
     get_c1_b1_rich_essay
 )
+from chem_formatter import format_all_data
 
 print("Compiling full CURRICULUM_DATA...")
 ALL_CURRICULUM = {
@@ -126,6 +127,11 @@ for r_lid, r_essays in RICH_MAP.items():
         ALL_EXERCISES[r_lid]["essay"] = format_rich_essays(r_lid, r_essays)
 
 print("Injected rich essay solutions into:", list(RICH_MAP.keys()))
+
+print("Applying chem_formatter to convert all chemical formulas to proper subscripts...")
+ALL_CURRICULUM = format_all_data(ALL_CURRICULUM)
+ALL_EXERCISES = format_all_data(ALL_EXERCISES)
+print("Chemical formulas formatted successfully with proper subscripts.")
 
 # Serialize
 curriculum_json = json.dumps(ALL_CURRICULUM, ensure_ascii=False)

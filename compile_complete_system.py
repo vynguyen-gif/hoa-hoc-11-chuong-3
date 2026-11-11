@@ -1628,6 +1628,9 @@ html_template = """<!DOCTYPE html>
         box.style.display = "block";
         const state = getQuestionState(qId);
         if (!state.answered) state.viewedSol = true;
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise([box]).catch(function(e){});
+        }
       } else {
         box.style.display = "none";
       }
@@ -1644,6 +1647,9 @@ html_template = """<!DOCTYPE html>
         btn.innerHTML = allSolutionsRevealed 
           ? '<span class="icon">🙈</span> Ẩn tất cả lời giải'
           : '<span class="icon">👁</span> Hiện tất cả lời giải';
+      }
+      if (allSolutionsRevealed && window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise().catch(function(e){});
       }
     }
 

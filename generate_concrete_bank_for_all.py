@@ -218,35 +218,19 @@ def generate_concrete_questions(lid, domain_key, lesson_name):
         }
     ]
 
+    from all_concrete_essay_bank import get_domain_essay_bank
+    raw_essays = get_domain_essay_bank(domain_key, lesson_name, lid)
     essay = [
         {
-            "id": f"{lid}_c{32 + i}",
-            "num": 32 + i,
+            "id": f"{lid}_c{item['num']}",
+            "num": item["num"],
             "type": "essay",
-            "levelClass": "level-th" if i < 5 else ("level-vd" if i < 12 else "level-vdc"),
-            "levelName": "Thông hiểu" if i < 5 else ("Vận dụng" if i < 12 else "Vận dụng cao"),
-            "title": f"Câu {32 + i}: {title}",
-            "explanation": f"Hướng dẫn giải chi tiết cho Câu {32 + i} ({lesson_name}):\n- Bám sát kiến thức trọng tâm SGK Hóa học Kết nối tri thức.\n- Trình bày rõ phương trình hóa học, các bước suy luận và tính toán ra kết quả."
+            "levelClass": "level-th" if idx < 5 else ("level-vd" if idx < 12 else "level-vdc"),
+            "levelName": "Thông hiểu" if idx < 5 else ("Vận dụng" if idx < 12 else "Vận dụng cao"),
+            "title": f"Câu {item['num']}: {item['title']}",
+            "explanation": item["explanation"]
         }
-        for i, title in enumerate([
-            f"Trình bày định nghĩa và các khái niệm cơ bản liên quan trực tiếp đến nội dung {lesson_name}.",
-            "Nêu đặc điểm cấu tạo phân tử và các loại liên kết hóa học chủ yếu của các chất trong bài học.",
-            "Viết 2 phương trình hóa học minh họa cho tính chất hóa học đặc trưng nhất của bài học.",
-            "Giải thích hiện tượng quan sát được trong thí nghiệm minh họa thực tế của bài học.",
-            "So sánh tính chất vật lí (nhiệt độ sôi, nhiệt độ nóng chảy, độ tan) của các chất liên quan.",
-            "Nêu vai trò và ảnh hưởng của các điều kiện phản ứng (nhiệt độ, áp suất, chất xúc tác).",
-            "Trình bày quy tắc an toàn thực hành khi thao tác với các hóa chất và dụng cụ thí nghiệm của bài.",
-            "Giải thích cơ chế hoặc quy luật biến đổi hóa học diễn ra trong các phản ứng trọng tâm.",
-            "Nêu các ứng dụng thực tiễn quan trọng của bài học trong đời sống, y học và sản xuất công nghiệp.",
-            "Đề xuất phương pháp hóa học để nhận biết hoặc phân biệt các chất đặc trưng trong bài học.",
-            "Giải bài toán tính số mol và khối lượng các chất tham gia phản ứng theo định luật bảo toàn khối lượng.",
-            "Tính hiệu suất của phản ứng tổng hợp hoặc phản ứng chuyển hóa với các số liệu cụ thể.",
-            "Phân tích tác động của các chất trong bài học đối với môi trường và các biện pháp bảo vệ môi trường.",
-            "Viết phương trình hóa học biểu diễn chuỗi biến hóa 3 giai đoạn liên quan đến các hợp chất của bài.",
-            "Giải thích vì sao một số phản ứng hóa học cần phải đun nóng hoặc cần có mặt chất xúc tác mới diễn ra.",
-            "Tính toán nồng độ phần trăm hoặc nồng độ mol của dung dịch thu được sau khi phản ứng kết thúc.",
-            "Tổng kết những bài học kinh nghiệm và kiến thức cốt lõi cần ghi nhớ để chuẩn bị cho các kì thi."
-        ])
+        for idx, item in enumerate(raw_essays)
     ]
 
     return {"mcq": mcq, "tf": tf, "short": short, "essay": essay}

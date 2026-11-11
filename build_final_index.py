@@ -19,6 +19,14 @@ from chapter3_b10_and_b11 import get_b10_full
 from chapter3_b11_and_rev import get_b11_full, get_c3_rev_full
 from generate_all_concrete_lessons import CHAPTER_DOMAINS
 from generate_concrete_bank_for_all import generate_concrete_questions
+from rich_essay_solutions import (
+    get_b8_rich_essay,
+    get_b9_rich_essay,
+    get_b10_rich_essay,
+    get_b11_rich_essay,
+    get_c3_rev_rich_essay,
+    get_c1_b1_rich_essay
+)
 
 print("Compiling full CURRICULUM_DATA...")
 ALL_CURRICULUM = {
@@ -89,6 +97,35 @@ for gk, gdata in GRADES_CONFIG.items():
         for l in ch["lessons"]:
             if l["id"] not in ALL_EXERCISES:
                 ALL_EXERCISES[l["id"]] = generate_concrete_questions(l["id"], dom_key, l["name"])
+
+def format_rich_essays(lid, raw_list):
+    return [
+        {
+            "id": f"{lid}_c{item['num']}",
+            "num": item["num"],
+            "type": "essay",
+            "levelClass": "level-th" if idx < 5 else ("level-vd" if idx < 12 else "level-vdc"),
+            "levelName": "Thông hiểu" if idx < 5 else ("Vận dụng" if idx < 12 else "Vận dụng cao"),
+            "title": item["title"] if item["title"].startswith("Câu ") else f"Câu {item['num']}: {item['title']}",
+            "explanation": item.get("solution") or item.get("explanation")
+        }
+        for idx, item in enumerate(raw_list)
+    ]
+
+RICH_MAP = {
+    "c3_b8": get_b8_rich_essay(),
+    "c3_b9": get_b9_rich_essay(),
+    "c3_b10": get_b10_rich_essay(),
+    "c3_b11": get_b11_rich_essay(),
+    "c3_rev": get_c3_rev_rich_essay(),
+    "c1_b1": get_c1_b1_rich_essay(),
+}
+
+for r_lid, r_essays in RICH_MAP.items():
+    if r_lid in ALL_EXERCISES:
+        ALL_EXERCISES[r_lid]["essay"] = format_rich_essays(r_lid, r_essays)
+
+print("Injected rich essay solutions into:", list(RICH_MAP.keys()))
 
 # Serialize
 curriculum_json = json.dumps(ALL_CURRICULUM, ensure_ascii=False)
